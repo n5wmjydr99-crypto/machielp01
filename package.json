@@ -1,0 +1,8 @@
+{
+  "name": "nexustech",
+  "version": "1.0.0",
+  "private": true,
+  "description": "E-commerce NEXUSTECH: tienda 3D + API (Node 22, sin dependencias)",
+  "scripts": { "start": "node --disable-warning=ExperimentalWarning server/server.js" },
+  "engines": { "node": ">=22.5" }
+}

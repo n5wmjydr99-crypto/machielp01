@@ -2,8 +2,6 @@
 window.NX = window.NX || {};
 
 NX.WHATSAPP = 'https://wa.link/g5hw55';
-// SHA-256 de "HOST:Melo.2012" (el panel compara hashes, no texto plano)
-NX.ADMIN_HASH = '698d413210c816a99826e6f1284c16e4640216a1fb1af936629b834311aec9f1';
 
 NX.DEPARTAMENTOS = ['Asunción', 'Central', 'Alto Paraná', 'Itapúa', 'Concepción', 'San Pedro', 'Cordillera', 'Guairá',
   'Caaguazú', 'Caazapá', 'Misiones', 'Paraguarí', 'Ñeembucú', 'Amambay', 'Canindeyú', 'Presidente Hayes',

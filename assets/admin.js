@@ -6,26 +6,6 @@
   const MES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
   const PERIODS = { year: 'Año', month: 'Mes', week: 'Semana', day: 'Día' };
 
-  /* ---------- períodos ---------- */
-  function buckets(p) {
-    const now = new Date(), out = [], d0 = (y, m, d) => new Date(y, m, d).getTime();
-    if (p === 'year') for (let y = 2024; y <= now.getFullYear(); y++) out.push({ label: String(y), s: d0(y, 0, 1), e: d0(y + 1, 0, 1) });
-    if (p === 'month') for (let i = 11; i >= 0; i--) { const y = now.getFullYear(), m = now.getMonth() - i, a = new Date(y, m, 1); out.push({ label: MES[a.getMonth()] + " '" + String(a.getFullYear()).slice(2), s: a.getTime(), e: d0(y, m + 1, 1) }); }
-    if (p === 'week') { const dow = (now.getDay() + 6) % 7; for (let i = 11; i >= 0; i--) { const s = d0(now.getFullYear(), now.getMonth(), now.getDate() - dow - 7 * i), a = new Date(s); out.push({ label: a.getDate() + ' ' + MES[a.getMonth()], s, e: s + 7 * 864e5 }); } }
-    if (p === 'day') for (let i = 29; i >= 0; i--) { const s = d0(now.getFullYear(), now.getMonth(), now.getDate() - i), a = new Date(s); out.push({ label: a.getDate() + '/' + (a.getMonth() + 1), s, e: d0(a.getFullYear(), a.getMonth(), a.getDate() + 1) }); }
-    return out;
-  }
-  function compute() {
-    const bs = buckets(st.period), orders = store.get('orders', []).filter((o) => o.status !== 'Cancelado'), users = store.get('users', []);
-    bs.forEach((b) => {
-      const os = orders.filter((o) => o.date >= b.s && o.date < b.e);
-      b.orders = os; b.rev = os.reduce((a, o) => a + o.total, 0); b.n = os.length;
-      b.newC = users.filter((u) => u.createdAt >= b.s && u.createdAt < b.e).length;
-      b.lostC = users.filter((u) => u.deletedAt && u.deletedAt >= b.s && u.deletedAt < b.e).length;
-      b.active = users.filter((u) => u.createdAt < b.e && (!u.deletedAt || u.deletedAt >= b.e)).length;
-    });
-    return bs;
-  }
   const delta = (a, b, inv) => { if (!b) return a ? '<span class="delta up">▲ nuevo</span>' : '<span class="delta">—</span>'; const p = ((a - b) / b) * 100, good = inv ? p <= 0 : p >= 0; return `<span class="delta ${good ? 'up' : 'down'}">${p >= 0 ? '▲' : '▼'} ${Math.abs(p).toFixed(1)}% vs. anterior</span>`; };
 
   /* ---------- gráfico canvas con animación y tooltip ---------- */
@@ -79,15 +59,15 @@
   }
   NX.renderAdmin = render;
 
-  function statsView() {
-    const bs = compute(), cur = bs[bs.length - 1], prev = bs[bs.length - 2] || { rev: 0, n: 0, newC: 0, lostC: 0 };
-    const users = store.get('users', []), activeNow = users.filter((u) => !u.deletedAt).length;
+  async function statsView() {
+    $('#admBody').innerHTML = '<p class="note">Cargando estadísticas…</p>';
+    let d; try { d = await NX.api('GET', '/api/admin/stats?period=' + st.period); } catch (e) { $('#admBody').innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }
+    const bs = d.buckets, cur = bs[bs.length - 1], prev = bs[bs.length - 2] || { rev: 0, n: 0, newC: 0, lostC: 0 }, activeNow = d.activeNow;
     const tot = (k) => bs.reduce((a, b) => a + b[k], 0), avg = cur.n ? cur.rev / cur.n : 0, pavg = prev.n ? prev.rev / prev.n : 0;
     const K = [['Ingresos', fmt(cur.rev), delta(cur.rev, prev.rev)], ['Pedidos', cur.n, delta(cur.n, prev.n)], ['Ticket promedio', fmt(avg), delta(avg, pavg)],
       ['Clientes nuevos', cur.newC, delta(cur.newC, prev.newC)], ['Clientes perdidos', cur.lostC, delta(cur.lostC, prev.lostC, true)], ['Clientes activos', activeNow, `<span class="delta">Saldo del período: ${cur.newC - cur.lostC >= 0 ? '+' : ''}${cur.newC - cur.lostC}</span>`]];
     const labels = bs.map((b) => b.label), unit = { year: 'año', month: 'mes', week: 'semana', day: 'día' }[st.period];
-    const range = bs[0].s, tp = {}; bs.forEach((b) => b.orders.forEach((o) => o.items.forEach((i) => { tp[i.name] = (tp[i.name] || 0) + i.qty; })));
-    const top = Object.entries(tp).sort((a, b) => b[1] - a[1]).slice(0, 7), topMax = top[0] ? top[0][1] : 1;
+    const range = d.from, top = d.top, topMax = top[0] ? top[0][1] : 1;
     const low = NX.products().filter((p) => p.stock <= 5).sort((a, b) => a.stock - b.stock);
     $('#admBody').innerHTML = `<div class="adm-top"><p class="note">Período actual (${unit}) comparado con el anterior · ${new Date(range).toLocaleDateString('es-PY')} → hoy</p>
       <div class="seg" id="per">${Object.entries(PERIODS).map(([k, n]) => `<button data-p="${k}" class="${st.period === k ? 'on' : ''}">${n}</button>`).join('')}</div></div>
@@ -98,7 +78,7 @@
       <div class="panel"><h3>Clientes activos ${legend([[PINK, 'Activos']])}</h3><div class="chart-wrap" id="c4"></div></div>
       <div class="panel"><h3>Más vendidos (${labels[0]} – ${labels[labels.length - 1]})</h3><div class="bar-list">${top.map(([n, q]) => `<div class="bar-row"><span>${esc(n)}</span><b>${q} u.</b><i><b data-w="${(q / topMax) * 100}"></b></i></div>`).join('') || '<p class="note">Sin ventas en el rango.</p>'}</div></div>
       <div class="panel"><h3>Alertas de stock</h3>${low.length ? `<div class="tbl-wrap"><table>${low.map((p) => `<tr><td>${esc(p.name)}</td><td><span class="pill ${p.stock <= 0 ? 'out' : 'low'}">${p.stock <= 0 ? 'Agotado' : p.stock + ' u.'}</span></td></tr>`).join('')}</table></div>` : '<p class="note">Todo el inventario está sano.</p>'}</div></div>
-      <p class="demo-note">Los datos de 2024–hoy incluyen historial de demostración generado para ilustrar el panel; las compras y registros nuevos se suman en tiempo real. Totales del rango: ${fmt(tot('rev'))} · ${tot('n')} pedidos · +${tot('newC')} / −${tot('lostC')} clientes.</p>`;
+      <p class="demo-note">Solo cuentan pedidos con pago confirmado. Si el servidor se inició con datos de demostración (SEED_DEMO), el historial 2024–hoy es de ejemplo. Totales del rango: ${fmt(tot('rev'))} · ${tot('n')} pedidos · +${tot('newC')} / −${tot('lostC')} clientes.</p>`;
     $('#per').onclick = (e) => { const b = e.target.closest('[data-p]'); if (b) { st.period = b.dataset.p; render(); } };
     chart($('#c1'), labels, [{ name: 'Ingresos', type: 'bar', color: RED, data: bs.map((b) => b.rev) }], true);
     chart($('#c2'), labels, [{ name: 'Pedidos', type: 'line', color: WHITE, fill: true, data: bs.map((b) => b.n) }]);
@@ -108,23 +88,23 @@
   }
 
   /* ---------- inventario ---------- */
-  function saveProducts(ps) { if (store.set('products', ps)) NX.refreshShop(); }
-  function invView() {
+  async function invView() {
+    try { await NX.refreshShop(); } catch (e) { toast(e.message); }
     const ps = NX.products();
     $('#admBody').innerHTML = `<div class="adm-top"><p class="note">Editá precio y stock directo en la tabla. Los cambios se ven al instante en la tienda.</p><button class="btn btn-red btn-sm" id="newP">+ Agregar artículo</button></div>
       <div class="panel"><div class="tbl-wrap"><table><thead><tr><th></th><th>Artículo</th><th>Marca</th><th>Categoría</th><th>Precio (Gs.)</th><th>Stock</th><th></th></tr></thead><tbody>
-      ${ps.map((p) => `<tr data-id="${p.id}"><td><img src="${esc(NX.productImg(p))}" alt=""></td><td>${esc(p.name)}</td><td>${esc(p.brand)}</td><td>${esc(p.cat)}</td>
+      ${ps.map((p) => `<tr data-id="${esc(p.id)}"><td><img src="${esc(NX.productImg(p))}" alt=""></td><td>${esc(p.name)}</td><td>${esc(p.brand)}</td><td>${esc(p.cat)}</td>
         <td><input type="number" min="0" step="1000" data-f="price" value="${p.price}"></td><td><input class="sm" type="number" min="0" data-f="stock" value="${p.stock}"> ${p.stock <= 0 ? '<span class="pill out">Agotado</span>' : p.stock <= 5 ? '<span class="pill low">Bajo</span>' : ''}</td>
-        <td><div class="adm-actions"><button class="btn btn-ghost btn-sm" data-edit="${p.id}">Editar</button><button class="btn btn-ghost btn-sm" data-del="${p.id}" style="color:#ff5d73">Borrar</button></div></td></tr>`).join('')}</tbody></table></div></div>`;
+        <td><div class="adm-actions"><button class="btn btn-ghost btn-sm" data-edit="${esc(p.id)}">Editar</button><button class="btn btn-ghost btn-sm" data-del="${esc(p.id)}" style="color:#ff5d73">Borrar</button></div></td></tr>`).join('')}</tbody></table></div></div>`;
     $('#newP').onclick = () => editor();
-    $('#admBody').onchange = (e) => {
-      const i = e.target.closest('input[data-f]'); if (!i) return; const id = i.closest('tr').dataset.id, list = NX.products(), p = list.find((x) => x.id === id), v = Math.max(0, Math.round(+i.value || 0));
-      p[i.dataset.f] = v; saveProducts(list); toast('Guardado: ' + p.name); if (i.dataset.f === 'stock') invView();
+    $('#admBody').onchange = async (e) => {
+      const i = e.target.closest('input[data-f]'); if (!i) return; const id = i.closest('tr').dataset.id, v = Math.max(0, Math.round(+i.value || 0));
+      try { await NX.api('PUT', '/api/admin/products/' + id, { [i.dataset.f]: v }); toast('Guardado'); if (i.dataset.f === 'stock') invView(); else NX.refreshShop(); } catch (ex) { toast(ex.message); invView(); }
     };
-    $('#admBody').onclick = (e) => {
+    $('#admBody').onclick = async (e) => {
       const ed = e.target.closest('[data-edit]'), del = e.target.closest('[data-del]');
       if (ed) editor(ed.dataset.edit);
-      if (del && confirm('¿Eliminar este artículo del catálogo?')) { saveProducts(NX.products().filter((p) => p.id !== del.dataset.del)); invView(); toast('Artículo eliminado'); }
+      if (del && confirm('¿Eliminar este artículo del catálogo?')) { try { await NX.api('DELETE', '/api/admin/products/' + del.dataset.del); toast('Artículo eliminado'); invView(); } catch (ex) { toast(ex.message); } }
     };
   }
   const ART = { Celulares: 'phone', Laptops: 'laptop', Tablets: 'tablet', Audio: 'headphones', Monitores: 'monitor', Periféricos: 'mouse', Relojes: 'watch' };
@@ -132,7 +112,7 @@
     const fr = new FileReader(); fr.onload = () => { const im = new Image(); im.onload = () => { const m = 640, k = Math.min(1, m / Math.max(im.width, im.height)), c = document.createElement('canvas'); c.width = im.width * k; c.height = im.height * k; c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL('image/jpeg', 0.82)); }; im.onerror = () => toast('No se pudo leer la imagen'); im.src = fr.result; }; fr.readAsDataURL(file);
   }
   function editor(id) {
-    const list = NX.products(), p = id ? list.find((x) => x.id === id) : { name: '', brand: '', cat: 'Celulares', price: 0, stock: 0, desc: '', img: '' };
+    const p = id ? NX.products().find((x) => x.id === id) : { name: '', brand: '', cat: 'Celulares', price: 0, stock: 0, desc: '', img: '' };
     let img = p.img || '';
     NX.openModal(`<div class="mhead"><h3>${id ? 'EDITAR' : 'NUEVO'} ARTÍCULO</h3><button class="x" data-close>✕</button></div>
       <form class="form" id="pf" novalidate>
@@ -147,29 +127,27 @@
     f.file.onchange = () => f.file.files[0] && shrink(f.file.files[0], (d) => { img = d; f.url.value = ''; pv.src = d; });
     f.url.onchange = () => { img = f.url.value.trim(); pv.src = img || NX.productArt(ART[f.cat.value] || 'phone', f.brand.value); };
     $('#noImg').onclick = () => { img = ''; f.url.value = ''; pv.src = NX.productArt(ART[f.cat.value] || p.art || 'phone', f.brand.value); };
-    f.onsubmit = (e) => {
+    f.onsubmit = async (e) => {
       e.preventDefault(); const v = Object.fromEntries(new FormData(f));
       if (!v.name.trim() || !v.brand.trim() || !v.cat.trim()) return ($('#pe').textContent = 'Completá nombre, marca y categoría.');
       if (!(+v.price > 0)) return ($('#pe').textContent = 'El precio debe ser mayor a 0.');
       const data = { name: v.name.trim(), brand: v.brand.trim(), cat: v.cat.trim(), price: Math.round(+v.price), stock: Math.max(0, Math.round(+v.stock || 0)), desc: v.desc.trim(), img, art: (id && p.art) || ART[v.cat.trim()] || 'phone' };
-      const ps = NX.products();
-      if (id) Object.assign(ps.find((x) => x.id === id), data); else ps.unshift({ id: 'p' + Date.now().toString(36), ...data });
-      saveProducts(ps); NX.closeModal(); invView(); toast('Artículo guardado');
+      try { await NX.api(id ? 'PUT' : 'POST', '/api/admin/products' + (id ? '/' + id : ''), data); NX.closeModal(); invView(); toast('Artículo guardado'); } catch (ex) { $('#pe').textContent = ex.message; }
     };
   }
 
   /* ---------- pedidos ---------- */
-  function ordView() {
-    const os = store.get('orders', []).slice().sort((a, b) => b.date - a.date).slice(0, 80);
-    $('#admBody').innerHTML = `<div class="panel"><h3>Últimos pedidos (${os.length})</h3><div class="tbl-wrap"><table><thead><tr><th>Pedido</th><th>Fecha</th><th>Cliente</th><th>Total</th><th>Estado</th><th></th></tr></thead><tbody>
-      ${os.map((o) => `<tr data-id="${o.id}"><td><b>${o.id}</b></td><td>${new Date(o.date).toLocaleDateString('es-PY')}</td><td>${esc(o.customer || '')}</td><td>${fmt(o.total)}</td>
-        <td><select data-st>${['Pendiente', 'Enviado', 'Entregado', 'Cancelado'].map((s) => `<option ${s === o.status ? 'selected' : ''}>${s}</option>`).join('')}</select></td><td><button class="btn btn-ghost btn-sm" data-view="${o.id}">Ver</button></td></tr>`).join('')}</tbody></table></div></div>`;
-    $('#admBody').onchange = (e) => { const s = e.target.closest('[data-st]'); if (!s) return; const all = store.get('orders', []), o = all.find((x) => x.id === s.closest('tr').dataset.id); o.status = s.value; store.set('orders', all); toast(o.id + ' → ' + o.status); };
+  async function ordView() {
+    let os; try { os = await NX.api('GET', '/api/admin/orders'); } catch (e) { $('#admBody').innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }
+    $('#admBody').innerHTML = `<div class="panel"><h3>Últimos pedidos (${os.length})</h3><div class="tbl-wrap"><table><thead><tr><th>Pedido</th><th>Fecha</th><th>Cliente</th><th>Total</th><th>Pago</th><th>Estado</th><th></th></tr></thead><tbody>
+      ${os.map((o) => `<tr data-id="${esc(o.id)}"><td><b>${esc(o.id)}</b></td><td>${new Date(o.date).toLocaleDateString('es-PY')}</td><td>${esc(o.customer || '')}</td><td>${fmt(o.total)}</td><td><span class="pill ${o.payStatus === 'pagado' ? '' : 'low'}">${esc(o.payStatus)}</span></td>
+        <td><select data-st>${['Pendiente', 'Enviado', 'Entregado', 'Cancelado'].map((s) => `<option ${s === o.status ? 'selected' : ''}>${s}</option>`).join('')}</select></td><td><button class="btn btn-ghost btn-sm" data-view="${esc(o.id)}">Ver</button></td></tr>`).join('')}</tbody></table></div></div>`;
+    $('#admBody').onchange = async (e) => { const s = e.target.closest('[data-st]'); if (!s) return; const oid = s.closest('tr').dataset.id; try { await NX.api('PATCH', '/api/admin/orders/' + oid, { status: s.value }); toast(oid + ' → ' + s.value); } catch (ex) { toast(ex.message); ordView(); } };
     $('#admBody').onclick = (e) => {
-      const b = e.target.closest('[data-view]'); if (!b) return; const o = store.get('orders', []).find((x) => x.id === b.dataset.view), d = o.delivery, bl = o.billing;
-      NX.openModal(`<div class="mhead"><h3>${o.id}</h3><button class="x" data-close>✕</button></div><div class="summary">
+      const b = e.target.closest('[data-view]'); if (!b) return; const o = os.find((x) => x.id === b.dataset.view), d = o.delivery, bl = o.billing;
+      NX.openModal(`<div class="mhead"><h3>${esc(o.id)}</h3><button class="x" data-close>✕</button></div><div class="summary">
         <div><b>Entrega (${esc(d.type)})</b><br>${esc(d.calle)} ${esc(d.nro)}${d.piso ? ', ' + esc(d.piso) : ''} · ${esc(d.barrio)}, ${esc(d.ciudad)} (${esc(d.depto)})<br>Tel: ${esc(d.tel)}${d.ref ? '<br>Ref: ' + esc(d.ref) : ''}</div>
-        <div><b>Factura</b><br>RUC ${esc(bl.ruc)} · ${esc(bl.razon)}</div><div><b>Pago</b><br>${esc(o.pay.brand)} •••• ${esc(o.pay.last4)}</div>
+        <div><b>Factura</b><br>RUC ${esc(bl.ruc)} · ${esc(bl.razon)}</div><div><b>Pago</b><br>${esc(o.payStatus)}${o.pay.brand ? ' · ' + esc(o.pay.brand) + (o.pay.last4 ? ' •••• ' + esc(o.pay.last4) : '') : ''}</div>
         <div><b>Artículos</b><br>${o.items.map((i) => `${i.qty} × ${esc(i.name)} — ${fmt(i.price * i.qty)}`).join('<br>')}</div>
         <div class="row"><span>Envío ${o.shipping ? fmt(o.shipping) : 'gratis'}</span><b class="total">${fmt(o.total)}</b></div></div>`);
     };
