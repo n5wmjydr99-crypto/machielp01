@@ -16,6 +16,7 @@
 
   /* ---------------- API ---------------- */
   async function api(method, path, body) {
+    if (window.NX_LOCAL || location.protocol === 'file:') return NXs.localApi(method, path, body);   // modo sin servidor (demo)
     let r;
     try { r = await fetch(path, { method, credentials: 'same-origin', headers: body ? { 'content-type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined }); }
     catch (e) { throw new Error('Sin conexión con el servidor.'); }

@@ -3,7 +3,10 @@
 Tienda con escena 3D guiada por scroll, cuentas de cliente, checkout (dirección casa/depto/oficina, RUC + Razón Social, tarjeta)
 y panel de dueños (estadísticas por año/mes/semana/día, inventario, pedidos). Servidor Node 22 **sin dependencias** + SQLite.
 
-## Correr
+## Abrir sin instalar nada
+`dist/nexustech.html` es un único archivo (demo): doble clic y listo. Los datos quedan en el navegador. Se regenera con `node tools/build-single.js`.
+
+## Correr con servidor
 ```bash
 npm start            # http://localhost:3000  (pago simulado, sin Google/Apple hasta configurar claves)
 ```
