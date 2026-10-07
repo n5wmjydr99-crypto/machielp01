@@ -1,0 +1,5 @@
+# HTTPS automático (Let's Encrypt). Reemplazá tu-dominio.com.py por tu dominio real.
+tu-dominio.com.py {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:3000
+}

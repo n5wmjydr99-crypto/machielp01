@@ -21,7 +21,13 @@ const send = (res, code, body, headers = {}) => { res.writeHead(code, headers); 
 const json = (res, code, obj, headers = {}) => send(res, code, JSON.stringify(obj), { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...headers });
 const fail = (res, code, msg) => json(res, code, { error: msg });
 const redirect = (res, to, headers = {}) => send(res, 302, '', { location: to, ...headers });
-const ip = (req) => req.socket.remoteAddress || '?';
+// detrás de Caddy (TRUST_PROXY=1) la IP real viene en X-Forwarded-For; solo se confía si la conexión es local
+const LOCAL = new Set(['127.0.0.1', '::1', '::ffff:127.0.0.1']);
+const ip = (req) => {
+  const a = req.socket.remoteAddress || '?';
+  if (process.env.TRUST_PROXY === '1' && LOCAL.has(a)) return String(req.headers['x-forwarded-for'] || a).split(',')[0].trim();
+  return a;
+};
 
 function readBody(req, limit = 2e6) {
   return new Promise((resolve, reject) => {
@@ -230,7 +236,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 if (require.main === module) {
-  server.listen(cfg.PORT, () => {
+  server.listen(cfg.PORT, process.env.HOST || (cfg.PROD ? '127.0.0.1' : '0.0.0.0'), () => {
     console.log(`NEXUSTECH en ${cfg.PUBLIC_URL}  ·  pagos: ${bancard.on() ? 'Bancard' : cfg.ALLOW_MOCK ? 'SIMULADO' : 'deshabilitados'}  ·  Google: ${oauth.googleOn() ? 'sí' : 'no'}  ·  Apple: ${oauth.appleOn() ? 'sí' : 'no'}`);
     if (cfg.ADMIN_PASSWORD_IS_DEFAULT) console.warn('⚠ ADMIN_PASSWORD no está definida: se usa la clave por defecto. Definila en el entorno antes de publicar.');
   });

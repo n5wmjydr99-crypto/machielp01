@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { db, id, tx } = require('./db');
 const cfg = require('./config');
-const { hashPassword } = require('./security');
+const { hashPassword, verifyPassword } = require('./security');
 
 function loadCatalog() {
   const ctx = {}; ctx.window = ctx; require('node:vm').runInNewContext(fs.readFileSync(path.join(__dirname, '..', 'assets', 'data.js'), 'utf8'), ctx);
@@ -14,9 +14,10 @@ function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; l
 function run() {
   const meta = (k) => db.prepare('SELECT v FROM meta WHERE k=?').get(k)?.v;
   const setMeta = (k, v) => db.prepare('INSERT INTO meta(k,v) VALUES(?,?) ON CONFLICT(k) DO UPDATE SET v=excluded.v').run(k, v);
-  // admin (usuario/contraseña vienen del entorno; solo se guarda el hash)
-  if (!meta('admin_user') || meta('admin_user') !== cfg.ADMIN_USER || (!cfg.ADMIN_PASSWORD_IS_DEFAULT && !meta('admin_pass_src'))) {
-    setMeta('admin_user', cfg.ADMIN_USER); setMeta('admin_pass', hashPassword(cfg.ADMIN_PASSWORD)); setMeta('admin_pass_src', cfg.ADMIN_PASSWORD_IS_DEFAULT ? '' : 'env');
+  // admin: el entorno es la fuente de verdad; si usuario o clave cambian, se actualiza el hash guardado
+  if (meta('admin_user') !== cfg.ADMIN_USER || !verifyPassword(cfg.ADMIN_PASSWORD, meta('admin_pass'))) {
+    setMeta('admin_user', cfg.ADMIN_USER); setMeta('admin_pass', hashPassword(cfg.ADMIN_PASSWORD));
+    db.prepare("DELETE FROM sessions WHERE kind='admin'").run();      // cerrar sesiones de dueño al rotar la clave
   }
   if (db.prepare('SELECT COUNT(*) c FROM products').get().c === 0) {
     const ins = db.prepare('INSERT INTO products(id,name,brand,cat,art,price,stock,descr,img,pos) VALUES(?,?,?,?,?,?,?,?,NULL,?)');

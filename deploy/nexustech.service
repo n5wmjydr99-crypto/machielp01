@@ -1,0 +1,21 @@
+[Unit]
+Description=NEXUSTECH e-commerce
+After=network.target
+
+[Service]
+User=nexus
+Group=nexus
+WorkingDirectory=/opt/nexustech
+EnvironmentFile=/etc/nexustech.env
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning server/server.js
+Restart=always
+RestartSec=3
+# endurecimiento
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nexustech/data
+
+[Install]
+WantedBy=multi-user.target
