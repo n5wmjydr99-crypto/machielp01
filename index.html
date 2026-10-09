@@ -21,11 +21,12 @@
 <div id="curtain" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a href="#/" class="logo" data-route>NEXUS<b>TECH</b></a>
+  <a href="#/" class="logo" data-route><img src="assets/logo.svg" alt="" width="30" height="30">NEXUS<b>TECH</b></a>
   <nav class="nav-links" id="navLinks">
     <a href="#/" data-route data-goto="top">Inicio</a>
+    <a href="#/" data-route data-goto="nosotros">Nosotros</a>
+    <a href="#/" data-route data-goto="promo">Promo</a>
     <a href="#/" data-route data-goto="tienda">Tienda</a>
-    <a href="#/" data-route data-goto="marcas">Marcas</a>
     <a href="#/" data-route data-goto="contacto">Contacto</a>
   </nav>
   <div class="nav-actions">
@@ -38,9 +39,11 @@
 <!-- ============ TIENDA ============ -->
 <main id="view-store" class="view">
   <section class="hero" id="top">
+    <img class="hero-logo reveal" src="assets/logo.svg" alt="Logo de NEXUSTECH" width="92" height="92">
     <p class="eyebrow reveal">Tecnología de gama alta · Paraguay</p>
     <h1 class="hero-title" id="heroTitle" aria-label="NEXUSTECH"></h1>
-    <p class="hero-sub reveal">Apple, Samsung, Acer, HP, Logitech y más.<br>El futuro llega a tu puerta.</p>
+    <p class="slogan reveal">Lo último en tecnología, directo a tu puerta.</p>
+    <p class="hero-sub reveal">Apple, Samsung, Acer, HP, Logitech y más, con envío a todo el Paraguay.</p>
     <div class="hero-cta reveal">
       <a href="#tienda" class="btn btn-red magnetic" data-scroll="tienda">Explorar tienda</a>
       <a href="#story" class="btn btn-ghost magnetic" data-scroll="story">Ver el recorrido</a>
@@ -59,6 +62,26 @@
     <div class="marquee"><div class="marquee-in"><span>APPLE</span><span>SAMSUNG</span><span>ACER</span><span>HP</span><span>LOGITECH</span><span>SONY</span><span>ASUS</span><span>APPLE</span><span>SAMSUNG</span><span>ACER</span><span>HP</span><span>LOGITECH</span><span>SONY</span><span>ASUS</span></div></div>
   </section>
 
+  <section class="about" id="nosotros">
+    <div class="section-head reveal"><p class="eyebrow">Sobre nosotros</p><h2>Somos <em>NEXUSTECH</em></h2></div>
+    <div class="about-grid">
+      <article class="about-card reveal"><h3>Quiénes somos</h3><p>NEXUSTECH es una microempresa paraguaya que importa y vende tecnología de gama alta. Trabajamos con las mejores marcas del mundo para que tengas equipos originales, con factura legal y atención cercana por WhatsApp.</p></article>
+      <article class="about-card reveal"><h3>Qué ofrecemos</h3><ul class="about-list"><li>Celulares, laptops y tablets Apple, Samsung, Acer, HP y ASUS</li><li>Monitores, audio y relojes inteligentes</li><li>Periféricos Logitech para trabajar y jugar</li><li>Envío a casa, departamento u oficina en todo el país</li></ul></article>
+      <article class="about-card reveal"><h3>Por qué elegirnos</h3><p>Pagás con tarjeta de forma segura, recibís tu factura con RUC y Razón Social, y te acompañamos antes y después de la compra.</p></article>
+    </div>
+  </section>
+
+  <section class="promo" id="promo">
+    <div class="promo-box reveal">
+      <span class="promo-tag">PROMOCIÓN ESPECIAL</span>
+      <h2 id="promoName">Combo Apple Total</h2>
+      <p class="promo-sub">iPhone 16 Pro Max + AirPods Pro 2 juntos, con <b>10% de descuento</b>. Hasta agotar stock.</p>
+      <div class="promo-imgs"><img id="promoImgA" alt="iPhone 16 Pro Max"><span>+</span><img id="promoImgB" alt="AirPods Pro 2"></div>
+      <div class="promo-price"><s id="promoOld"></s><strong id="promoNew"></strong><em id="promoSave"></em></div>
+      <button class="btn btn-red magnetic" id="promoBtn">Agregar el combo al carrito</button>
+    </div>
+  </section>
+
   <section class="shop" id="tienda">
     <div class="section-head reveal"><p class="eyebrow">Catálogo</p><h2>Gama alta. <em>Sin concesiones.</em></h2></div>
     <div class="filters reveal">
@@ -70,11 +93,32 @@
     <div class="grid" id="grid"></div>
   </section>
 
-  <footer class="footer" id="contacto">
+  <section class="contact" id="contacto">
+    <div class="section-head reveal"><p class="eyebrow">Contacto</p><h2>Hablemos. <em>Estamos acá.</em></h2></div>
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="tel:+595981000000"><span class="ci">📞</span><h3>Teléfono</h3><p>+595 981 000 000</p></a>
+      <a class="contact-card reveal" href="mailto:ventas@nexustech.example"><span class="ci">✉️</span><h3>Correo electrónico</h3><p>ventas@nexustech.example</p></a>
+      <a class="contact-card reveal" href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="ci">📷</span><h3>Instagram</h3><p>@nexustech.demo</p></a>
+      <a class="contact-card reveal" href="https://www.google.com/maps/search/?api=1&query=Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener"><span class="ci">📍</span><h3>Ubicación</h3><p>Asunción, Paraguay</p></a>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:28px"><a class="btn btn-red magnetic" href="https://wa.link/g5hw55" target="_blank" rel="noopener">Escribinos por WhatsApp</a></p>
+  </section>
+
+  <section class="ia" id="ia">
+    <div class="section-head reveal"><p class="eyebrow">Inteligencia Artificial</p><h2>Cómo usamos la <em>IA</em></h2></div>
+    <div class="ia-grid">
+      <article class="about-card reveal"><span class="ia-n">1</span><h3>La consulta</h3><p>Le pedimos a una inteligencia artificial (Claude) que armara una tienda web de tecnología en negro y rojo, con precios en guaraníes, cuentas de clientes y un panel para los dueños.</p></article>
+      <article class="about-card reveal"><span class="ia-n">2</span><h3>La sugerencia</h3><p>La IA nos propuso una escena 3D que se mueve con el scroll, un carrito de compras, un checkout con dirección, tarjeta y RUC, y un panel con estadísticas.</p></article>
+      <article class="about-card reveal"><span class="ia-n">3</span><h3>Lo que modificamos</h3><p>Adaptamos la propuesta a nuestra idea: precios en guaraníes, botón de WhatsApp, usuario HOST para los dueños, entrega en casa, departamento u oficina, factura con RUC y Razón Social, y la promoción del combo.</p></article>
+      <article class="about-card reveal"><span class="ia-n">4</span><h3>En qué nos ayudó</h3><p>La IA nos ayudó a escribir el código HTML, CSS y JavaScript, a ordenar las secciones y a probar que todo funcione. Las ideas, los productos y las decisiones las pusimos nosotros.</p></article>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="foot-grid">
-      <div><div class="logo big">NEXUS<b>TECH</b></div><p>Tecnología premium importada, con factura legal y envío a todo el país.</p></div>
-      <div><h4>Contacto</h4><p><a href="https://wa.link/g5hw55" target="_blank" rel="noopener">WhatsApp</a><br>Paraguay</p></div>
+      <div><div class="logo big">NEXUS<b>TECH</b></div><p>Lo último en tecnología, directo a tu puerta.</p></div>
       <div><h4>Compra segura</h4><p>Pago con tarjeta<br>Factura con RUC y Razón Social<br>Envío a casa, depto u oficina</p></div>
+      <div><h4>Contacto</h4><p><a href="https://wa.link/g5hw55" target="_blank" rel="noopener">WhatsApp</a><br>Asunción, Paraguay</p></div>
     </div>
     <div class="foot-bottom"><span>© <span id="year"></span> NEXUSTECH</span><a href="#/admin" id="adminLink" data-route>Acceso tienda</a></div>
   </footer>

@@ -5,10 +5,7 @@ const { db, id, tx } = require('./db');
 const cfg = require('./config');
 const { hashPassword, verifyPassword } = require('./security');
 
-function loadCatalog() {
-  const ctx = {}; ctx.window = ctx; require('node:vm').runInNewContext(fs.readFileSync(path.join(__dirname, '..', 'assets', 'data.js'), 'utf8'), ctx);
-  return ctx.NX.PRODUCTS;
-}
+const loadCatalog = () => require('./catalog').PRODUCTS;
 function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 
 function run() {

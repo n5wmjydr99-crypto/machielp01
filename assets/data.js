@@ -3,6 +3,9 @@ window.NX = window.NX || {};
 
 NX.WHATSAPP = 'https://wa.link/g5hw55';
 
+// Promoción especial: 10% de descuento si el carrito lleva los dos artículos del combo
+NX.COMBO = { ids: ['p01', 'p04'], pct: 10, name: 'Combo Apple Total' };
+
 NX.DEPARTAMENTOS = ['Asunción', 'Central', 'Alto Paraná', 'Itapúa', 'Concepción', 'San Pedro', 'Cordillera', 'Guairá',
   'Caaguazú', 'Caazapá', 'Misiones', 'Paraguarí', 'Ñeembucú', 'Amambay', 'Canindeyú', 'Presidente Hayes',
   'Boquerón', 'Alto Paraguay'];

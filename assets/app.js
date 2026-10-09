@@ -180,7 +180,7 @@
     $('#grid').innerHTML = ps.length ? ps.map((p, i) => `<article class="card ${animate ? 'enter' : ''}" style="--i:${i}" data-id="${p.id}" tabindex="0">
       <span class="tag ${p.stock <= 0 ? 'out' : p.stock <= 5 ? 'low' : ''}" ${p.stock > 5 ? 'hidden' : ''}>${p.stock <= 0 ? 'AGOTADO' : 'ÚLTIMAS ' + p.stock}</span>
       <div class="card-img"><img src="${esc(productImg(p))}" alt="${esc(p.name)}" loading="lazy"></div>
-      <div class="card-body"><div class="card-brand">${esc(p.brand)}</div><div class="card-name">${esc(p.name)}</div>
+      <div class="card-body"><div class="card-brand">${esc(p.brand)}</div><div class="card-name">${esc(p.name)}</div><div class="card-desc">${esc(p.desc || '')}</div>
       <div class="card-foot"><span class="price">${fmt(p.price)}</span><button class="btn btn-red btn-sm" data-add="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>Agregar</button></div></div><div class="glare"></div></article>`).join('')
       : '<div class="empty">No encontramos productos con ese filtro.</div>';
   }
@@ -217,12 +217,18 @@
   }
   function cartLines() { const ps = products(); return cart().map((l) => ({ ...l, p: ps.find((x) => x.id === l.id) })).filter((l) => l.p); }
   const shipCost = (sub) => (sub === 0 || sub >= 1000000 ? 0 : 35000);
+  // promo: descuento del combo cuando el carrito lleva los dos artículos (mismo cálculo que el servidor)
+  function totals(ls) {
+    const gross = ls.reduce((a, l) => a + l.p.price * l.qty, 0), C = NXs.COMBO, cl = C.ids.map((i) => ls.find((l) => l.id === i));
+    const disc = cl.every(Boolean) ? Math.round(cl.reduce((a, l) => a + l.p.price * l.qty, 0) * C.pct / 100) : 0, net = gross - disc, ship = shipCost(net);
+    return { gross, disc, net, ship, total: net + ship };
+  }
   function renderCart() {
-    const ls = cartLines(), sub = ls.reduce((a, l) => a + l.p.price * l.qty, 0);
+    const ls = cartLines(), T = totals(ls), sub = T.net;
     drawer.innerHTML = `<div class="dr-head"><h3>TU CARRITO</h3><button class="x" id="drClose">✕</button></div>
       <div class="dr-body">${ls.length ? ls.map((l, i) => `<div class="line-item" style="animation-delay:${i * 0.06}s"><img src="${esc(productImg(l.p))}" alt=""><div><b style="font-size:.92rem">${esc(l.p.name)}</b><br><small>${fmt(l.p.price)}</small><br>
         <div class="qty"><button data-q="-1" data-id="${l.id}">−</button><span>${l.qty}</span><button data-q="1" data-id="${l.id}">+</button></div></div><div style="text-align:right"><b>${fmt(l.p.price * l.qty)}</b><br><button class="rm" data-rm="${l.id}">Quitar</button></div></div>`).join('') : '<p class="empty" style="padding:60px 0">Tu carrito está vacío.</p>'}</div>
-      <div class="dr-foot"><div class="row"><span>Subtotal</span><b>${fmt(sub)}</b></div><div class="row"><span>Envío</span><b>${shipCost(sub) ? fmt(shipCost(sub)) : 'Gratis'}</b></div>
+      <div class="dr-foot"><div class="row"><span>Subtotal</span><b>${fmt(T.gross)}</b></div>${T.disc ? `<div class="row" style="color:#4ade80"><span>Promo ${esc(NXs.COMBO.name)}</span><b>− ${fmt(T.disc)}</b></div>` : ''}<div class="row"><span>Envío</span><b>${shipCost(sub) ? fmt(shipCost(sub)) : 'Gratis'}</b></div>
       <div class="row"><span>Total</span><span class="total">${fmt(sub + shipCost(sub))}</span></div><button class="btn btn-red btn-block" id="goCheckout" ${ls.length ? '' : 'disabled'}>Finalizar compra</button><p class="note">Envío gratis desde Gs. 1.000.000</p></div>`;
     $('#drClose').onclick = () => closeDrawer();
     $('#goCheckout').onclick = () => { closeDrawer(true); me() ? checkout() : authModal('login', checkout); };
@@ -241,8 +247,8 @@
     const ls = cartLines(); if (!ls.length) return;
     if (S.payMode === 'off') return toast('Los pagos aún no están habilitados en este servidor.');
     const co = { step: 0, order: null, d: { type: 'Casa', calle: '', nro: '', piso: '', barrio: '', ciudad: '', depto: 'Asunción', ref: '', tel: '' }, b: { ruc: '', razon: '' }, p: { num: '', name: '', exp: '', cvv: '' } };
-    const sub = ls.reduce((a, l) => a + l.p.price * l.qty, 0), ship = shipCost(sub), total = sub + ship, mock = S.payMode === 'mock';
-    const summary = `<div class="summary"><div class="row"><span>Subtotal</span><span>${fmt(sub)}</span></div><div class="row"><span>Envío</span><span>${ship ? fmt(ship) : 'Gratis'}</span></div><div class="row"><b>Total</b><b class="total">${fmt(total)}</b></div></div>`;
+    const T = totals(ls), sub = T.gross, ship = T.ship, total = T.total, mock = S.payMode === 'mock';
+    const summary = `<div class="summary"><div class="row"><span>Subtotal</span><span>${fmt(sub)}</span></div>${T.disc ? `<div class="row" style="color:#4ade80"><span>Promo ${esc(NXs.COMBO.name)}</span><span>− ${fmt(T.disc)}</span></div>` : ''}<div class="row"><span>Envío</span><span>${ship ? fmt(ship) : 'Gratis'}</span></div><div class="row"><b>Total</b><b class="total">${fmt(total)}</b></div></div>`;
     const draw = () => {
       const stepsHtml = `<div class="steps">${[0, 1, 2].map((i) => `<i class="${i <= co.step ? 'on' : ''}"></i>`).join('')}</div>`;
       let body = '';
@@ -325,11 +331,24 @@
     setTimeout(() => waitPaid(oid, tries + 1), 3000);
   }
   async function done(o) {
-    saveCart([]); await reloadProducts(); renderGrid(false);
+    saveCart([]); await reloadProducts(); renderGrid(false); renderPromo();
     openModal(`<div class="ok"><svg class="tick" viewBox="0 0 90 90"><circle cx="45" cy="45" r="41"/><path d="M27 46l12 12 25-27"/></svg>
       <h3>¡PEDIDO CONFIRMADO!</h3><p style="margin:12px 0;color:#bcbcc4">Pedido <b>${esc(o.id)}</b> · ${fmt(o.total)}<br>Lo enviamos a ${esc(o.delivery.calle)} ${esc(o.delivery.nro)}, ${esc(o.delivery.ciudad)} (${esc(o.delivery.type)}).<br>Factura a nombre de ${esc(o.billing.razon)} · RUC ${esc(o.billing.ruc)}.</p>
       <div class="adm-actions" style="justify-content:center"><a class="btn btn-red" target="_blank" rel="noopener" href="${NXs.WHATSAPP}">Avisarnos por WhatsApp</a><button class="btn btn-ghost" data-close>Seguir comprando</button></div></div>`);
   }
+
+  /* ---------------- promoción (combo) ---------------- */
+  function renderPromo() {
+    const C = NXs.COMBO, ps = C.ids.map((i) => products().find((p) => p.id === i)), box = $('#promo');
+    if (ps.some((p) => !p)) { box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    const old = ps[0].price + ps[1].price, nu = Math.round(old * (100 - C.pct) / 100);
+    $('#promoName').textContent = C.name; $('#promoImgA').src = productImg(ps[0]); $('#promoImgB').src = productImg(ps[1]);
+    $('#promoImgA').alt = ps[0].name; $('#promoImgB').alt = ps[1].name;
+    $('#promoOld').textContent = fmt(old); $('#promoNew').textContent = fmt(nu); $('#promoSave').textContent = 'Ahorrás ' + fmt(old - nu);
+    $('#promoBtn').disabled = ps.some((p) => p.stock <= 0);
+  }
+  $('#promoBtn').addEventListener('click', () => { NXs.COMBO.ids.forEach((i) => addToCart(i)); openDrawer(); });
 
   /* ---------------- arranque ---------------- */
   (async function boot() {
@@ -337,8 +356,8 @@
       const [cfg] = await Promise.all([api('GET', '/api/config'), reloadProducts()]);
       S.user = cfg.user; S.admin = cfg.admin; S.providers = cfg.providers; S.payMode = cfg.payments.mode;
     } catch (e) { toast(e.message); }
-    chips(); renderGrid(false); saveCart(cart()); refreshAccount();
-    NXs.refreshShop = async () => { await reloadProducts(); chips(); renderGrid(false); };
+    chips(); renderGrid(false); renderPromo(); saveCart(cart()); refreshAccount();
+    NXs.refreshShop = async () => { await reloadProducts(); chips(); renderGrid(false); renderPromo(); };
     const q = new URLSearchParams(location.search);
     if (q.get('auth_error')) { toast('No pudimos iniciar sesión con ' + (q.get('auth_error') === 'apple' ? 'Apple' : 'Google') + '.'); history.replaceState(null, '', '/'); }
     if (q.get('pedido')) { const oid = q.get('pedido'); history.replaceState(null, '', '/'); if (!q.get('cancelado') && S.user) { toast('Verificando tu pago…'); waitPaid(oid); } }

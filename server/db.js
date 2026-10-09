@@ -29,6 +29,7 @@ CREATE INDEX IF NOT EXISTS oi_order ON order_items(order_id);
 CREATE TABLE IF NOT EXISTS meta(k TEXT PRIMARY KEY, v TEXT);
 `);
 
+if (!db.prepare('PRAGMA table_info(orders)').all().some((c) => c.name === 'discount')) db.exec('ALTER TABLE orders ADD COLUMN discount INTEGER NOT NULL DEFAULT 0');
 const id = (p = '') => p + crypto.randomBytes(9).toString('base64url');
 function tx(fn) {            // transacción simple: si algo falla, rollback
   db.exec('BEGIN IMMEDIATE');

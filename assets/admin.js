@@ -149,7 +149,7 @@
         <div><b>Entrega (${esc(d.type)})</b><br>${esc(d.calle)} ${esc(d.nro)}${d.piso ? ', ' + esc(d.piso) : ''} · ${esc(d.barrio)}, ${esc(d.ciudad)} (${esc(d.depto)})<br>Tel: ${esc(d.tel)}${d.ref ? '<br>Ref: ' + esc(d.ref) : ''}</div>
         <div><b>Factura</b><br>RUC ${esc(bl.ruc)} · ${esc(bl.razon)}</div><div><b>Pago</b><br>${esc(o.payStatus)}${o.pay.brand ? ' · ' + esc(o.pay.brand) + (o.pay.last4 ? ' •••• ' + esc(o.pay.last4) : '') : ''}</div>
         <div><b>Artículos</b><br>${o.items.map((i) => `${i.qty} × ${esc(i.name)} — ${fmt(i.price * i.qty)}`).join('<br>')}</div>
-        <div class="row"><span>Envío ${o.shipping ? fmt(o.shipping) : 'gratis'}</span><b class="total">${fmt(o.total)}</b></div></div>`);
+        ${o.discount ? `<div class="row"><span>Descuento combo</span><span>− ${fmt(o.discount)}</span></div>` : ''}<div class="row"><span>Envío ${o.shipping ? fmt(o.shipping) : 'gratis'}</span><b class="total">${fmt(o.total)}</b></div></div>`);
     };
   }
 })();

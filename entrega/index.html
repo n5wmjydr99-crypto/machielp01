@@ -21,11 +21,12 @@
 <div id="curtain" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a href="#/" class="logo" data-route>NEXUS<b>TECH</b></a>
+  <a href="#/" class="logo" data-route><img src="imagenes/logo.svg" alt="" width="30" height="30">NEXUS<b>TECH</b></a>
   <nav class="nav-links" id="navLinks">
     <a href="#/" data-route data-goto="top">Inicio</a>
+    <a href="#/" data-route data-goto="nosotros">Nosotros</a>
+    <a href="#/" data-route data-goto="promo">Promo</a>
     <a href="#/" data-route data-goto="tienda">Tienda</a>
-    <a href="#/" data-route data-goto="marcas">Marcas</a>
     <a href="#/" data-route data-goto="contacto">Contacto</a>
   </nav>
   <div class="nav-actions">
@@ -38,9 +39,11 @@
 <!-- ============ TIENDA ============ -->
 <main id="view-store" class="view">
   <section class="hero" id="top">
+    <img class="hero-logo reveal" src="imagenes/logo.svg" alt="Logo de NEXUSTECH" width="92" height="92">
     <p class="eyebrow reveal">Tecnología de gama alta · Paraguay</p>
     <h1 class="hero-title" id="heroTitle" aria-label="NEXUSTECH"></h1>
-    <p class="hero-sub reveal">Apple, Samsung, Acer, HP, Logitech y más.<br>El futuro llega a tu puerta.</p>
+    <p class="slogan reveal">Lo último en tecnología, directo a tu puerta.</p>
+    <p class="hero-sub reveal">Apple, Samsung, Acer, HP, Logitech y más, con envío a todo el Paraguay.</p>
     <div class="hero-cta reveal">
       <a href="#tienda" class="btn btn-red magnetic" data-scroll="tienda">Explorar tienda</a>
       <a href="#story" class="btn btn-ghost magnetic" data-scroll="story">Ver el recorrido</a>
@@ -59,6 +62,26 @@
     <div class="marquee"><div class="marquee-in"><span>APPLE</span><span>SAMSUNG</span><span>ACER</span><span>HP</span><span>LOGITECH</span><span>SONY</span><span>ASUS</span><span>APPLE</span><span>SAMSUNG</span><span>ACER</span><span>HP</span><span>LOGITECH</span><span>SONY</span><span>ASUS</span></div></div>
   </section>
 
+  <section class="about" id="nosotros">
+    <div class="section-head reveal"><p class="eyebrow">Sobre nosotros</p><h2>Somos <em>NEXUSTECH</em></h2></div>
+    <div class="about-grid">
+      <article class="about-card reveal"><h3>Quiénes somos</h3><p>NEXUSTECH es una microempresa paraguaya que importa y vende tecnología de gama alta. Trabajamos con las mejores marcas del mundo para que tengas equipos originales, con factura legal y atención cercana por WhatsApp.</p></article>
+      <article class="about-card reveal"><h3>Qué ofrecemos</h3><ul class="about-list"><li>Celulares, laptops y tablets Apple, Samsung, Acer, HP y ASUS</li><li>Monitores, audio y relojes inteligentes</li><li>Periféricos Logitech para trabajar y jugar</li><li>Envío a casa, departamento u oficina en todo el país</li></ul></article>
+      <article class="about-card reveal"><h3>Por qué elegirnos</h3><p>Pagás con tarjeta de forma segura, recibís tu factura con RUC y Razón Social, y te acompañamos antes y después de la compra.</p></article>
+    </div>
+  </section>
+
+  <section class="promo" id="promo">
+    <div class="promo-box reveal">
+      <span class="promo-tag">PROMOCIÓN ESPECIAL</span>
+      <h2 id="promoName">Combo Apple Total</h2>
+      <p class="promo-sub">iPhone 16 Pro Max + AirPods Pro 2 juntos, con <b>10% de descuento</b>. Hasta agotar stock.</p>
+      <div class="promo-imgs"><img id="promoImgA" alt="iPhone 16 Pro Max"><span>+</span><img id="promoImgB" alt="AirPods Pro 2"></div>
+      <div class="promo-price"><s id="promoOld"></s><strong id="promoNew"></strong><em id="promoSave"></em></div>
+      <button class="btn btn-red magnetic" id="promoBtn">Agregar el combo al carrito</button>
+    </div>
+  </section>
+
   <section class="shop" id="tienda">
     <div class="section-head reveal"><p class="eyebrow">Catálogo</p><h2>Gama alta. <em>Sin concesiones.</em></h2></div>
     <div class="filters reveal">
@@ -70,11 +93,32 @@
     <div class="grid" id="grid"></div>
   </section>
 
-  <footer class="footer" id="contacto">
+  <section class="contact" id="contacto">
+    <div class="section-head reveal"><p class="eyebrow">Contacto</p><h2>Hablemos. <em>Estamos acá.</em></h2></div>
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="tel:+595981000000"><span class="ci">📞</span><h3>Teléfono</h3><p>+595 981 000 000</p></a>
+      <a class="contact-card reveal" href="mailto:ventas@nexustech.example"><span class="ci">✉️</span><h3>Correo electrónico</h3><p>ventas@nexustech.example</p></a>
+      <a class="contact-card reveal" href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="ci">📷</span><h3>Instagram</h3><p>@nexustech.demo</p></a>
+      <a class="contact-card reveal" href="https://www.google.com/maps/search/?api=1&query=Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener"><span class="ci">📍</span><h3>Ubicación</h3><p>Asunción, Paraguay</p></a>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:28px"><a class="btn btn-red magnetic" href="https://wa.link/g5hw55" target="_blank" rel="noopener">Escribinos por WhatsApp</a></p>
+  </section>
+
+  <section class="ia" id="ia">
+    <div class="section-head reveal"><p class="eyebrow">Inteligencia Artificial</p><h2>Cómo usamos la <em>IA</em></h2></div>
+    <div class="ia-grid">
+      <article class="about-card reveal"><span class="ia-n">1</span><h3>La consulta</h3><p>Le pedimos a una inteligencia artificial (Claude) que armara una tienda web de tecnología en negro y rojo, con precios en guaraníes, cuentas de clientes y un panel para los dueños.</p></article>
+      <article class="about-card reveal"><span class="ia-n">2</span><h3>La sugerencia</h3><p>La IA nos propuso una escena 3D que se mueve con el scroll, un carrito de compras, un checkout con dirección, tarjeta y RUC, y un panel con estadísticas.</p></article>
+      <article class="about-card reveal"><span class="ia-n">3</span><h3>Lo que modificamos</h3><p>Adaptamos la propuesta a nuestra idea: precios en guaraníes, botón de WhatsApp, usuario HOST para los dueños, entrega en casa, departamento u oficina, factura con RUC y Razón Social, y la promoción del combo.</p></article>
+      <article class="about-card reveal"><span class="ia-n">4</span><h3>En qué nos ayudó</h3><p>La IA nos ayudó a escribir el código HTML, CSS y JavaScript, a ordenar las secciones y a probar que todo funcione. Las ideas, los productos y las decisiones las pusimos nosotros.</p></article>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="foot-grid">
-      <div><div class="logo big">NEXUS<b>TECH</b></div><p>Tecnología premium importada, con factura legal y envío a todo el país.</p></div>
-      <div><h4>Contacto</h4><p><a href="https://wa.link/g5hw55" target="_blank" rel="noopener">WhatsApp</a><br>Paraguay</p></div>
+      <div><div class="logo big">NEXUS<b>TECH</b></div><p>Lo último en tecnología, directo a tu puerta.</p></div>
       <div><h4>Compra segura</h4><p>Pago con tarjeta<br>Factura con RUC y Razón Social<br>Envío a casa, depto u oficina</p></div>
+      <div><h4>Contacto</h4><p><a href="https://wa.link/g5hw55" target="_blank" rel="noopener">WhatsApp</a><br>Asunción, Paraguay</p></div>
     </div>
     <div class="foot-bottom"><span>© <span id="year"></span> NEXUSTECH</span><a href="#/admin" id="adminLink" data-route>Acceso tienda</a></div>
   </footer>
@@ -106,6 +150,9 @@
 window.NX = window.NX || {};
 
 NX.WHATSAPP = 'https://wa.link/g5hw55';
+
+// Promoción especial: 10% de descuento si el carrito lleva los dos artículos del combo
+NX.COMBO = { ids: ['p01', 'p04'], pct: 10, name: 'Combo Apple Total' };
 
 NX.DEPARTAMENTOS = ['Asunción', 'Central', 'Alto Paraná', 'Itapúa', 'Concepción', 'San Pedro', 'Cordillera', 'Guairá',
   'Caaguazú', 'Caazapá', 'Misiones', 'Paraguarí', 'Ñeembucú', 'Amambay', 'Canindeyú', 'Presidente Hayes',
@@ -297,10 +344,12 @@ NX.productArt = function (art, brand) {
       if (p.stock < qty) bad('Sin stock suficiente de: ' + p.name);
       items.push({ p, qty });
     }
-    const subtotal = items.reduce((a, l) => a + l.p.price * l.qty, 0), shipping = subtotal >= 1000000 ? 0 : 35000;
+    const gross = items.reduce((a, l) => a + l.p.price * l.qty, 0), cl = NX.COMBO.ids.map((i) => items.find((l) => l.p.id === i));
+    const discount = cl.every(Boolean) ? Math.round(cl.reduce((a, l) => a + l.p.price * l.qty, 0) * NX.COMBO.pct / 100) : 0;
+    const subtotal = gross - discount, shipping = subtotal >= 1000000 ? 0 : 35000;
     const n = d.orders.reduce((m, o) => Math.max(m, +o.id.slice(3)), 100000) + 1;
     items.forEach((l) => { l.p.stock -= l.qty; });
-    const o = { id: 'NX-' + n, userId: u.id, customer: u.name, date: Date.now(), status: 'Pendiente', payStatus: 'pendiente', subtotal, shipping, total: subtotal + shipping,
+    const o = { id: 'NX-' + n, userId: u.id, customer: u.name, date: Date.now(), status: 'Pendiente', payStatus: 'pendiente', subtotal, discount, shipping, total: subtotal + shipping,
       items: items.map((l) => ({ id: l.p.id, name: l.p.name, qty: l.qty, price: l.p.price })), delivery, billing, pay: { brand: null, last4: null } };
     d.orders.push(o); return o;
   }
@@ -699,7 +748,7 @@ NX.productArt = function (art, brand) {
     $('#grid').innerHTML = ps.length ? ps.map((p, i) => `<article class="card ${animate ? 'enter' : ''}" style="--i:${i}" data-id="${p.id}" tabindex="0">
       <span class="tag ${p.stock <= 0 ? 'out' : p.stock <= 5 ? 'low' : ''}" ${p.stock > 5 ? 'hidden' : ''}>${p.stock <= 0 ? 'AGOTADO' : 'ÚLTIMAS ' + p.stock}</span>
       <div class="card-img"><img src="${esc(productImg(p))}" alt="${esc(p.name)}" loading="lazy"></div>
-      <div class="card-body"><div class="card-brand">${esc(p.brand)}</div><div class="card-name">${esc(p.name)}</div>
+      <div class="card-body"><div class="card-brand">${esc(p.brand)}</div><div class="card-name">${esc(p.name)}</div><div class="card-desc">${esc(p.desc || '')}</div>
       <div class="card-foot"><span class="price">${fmt(p.price)}</span><button class="btn btn-red btn-sm" data-add="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>Agregar</button></div></div><div class="glare"></div></article>`).join('')
       : '<div class="empty">No encontramos productos con ese filtro.</div>';
   }
@@ -736,12 +785,18 @@ NX.productArt = function (art, brand) {
   }
   function cartLines() { const ps = products(); return cart().map((l) => ({ ...l, p: ps.find((x) => x.id === l.id) })).filter((l) => l.p); }
   const shipCost = (sub) => (sub === 0 || sub >= 1000000 ? 0 : 35000);
+  // promo: descuento del combo cuando el carrito lleva los dos artículos (mismo cálculo que el servidor)
+  function totals(ls) {
+    const gross = ls.reduce((a, l) => a + l.p.price * l.qty, 0), C = NXs.COMBO, cl = C.ids.map((i) => ls.find((l) => l.id === i));
+    const disc = cl.every(Boolean) ? Math.round(cl.reduce((a, l) => a + l.p.price * l.qty, 0) * C.pct / 100) : 0, net = gross - disc, ship = shipCost(net);
+    return { gross, disc, net, ship, total: net + ship };
+  }
   function renderCart() {
-    const ls = cartLines(), sub = ls.reduce((a, l) => a + l.p.price * l.qty, 0);
+    const ls = cartLines(), T = totals(ls), sub = T.net;
     drawer.innerHTML = `<div class="dr-head"><h3>TU CARRITO</h3><button class="x" id="drClose">✕</button></div>
       <div class="dr-body">${ls.length ? ls.map((l, i) => `<div class="line-item" style="animation-delay:${i * 0.06}s"><img src="${esc(productImg(l.p))}" alt=""><div><b style="font-size:.92rem">${esc(l.p.name)}</b><br><small>${fmt(l.p.price)}</small><br>
         <div class="qty"><button data-q="-1" data-id="${l.id}">−</button><span>${l.qty}</span><button data-q="1" data-id="${l.id}">+</button></div></div><div style="text-align:right"><b>${fmt(l.p.price * l.qty)}</b><br><button class="rm" data-rm="${l.id}">Quitar</button></div></div>`).join('') : '<p class="empty" style="padding:60px 0">Tu carrito está vacío.</p>'}</div>
-      <div class="dr-foot"><div class="row"><span>Subtotal</span><b>${fmt(sub)}</b></div><div class="row"><span>Envío</span><b>${shipCost(sub) ? fmt(shipCost(sub)) : 'Gratis'}</b></div>
+      <div class="dr-foot"><div class="row"><span>Subtotal</span><b>${fmt(T.gross)}</b></div>${T.disc ? `<div class="row" style="color:#4ade80"><span>Promo ${esc(NXs.COMBO.name)}</span><b>− ${fmt(T.disc)}</b></div>` : ''}<div class="row"><span>Envío</span><b>${shipCost(sub) ? fmt(shipCost(sub)) : 'Gratis'}</b></div>
       <div class="row"><span>Total</span><span class="total">${fmt(sub + shipCost(sub))}</span></div><button class="btn btn-red btn-block" id="goCheckout" ${ls.length ? '' : 'disabled'}>Finalizar compra</button><p class="note">Envío gratis desde Gs. 1.000.000</p></div>`;
     $('#drClose').onclick = () => closeDrawer();
     $('#goCheckout').onclick = () => { closeDrawer(true); me() ? checkout() : authModal('login', checkout); };
@@ -760,8 +815,8 @@ NX.productArt = function (art, brand) {
     const ls = cartLines(); if (!ls.length) return;
     if (S.payMode === 'off') return toast('Los pagos aún no están habilitados en este servidor.');
     const co = { step: 0, order: null, d: { type: 'Casa', calle: '', nro: '', piso: '', barrio: '', ciudad: '', depto: 'Asunción', ref: '', tel: '' }, b: { ruc: '', razon: '' }, p: { num: '', name: '', exp: '', cvv: '' } };
-    const sub = ls.reduce((a, l) => a + l.p.price * l.qty, 0), ship = shipCost(sub), total = sub + ship, mock = S.payMode === 'mock';
-    const summary = `<div class="summary"><div class="row"><span>Subtotal</span><span>${fmt(sub)}</span></div><div class="row"><span>Envío</span><span>${ship ? fmt(ship) : 'Gratis'}</span></div><div class="row"><b>Total</b><b class="total">${fmt(total)}</b></div></div>`;
+    const T = totals(ls), sub = T.gross, ship = T.ship, total = T.total, mock = S.payMode === 'mock';
+    const summary = `<div class="summary"><div class="row"><span>Subtotal</span><span>${fmt(sub)}</span></div>${T.disc ? `<div class="row" style="color:#4ade80"><span>Promo ${esc(NXs.COMBO.name)}</span><span>− ${fmt(T.disc)}</span></div>` : ''}<div class="row"><span>Envío</span><span>${ship ? fmt(ship) : 'Gratis'}</span></div><div class="row"><b>Total</b><b class="total">${fmt(total)}</b></div></div>`;
     const draw = () => {
       const stepsHtml = `<div class="steps">${[0, 1, 2].map((i) => `<i class="${i <= co.step ? 'on' : ''}"></i>`).join('')}</div>`;
       let body = '';
@@ -844,11 +899,24 @@ NX.productArt = function (art, brand) {
     setTimeout(() => waitPaid(oid, tries + 1), 3000);
   }
   async function done(o) {
-    saveCart([]); await reloadProducts(); renderGrid(false);
+    saveCart([]); await reloadProducts(); renderGrid(false); renderPromo();
     openModal(`<div class="ok"><svg class="tick" viewBox="0 0 90 90"><circle cx="45" cy="45" r="41"/><path d="M27 46l12 12 25-27"/></svg>
       <h3>¡PEDIDO CONFIRMADO!</h3><p style="margin:12px 0;color:#bcbcc4">Pedido <b>${esc(o.id)}</b> · ${fmt(o.total)}<br>Lo enviamos a ${esc(o.delivery.calle)} ${esc(o.delivery.nro)}, ${esc(o.delivery.ciudad)} (${esc(o.delivery.type)}).<br>Factura a nombre de ${esc(o.billing.razon)} · RUC ${esc(o.billing.ruc)}.</p>
       <div class="adm-actions" style="justify-content:center"><a class="btn btn-red" target="_blank" rel="noopener" href="${NXs.WHATSAPP}">Avisarnos por WhatsApp</a><button class="btn btn-ghost" data-close>Seguir comprando</button></div></div>`);
   }
+
+  /* ---------------- promoción (combo) ---------------- */
+  function renderPromo() {
+    const C = NXs.COMBO, ps = C.ids.map((i) => products().find((p) => p.id === i)), box = $('#promo');
+    if (ps.some((p) => !p)) { box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    const old = ps[0].price + ps[1].price, nu = Math.round(old * (100 - C.pct) / 100);
+    $('#promoName').textContent = C.name; $('#promoImgA').src = productImg(ps[0]); $('#promoImgB').src = productImg(ps[1]);
+    $('#promoImgA').alt = ps[0].name; $('#promoImgB').alt = ps[1].name;
+    $('#promoOld').textContent = fmt(old); $('#promoNew').textContent = fmt(nu); $('#promoSave').textContent = 'Ahorrás ' + fmt(old - nu);
+    $('#promoBtn').disabled = ps.some((p) => p.stock <= 0);
+  }
+  $('#promoBtn').addEventListener('click', () => { NXs.COMBO.ids.forEach((i) => addToCart(i)); openDrawer(); });
 
   /* ---------------- arranque ---------------- */
   (async function boot() {
@@ -856,8 +924,8 @@ NX.productArt = function (art, brand) {
       const [cfg] = await Promise.all([api('GET', '/api/config'), reloadProducts()]);
       S.user = cfg.user; S.admin = cfg.admin; S.providers = cfg.providers; S.payMode = cfg.payments.mode;
     } catch (e) { toast(e.message); }
-    chips(); renderGrid(false); saveCart(cart()); refreshAccount();
-    NXs.refreshShop = async () => { await reloadProducts(); chips(); renderGrid(false); };
+    chips(); renderGrid(false); renderPromo(); saveCart(cart()); refreshAccount();
+    NXs.refreshShop = async () => { await reloadProducts(); chips(); renderGrid(false); renderPromo(); };
     const q = new URLSearchParams(location.search);
     if (q.get('auth_error')) { toast('No pudimos iniciar sesión con ' + (q.get('auth_error') === 'apple' ? 'Apple' : 'Google') + '.'); history.replaceState(null, '', '/'); }
     if (q.get('pedido')) { const oid = q.get('pedido'); history.replaceState(null, '', '/'); if (!q.get('cancelado') && S.user) { toast('Verificando tu pago…'); waitPaid(oid); } }
@@ -1017,7 +1085,7 @@ NX.productArt = function (art, brand) {
         <div><b>Entrega (${esc(d.type)})</b><br>${esc(d.calle)} ${esc(d.nro)}${d.piso ? ', ' + esc(d.piso) : ''} · ${esc(d.barrio)}, ${esc(d.ciudad)} (${esc(d.depto)})<br>Tel: ${esc(d.tel)}${d.ref ? '<br>Ref: ' + esc(d.ref) : ''}</div>
         <div><b>Factura</b><br>RUC ${esc(bl.ruc)} · ${esc(bl.razon)}</div><div><b>Pago</b><br>${esc(o.payStatus)}${o.pay.brand ? ' · ' + esc(o.pay.brand) + (o.pay.last4 ? ' •••• ' + esc(o.pay.last4) : '') : ''}</div>
         <div><b>Artículos</b><br>${o.items.map((i) => `${i.qty} × ${esc(i.name)} — ${fmt(i.price * i.qty)}`).join('<br>')}</div>
-        <div class="row"><span>Envío ${o.shipping ? fmt(o.shipping) : 'gratis'}</span><b class="total">${fmt(o.total)}</b></div></div>`);
+        ${o.discount ? `<div class="row"><span>Descuento combo</span><span>− ${fmt(o.discount)}</span></div>` : ''}<div class="row"><span>Envío ${o.shipping ? fmt(o.shipping) : 'gratis'}</span><b class="total">${fmt(o.total)}</b></div></div>`);
     };
   }
 })();

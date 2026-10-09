@@ -102,10 +102,12 @@
       if (p.stock < qty) bad('Sin stock suficiente de: ' + p.name);
       items.push({ p, qty });
     }
-    const subtotal = items.reduce((a, l) => a + l.p.price * l.qty, 0), shipping = subtotal >= 1000000 ? 0 : 35000;
+    const gross = items.reduce((a, l) => a + l.p.price * l.qty, 0), cl = NX.COMBO.ids.map((i) => items.find((l) => l.p.id === i));
+    const discount = cl.every(Boolean) ? Math.round(cl.reduce((a, l) => a + l.p.price * l.qty, 0) * NX.COMBO.pct / 100) : 0;
+    const subtotal = gross - discount, shipping = subtotal >= 1000000 ? 0 : 35000;
     const n = d.orders.reduce((m, o) => Math.max(m, +o.id.slice(3)), 100000) + 1;
     items.forEach((l) => { l.p.stock -= l.qty; });
-    const o = { id: 'NX-' + n, userId: u.id, customer: u.name, date: Date.now(), status: 'Pendiente', payStatus: 'pendiente', subtotal, shipping, total: subtotal + shipping,
+    const o = { id: 'NX-' + n, userId: u.id, customer: u.name, date: Date.now(), status: 'Pendiente', payStatus: 'pendiente', subtotal, discount, shipping, total: subtotal + shipping,
       items: items.map((l) => ({ id: l.p.id, name: l.p.name, qty: l.qty, price: l.p.price })), delivery, billing, pay: { brand: null, last4: null } };
     d.orders.push(o); return o;
   }

@@ -2,6 +2,7 @@
 const { db, tx } = require('./db');
 const bancard = require('./bancard');
 const cfg = require('./config');
+const { COMBO } = require('./catalog');
 
 const shipCost = (sub) => (sub >= 1000000 ? 0 : 35000);
 const DEPTOS = ['Asunción', 'Central', 'Alto Paraná', 'Itapúa', 'Concepción', 'San Pedro', 'Cordillera', 'Guairá', 'Caaguazú', 'Caazapá', 'Misiones', 'Paraguarí', 'Ñeembucú', 'Amambay', 'Canindeyú', 'Presidente Hayes', 'Boquerón', 'Alto Paraguay'];
@@ -36,11 +37,13 @@ function create(user, body) {
       if (p.stock < qty) throw new Bad('Sin stock suficiente de: ' + p.name);
       lines.push({ p, qty });
     }
-    const subtotal = lines.reduce((a, l) => a + l.p.price * l.qty, 0), shipping = shipCost(subtotal), total = subtotal + shipping;
+    const gross = lines.reduce((a, l) => a + l.p.price * l.qty, 0), cl = COMBO.ids.map((i) => lines.find((l) => l.p.id === i));
+    const discount = cl.every(Boolean) ? Math.round(cl.reduce((a, l) => a + l.p.price * l.qty, 0) * COMBO.pct / 100) : 0;   // promo del combo
+    const subtotal = gross - discount, shipping = shipCost(subtotal), total = subtotal + shipping;
     const n = (db.prepare("SELECT COALESCE(MAX(CAST(SUBSTR(id,4) AS INTEGER)),100000)+1 n FROM orders").get().n);
     const oid = 'NX-' + n;
-    db.prepare("INSERT INTO orders(id,user_id,customer,date,status,pay_status,subtotal,shipping,total,delivery,billing,bancard_id) VALUES(?,?,?,?,'Pendiente','pendiente',?,?,?,?,?,?)")
-      .run(oid, user.id, user.name, Date.now(), subtotal, shipping, total, JSON.stringify(delivery), JSON.stringify(billing), String(n));
+    db.prepare("INSERT INTO orders(id,user_id,customer,date,status,pay_status,subtotal,shipping,total,delivery,billing,bancard_id,discount) VALUES(?,?,?,?,'Pendiente','pendiente',?,?,?,?,?,?,?)")
+      .run(oid, user.id, user.name, Date.now(), subtotal, shipping, total, JSON.stringify(delivery), JSON.stringify(billing), String(n), discount);
     for (const l of lines) {
       db.prepare('UPDATE products SET stock=stock-? WHERE id=? AND stock>=?').run(l.qty, l.p.id, l.qty);
       db.prepare('INSERT INTO order_items(order_id,product_id,name,qty,price) VALUES(?,?,?,?,?)').run(oid, l.p.id, l.p.name, l.qty, l.p.price);
@@ -61,7 +64,7 @@ setInterval(() => {                              // pedidos sin pagar tras 30 mi
   for (const o of db.prepare("SELECT id FROM orders WHERE pay_status='pendiente' AND date<?").all(Date.now() - 18e5)) release(o.id, 'expirado');
 }, 6e4).unref();
 
-const view = (o, withItems = true) => ({ id: o.id, date: o.date, status: o.status, payStatus: o.pay_status, subtotal: o.subtotal, shipping: o.shipping, total: o.total, customer: o.customer,
+const view = (o, withItems = true) => ({ id: o.id, date: o.date, status: o.status, payStatus: o.pay_status, subtotal: o.subtotal, discount: o.discount || 0, shipping: o.shipping, total: o.total, customer: o.customer,
   delivery: JSON.parse(o.delivery), billing: JSON.parse(o.billing), pay: { brand: o.pay_brand, last4: o.pay_last4 },
   items: withItems ? db.prepare('SELECT product_id id,name,qty,price FROM order_items WHERE order_id=?').all(o.id) : undefined });
 
