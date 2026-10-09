@@ -26,7 +26,8 @@
   }
   const S = { user: null, admin: false, providers: {}, payMode: 'off', products: [] };
   const products = () => S.products;
-  const productImg = (p) => p.img || NXs.productArt(p.art || 'phone', p.brand);
+  // en la carpeta de entrega (NX_IMG_DIR) los productos originales usan su archivo imagenes/<id>.png
+  const productImg = (p) => p.img || (window.NX_IMG_DIR && NXs.PRODUCTS.some((x) => x.id === p.id) ? window.NX_IMG_DIR + p.id + '.png' : NXs.productArt(p.art || 'phone', p.brand));
   async function reloadProducts() { S.products = await api('GET', '/api/products'); }
   Object.assign(NXs, { api, products, productImg, reloadProducts });
 
