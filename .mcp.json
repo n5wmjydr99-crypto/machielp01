@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "higgsfield": {
+      "command": "node",
+      "args": ["higgsfield/mcp-server/server.mjs"],
+      "env": {
+        "HF_API_KEY": "${HF_API_KEY}",
+        "HF_API_SECRET": "${HF_API_SECRET}"
+      }
+    }
+  }
+}
