@@ -12,7 +12,8 @@ Genera medios con la API de Higgsfield mediante las herramientas del conector MC
 
 | Herramienta | Para qué |
 |---|---|
-| `higgsfield_generate` | Lanza una generación. `model` = ruta del modelo, `arguments` = JSON del modelo. Espera el resultado por defecto (`wait: true`) y devuelve `output_urls`. |
+| `higgsfield_models` | Catálogo actual de modelos (slug, operación, tipo de salida). Filtra por `output_type`, `operation` o `search`. |
+| `higgsfield_generate` | Lanza una generación. `model` = slug del modelo, `arguments` = JSON del modelo. Espera el resultado por defecto (`wait: true`) y devuelve `output_urls`. |
 | `higgsfield_status` | Estado de un `request_id`: `queued`, `in_progress`, `completed`, `failed`, `nsfw`, `canceled`. |
 | `higgsfield_wait` | Espera a que un `request_id` termine. |
 | `higgsfield_cancel` | Cancela una petición aún en cola. |
@@ -28,7 +29,8 @@ Si las herramientas no aparecen, el conector no está activo: revisa la sección
 2. **Redacta un buen prompt** (ver abajo). Muestra el prompt al usuario en una línea.
 3. **Entradas locales**: si el usuario da una imagen del proyecto (p. ej. `assets/…png`), súbela con
    `higgsfield_upload` y usa el `public_url` devuelto.
-4. **Genera** con `higgsfield_generate`.
+4. **Elige el modelo** con `higgsfield_models` (p. ej. `output_type: "image"`, `operation: "text2image"`),
+   salvo que el usuario ya haya indicado uno. **Genera** con `higgsfield_generate`.
    - Imágenes: `wait: true` (tardan segundos).
    - Videos: suelen tardar minutos. Usa `wait: true` con `timeout_seconds: 900`, o `wait: false` y luego
      `higgsfield_wait` si quieres seguir trabajando mientras tanto.
@@ -37,32 +39,38 @@ Si las herramientas no aparecen, el conector no está activo: revisa la sección
 6. **Estados finales distintos de `completed`**:
    - `nsfw`: el contenido fue bloqueado; reformula el prompt sin el elemento conflictivo.
    - `failed`: muestra el error; revisa parámetros (nombres de campo, valores admitidos) y reintenta una vez.
-   - Error 402 / créditos: avisa al usuario, no reintentes.
+   - `not_enough_credits` / error 402: avisa al usuario de que recargue créditos en Higgsfield Cloud; no reintentes.
+   - `model_not_found`: el slug no existe; consulta `higgsfield_models` y no adivines.
+   - Error de validación (422): lee qué campo falta o sobra, corrige y reintenta (no consume créditos).
 
 ## Modelos
 
-La ruta del modelo forma parte de la URL (`POST https://api.higgsfield.ai/<modelo>`).
-Ejemplo verificado en el SDK oficial:
+El slug del modelo forma parte de la URL (`POST https://api.higgsfield.ai/<slug>`). El catálogo cambia a
+menudo (los ejemplos de los SDK oficiales ya no existen), así que **consúltalo siempre con `higgsfield_models`**
+en lugar de fiarte de la memoria. Algunos slugs vistos en noviembre de 2026:
+
+| Uso | Slug |
+|---|---|
+| Texto → imagen | `bytedance/seedream/v5.0/pro/text-to-image`, `kling-image/v4.0/text-to-image`, `recraft/v4.1/pro/text-to-image`, `higgsfield-ai/soul/v2/standard`, `z-image/turbo` |
+| Editar imagen | `bytedance/seedream/v5.0/pro/edit`, `kling-image/v4.0/edit`, `alibaba/qwen-image-3/edit` |
+| Imagen → video | `kling-video/v3.0/pro/image-to-video`, `bytedance/seedance-2.5/image-to-video`, `wan/v2.7/image-to-video` |
+| Texto → video | `kling-video/v3.0/pro/text-to-video`, `bytedance/seedance-2.5/text-to-video`, `minimax/h3-lite/text-to-video` |
+| Anuncios / marketing | `higgsfield/ads-studio/v1.0`, `marketing-studio/image` |
+
+Ejemplo:
 
 ```json
 {
-  "model": "bytedance/seedream/v4/text-to-image",
-  "arguments": {
-    "prompt": "A serene lake at sunset with mountains",
-    "resolution": "2K",
-    "aspect_ratio": "16:9",
-    "camera_fixed": false
-  }
+  "model": "bytedance/seedream/v5.0/pro/text-to-image",
+  "arguments": { "prompt": "Matte black gaming headphones on a stone pedestal, cyan rim light", "aspect_ratio": "16:9" }
 }
 ```
 
 La salida de imágenes viene en `images[].url`; la de video, en `video.url`. El conector las reúne en `output_urls`.
 
-Para otros modelos (imagen→video, Kling, Soul, etc.) la ruta exacta y sus campos están en el catálogo de
-[Higgsfield Cloud](https://cloud.higgsfield.ai/) y en <https://docs.higgsfield.ai>. **No inventes rutas ni
-campos**: si el usuario no da la ruta y no la conoces con certeza, pídesela (se copia desde la página del
-modelo en Higgsfield Cloud) o consulta la documentación. Campos habituales: `prompt`, `image_url`,
-`aspect_ratio`, `resolution`, `duration`, `seed`.
+La API no publica los campos de entrada de cada modelo. Empieza con `prompt` (+ `image_url` para entradas de
+imagen) y `aspect_ratio`; si la API devuelve un error de validación, ajusta según lo que indique. Otros campos
+habituales: `resolution`, `duration`, `seed`. Detalle por modelo en <https://docs.higgsfield.ai>.
 
 ## Cómo escribir prompts
 

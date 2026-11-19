@@ -46,8 +46,10 @@ async function api(method, path, body) {
   try { data = text ? JSON.parse(text) : {}; } catch { data = { raw: text }; }
   if (!res.ok) {
     const detail = data.detail ?? data.message ?? data.error ?? text;
-    const hint = res.status === 401 || res.status === 403 ? ' (revisa la clave)'
-      : res.status === 402 ? ' (créditos insuficientes)' : '';
+    const d = String(typeof detail === 'string' ? detail : JSON.stringify(detail));
+    const hint = res.status === 402 || /credit/i.test(d) ? ' (créditos insuficientes: recarga en cloud.higgsfield.ai)'
+      : /model_not_found/.test(d) ? ' (ruta de modelo inexistente: consulta higgsfield_models)'
+      : res.status === 401 || res.status === 403 ? ' (revisa la clave)' : '';
     throw new Error(`Higgsfield ${method} ${url} → ${res.status}${hint}: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
   }
   return data;
@@ -83,15 +85,40 @@ function summarize(result) {
 
 // ---------- herramientas ----------
 const tools = {
-  higgsfield_generate: {
+  higgsfield_models: {
     description:
-      'Lanza una generación en Higgsfield (imagen, video, audio…). "model" es la ruta del modelo, p. ej. ' +
-      '"bytedance/seedream/v4/text-to-image"; "arguments" es el JSON de entrada del modelo (prompt, aspect_ratio, ' +
-      'resolution, image_url…). Por defecto espera el resultado y devuelve output_urls.',
+      'Lista el catálogo actual de modelos de Higgsfield (GET /models): slug (ruta para higgsfield_generate), título, ' +
+      'descripción, tipo de operación (text2image, image_edit, image2video, text2video, video2video…) y tipo de salida. ' +
+      'Úsalo antes de generar para elegir una ruta válida.',
     inputSchema: {
       type: 'object',
       properties: {
-        model: { type: 'string', description: 'Ruta del modelo en la API, p. ej. bytedance/seedream/v4/text-to-image' },
+        output_type: { type: 'string', enum: ['image', 'video'], description: 'Filtra por tipo de salida' },
+        operation: { type: 'string', description: 'Filtra por operación: text2image, image_edit, image2video, text2video, video2video, character' },
+        search: { type: 'string', description: 'Texto a buscar en slug, título o descripción (p. ej. "kling", "seedream")' },
+      },
+    },
+    async run({ output_type, operation, search } = {}) {
+      const { items = [] } = await api('GET', '/models');
+      const q = search?.toLowerCase();
+      const list = items
+        .filter((m) => !output_type || m.output_type === output_type)
+        .filter((m) => !operation || (m.operation_type || []).includes(operation))
+        .filter((m) => !q || `${m.slug} ${m.title} ${m.description}`.toLowerCase().includes(q))
+        .map(({ slug, title, description, operation_type, output_type: out }) => ({ slug, title, description, operation_type, output_type: out }));
+      return { total: list.length, models: list };
+    },
+  },
+
+  higgsfield_generate: {
+    description:
+      'Lanza una generación en Higgsfield (imagen, video…). "model" es el slug del modelo (consúltalo con higgsfield_models), ' +
+      'p. ej. "bytedance/seedream/v5.0/pro/text-to-image"; "arguments" es el JSON de entrada del modelo (prompt, ' +
+      'aspect_ratio, resolution, image_url…). Por defecto espera el resultado y devuelve output_urls.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        model: { type: 'string', description: 'Slug del modelo, p. ej. bytedance/seedream/v5.0/pro/text-to-image (ver higgsfield_models)' },
         arguments: { type: 'object', description: 'Parámetros del modelo (prompt, aspect_ratio, resolution, image_url, duration…)' },
         wait: { type: 'boolean', description: 'Esperar a que termine (por defecto true). false = devolver request_id al instante.' },
         timeout_seconds: { type: 'number', description: 'Máximo de espera si wait=true (por defecto 600).' },
