@@ -77,7 +77,12 @@ def transcribir(ruta):
     if _whisper is None:
         from faster_whisper import WhisperModel
         _whisper = WhisperModel(str(WHISPER), device="cpu", compute_type="int8")
-    segs, _ = _whisper.transcribe(str(ruta), language="es", beam_size=5)
+    import librosa
+    audio, sr = sf.read(str(ruta), dtype="float32", always_2d=False)
+    if audio.ndim > 1:
+        audio = audio.mean(axis=1)
+    audio = librosa.resample(audio, orig_sr=sr, target_sr=16000)  # Whisper espera 16 kHz en memoria
+    segs, _ = _whisper.transcribe(audio, language="es", beam_size=5)
     return " ".join(s.text.strip() for s in segs)
 
 
@@ -97,10 +102,14 @@ def disenar(tomas=3):
     for nombre, p in PERSONAJES.items():
         candidatas = []
         for k in range(tomas):
-            torch.manual_seed(1000 + k)
-            wavs, sr = modelo.generate_voice_design(text=p["texto_referencia"], instruct=p["descripcion"], language=IDIOMA)
             ruta = VOCES / "candidatas" / f"{nombre}_{k}.wav"
-            sf.write(ruta, wavs[0], sr)
+            if ruta.exists():  # misma semilla, misma toma: no hace falta generarla de nuevo
+                wav, sr = sf.read(str(ruta), dtype="float32")
+                wavs = [wav]
+            else:
+                torch.manual_seed(1000 + k)
+                wavs, sr = modelo.generate_voice_design(text=p["texto_referencia"], instruct=p["descripcion"], language=IDIOMA)
+                sf.write(ruta, wavs[0], sr)
             oido = transcribir(ruta)
             error = wer(p["texto_referencia"], oido)
             f0 = tono_mediano(wavs[0], sr)
