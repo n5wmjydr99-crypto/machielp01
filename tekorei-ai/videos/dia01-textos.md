@@ -93,4 +93,4 @@ En los Shorts los links no se pueden tocar, pero la gente puede copiarlos o busc
 ## Notas
 
 - La música es original (generada por código): no hay problemas de derechos. Si quieres usar un sonido en tendencia, agrégalo en la app a volumen bajo (5–10 %) para que no tape las voces.
-- Las voces son sintéticas y los personajes son animados; no hace falta etiqueta de “contenido realista hecho con IA”.
+- Las voces de Nico y Kori son inventadas con IA (Qwen3-TTS, licencia Apache-2.0): no imitan a ninguna persona real y se pueden monetizar. Los personajes son animados, así que YouTube no exige la etiqueta de “contenido alterado o sintético”. Por transparencia, conviene agregar al final de la descripción: “Voces generadas con IA”.
