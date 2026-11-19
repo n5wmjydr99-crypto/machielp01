@@ -16,6 +16,8 @@ Página del plan: https://claude.ai/artifact/9gGubRMeXgSxBQzxpjL6cD
 | `chatplace/automatizaciones.json` | 16 flujos para `automations_create_from_schema` (15 palabras + AVISAME). Se crean pausados. |
 | `chatplace/respuestas-comentarios.json` | Respuestas públicas para `comments_create`. |
 | `chatplace/agente-ia.json` | Reglas, ajustes y base de conocimiento del agente de IA. |
+| `video/` | Fábrica de videos: escena 3D de Nico y Kori, voces, música y render (ver `video/README.md`). |
+| `videos/` | Videos terminados, portadas y textos listos para pegar en cada red. |
 
 Si cambias algo en `contenido.json`, corre `python3 generar.py`: revisa que ningún DM pase de
 1.000 caracteres, que los botones tengan hasta 20 caracteres y que ninguna palabra clave esté

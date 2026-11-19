@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>tekorei.ai · render</title>
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/900.css">
+<link rel="stylesheet" href="node_modules/@fontsource/jetbrains-mono/400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/jetbrains-mono/700.css">
+<style>
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0d1219; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  #gl { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+  .layer { position: absolute; left: 0; right: 0; pointer-events: none; }
+  #topshade { top: 0; height: 640px; background: linear-gradient(rgba(4, 7, 11, .62), rgba(4, 7, 11, 0)); }
+  #vig { inset: 0; background: radial-gradient(ellipse 80% 70% at 50% 46%, rgba(0,0,0,0) 58%, rgba(0,0,0,.5) 100%); }
+  #grain { inset: -64px; opacity: .07; mix-blend-mode: overlay; }
+
+  #hook { top: 232px; transform-origin: 50% 0; text-align: center; font: 900 88px/1.03 Montserrat, "Noto Color Emoji", sans-serif; color: #fff; letter-spacing: -1.5px; }
+  #hook em { font-style: normal; color: #ffd23f; }
+
+  #subs { top: 1328px; text-align: center; }
+  #pill { display: inline-block; max-width: 900px; padding: 12px 30px 18px; border-radius: 28px; background: rgba(7, 11, 17, .62);
+          font: 800 72px/1.12 Montserrat, "Noto Color Emoji", sans-serif; color: #fff; }
+  #pill:empty { display: none; }
+  .w { display: inline-block; margin: 0 .13em; transform-origin: 50% 75%; }
+  .w.hi { color: #ffd23f; }
+
+  #insert { top: 560px; left: 64px; right: 64px; }
+  .win { position: absolute; left: 0; right: 0; top: 0; background: #0e161f; border: 3px solid #253a4f; border-radius: 30px;
+         box-shadow: 0 40px 90px rgba(0,0,0,.6); overflow: hidden; transform-origin: 50% 40%; }
+  .bar { height: 70px; background: #162433; display: flex; align-items: center; gap: 14px; padding: 0 28px;
+         font: 700 29px "JetBrains Mono", monospace; color: #a8bccd; }
+  .bar i { width: 20px; height: 20px; border-radius: 50%; background: #ff5f57; flex: none; }
+  .bar i:nth-child(2) { background: #febc2e; } .bar i:nth-child(3) { background: #28c840; margin-right: 10px; }
+  .body { padding: 36px 44px 44px; font: 400 39px/1.42 "JetBrains Mono", "Noto Color Emoji", monospace; color: #d6e4ef; }
+  .meta { color: #8fe9f3; font-size: 31px; margin-bottom: 24px; }
+  .meta b { color: #ffd23f; font-weight: 700; }
+  .q { font-weight: 700; color: #fff; }
+  .opts { display: flex; gap: 38px; margin: 26px 0 22px; color: #bcd0de; }
+  .opts span { padding: 0 10px; border-radius: 10px; }
+  .opts span.sel { background: #ffd23f; color: #0e161f; font-weight: 700; }
+  .prompt { color: #7ff3ff; min-height: 56px; }
+  .caret { display: inline-block; width: 22px; height: 44px; background: #7ff3ff; vertical-align: -8px; margin-left: 4px; }
+  .ok { color: #5fe394; font-weight: 700; margin-top: 10px; }
+  .tag { font-weight: 700; color: #5fe394; font-size: 33px; margin-bottom: 20px; }
+  .txt { color: #fff; font-size: 41px; }
+  .txt b { color: #ffd23f; }
+  .chip { display: inline-block; margin-top: 30px; padding: 12px 24px; border-radius: 18px; background: #1b2a3a; border: 3px solid #36506a;
+          color: #e6f2fb; font-size: 33px; transform-origin: 30% 50%; }
+  .chip.on { background: #ffd23f; color: #0e161f; border-color: #ffd23f; box-shadow: 0 0 0 10px rgba(255, 210, 63, .22); font-weight: 700; }
+  .warn { margin-top: 28px; color: #ffb36b; font-size: 31px; }
+  #mini { position: absolute; top: -86px; right: 36px; width: 170px; height: 150px; }
+
+  #cta { top: 1090px; text-align: center; }
+  .c1 { font: 900 66px Montserrat, "Noto Color Emoji", sans-serif; color: #fff; }
+  .bubble { display: inline-block; position: relative; margin-top: 18px; padding: 22px 58px 28px; background: #fff; border-radius: 44px;
+            box-shadow: 0 16px 0 rgba(0,0,0,.28); }
+  .bubble::after { content: ""; position: absolute; right: 74px; bottom: -36px; border-style: solid; border-width: 38px 0 0 44px;
+                   border-color: #fff transparent transparent transparent; }
+  #ctaWord { display: inline-block; font: 900 146px/1 Montserrat, sans-serif; color: #0e1620; letter-spacing: 2px; }
+  .c2 { margin-top: 52px; font: 800 54px Montserrat, "Noto Color Emoji", sans-serif; color: #ffd23f; }
+  .handle { margin-top: 18px; font: 800 40px Montserrat, sans-serif; color: #bff6fb; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div class="layer" id="topshade"></div>
+  <div class="layer" id="vig"></div>
+
+  <div class="layer" id="insert">
+    <div class="win" id="quiz">
+      <div class="bar"><i></i><i></i><i></i><span>Exam Cram Coach · Capítulo 1</span></div>
+      <div class="body">
+        <div class="meta">📍 Pregunta 3 de 12 · <b>de tu Tarea 2</b></div>
+        <div class="q">Si A y B son independientes,<br>P(A) = 0,3 y P(B) = 0,5.<br>¿Cuánto vale P(A ∩ B)?</div>
+        <div class="opts"><span>a) 0,8</span><span id="optB">b) 0,15</span><span>c) 0,2</span></div>
+        <div class="prompt">&gt; <span id="qtyped"></span><span class="caret" id="qcaret"></span></div>
+        <div class="ok" id="qok">✅ ¡Correcto! 0,3 × 0,5 = 0,15</div>
+      </div>
+    </div>
+    <div class="win" id="cite">
+      <div class="bar"><i></i><i></i><i></i><span>Exam Cram Coach · Clase 1</span></div>
+      <div class="body">
+        <div class="tag">🟢 De tus apuntes</div>
+        <div class="txt">Dos eventos A y B son independientes si<br><b>P(A ∩ B) = P(A) · P(B)</b></div>
+        <div class="chip" id="chip">📄 apuntes_cap1.pdf · pág. 12</div>
+        <div class="warn">⚠️ Si algo no está en tus materiales, te avisa.</div>
+      </div>
+    </div>
+    <canvas id="mini" width="340" height="300"></canvas>
+  </div>
+
+  <div class="layer" id="hook"></div>
+  <div class="layer" id="subs"><span id="pill"></span></div>
+
+  <div class="layer" id="cta">
+    <div class="c1">Comenta 👇</div>
+    <div class="bubble"><span id="ctaWord">EXAMEN</span></div>
+    <div class="c2" id="ctaSub"></div>
+    <div class="handle">@tekorei.ai</div>
+  </div>
+
+  <div class="layer" id="grain"></div>
+</div>
+<script type="module" src="escena.js"></script>
+</body>
+</html>

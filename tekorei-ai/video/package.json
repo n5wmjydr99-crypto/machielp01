@@ -1,0 +1,10 @@
+{
+  "name": "tekorei-video",
+  "private": true,
+  "description": "Render de los videos de tekorei.ai (Three.js + Playwright + ffmpeg)",
+  "dependencies": {
+    "three": "0.160.0",
+    "@fontsource/montserrat": "5.0.19",
+    "@fontsource/jetbrains-mono": "5.0.20"
+  }
+}

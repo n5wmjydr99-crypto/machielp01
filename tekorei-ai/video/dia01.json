@@ -1,0 +1,135 @@
+{
+  "dia": 1,
+  "palabra": "EXAMEN",
+  "gancho": [
+    "Examen MAÑANA",
+    "y no abrí ni un PDF"
+  ],
+  "gancho_resaltar": [
+    "MAÑANA"
+  ],
+  "lineas": [
+    {
+      "who": "nico",
+      "shot": "WIDE",
+      "expr": "tired",
+      "tts": "Kori... el examen es mañana, y no abrí ni un pe de efe.",
+      "cap": "Kori… el examen es mañana y no abrí ni un PDF.",
+      "hi": [
+        "mañana",
+        "pdf"
+      ]
+    },
+    {
+      "who": "kori",
+      "shot": "CU_KORI",
+      "expr": "determined",
+      "tts": "Pásame tus apuntes, tus tareas y los exámenes viejos.",
+      "cap": "Pásame tus apuntes, tus tareas y los exámenes viejos.",
+      "hi": [
+        "apuntes",
+        "tareas",
+        "exámenes"
+      ]
+    },
+    {
+      "who": "nico",
+      "shot": "MS_NICO",
+      "expr": "hopeful",
+      "tts": "¿Me vas a hacer un resumen?",
+      "cap": "¿Me vas a hacer un resumen?",
+      "hi": [
+        "resumen"
+      ]
+    },
+    {
+      "who": "kori",
+      "shot": "CU_KORI",
+      "expr": "happy",
+      "tts": "Mejor, te doy clase desde el capítulo uno con tus apuntes.",
+      "cap": "Mejor. Te doy clase desde el capítulo 1 con TUS apuntes.",
+      "hi": [
+        "mejor",
+        "tus"
+      ]
+    },
+    {
+      "who": "kori",
+      "shot": "INSERT_QUIZ",
+      "expr": "happy",
+      "tts": "Y te tomo examen con las preguntas de tus tareas.",
+      "cap": "Y te tomo examen con las preguntas de tus tareas.",
+      "hi": [
+        "examen",
+        "tareas"
+      ]
+    },
+    {
+      "who": "nico",
+      "shot": "CU_NICO",
+      "expr": "suspicious",
+      "tts": "¿Y si inventa cosas?",
+      "cap": "¿Y si inventa cosas?",
+      "hi": [
+        "inventa"
+      ]
+    },
+    {
+      "who": "kori",
+      "shot": "INSERT_CITE",
+      "expr": "determined",
+      "tts": "Cada cosa que enseña te dice de qué página salió.",
+      "cap": "Cada cosa que enseña te dice de qué página salió.",
+      "hi": [
+        "página"
+      ]
+    },
+    {
+      "who": "nico",
+      "shot": "MS_NICO",
+      "expr": "curious",
+      "tts": "¿Y cuánto cuesta?",
+      "cap": "¿Y cuánto cuesta?",
+      "hi": [
+        "cuesta"
+      ]
+    },
+    {
+      "who": "kori",
+      "shot": "WIDE_KORI",
+      "expr": "wink",
+      "tts": "Cero, es código abierto.",
+      "cap": "Cero. Es código abierto.",
+      "hi": [
+        "cero",
+        "código",
+        "abierto"
+      ]
+    }
+  ],
+  "cierre": {
+    "ig": {
+      "who": "kori",
+      "shot": "CTA",
+      "expr": "excited",
+      "tts": "Comenta examen y te mando cómo instalarlo.",
+      "cap": "Comenta EXAMEN y te mando cómo instalarlo.",
+      "hi": [
+        "examen"
+      ],
+      "tarjeta": "y te lo mando por DM"
+    },
+    "tt": {
+      "who": "kori",
+      "shot": "CTA",
+      "expr": "excited",
+      "tts": "Comenta examen y te dejo los pasos en el comentario fijado.",
+      "cap": "Comenta EXAMEN y te dejo los pasos en el comentario fijado.",
+      "hi": [
+        "examen",
+        "fijado"
+      ],
+      "tarjeta": "pasos en el comentario fijado"
+    }
+  }
+}
