@@ -572,6 +572,8 @@ function actualizar(t) {
   camera.updateProjectionMatrix();
   camera.lookAt(P.mira);
 
+  despertador.visible = plano.type !== 'CTA'; // en el cierre quedaría detrás del título
+
   // Nico
   const en = estadoNico(t);
   const mn = mouth('nico', t);

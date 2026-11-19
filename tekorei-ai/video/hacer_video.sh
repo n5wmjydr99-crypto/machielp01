@@ -35,7 +35,8 @@ import json,sys; m=json.loads(sys.stdin.read())
 print(f\"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true\")" <<< "$MED")
   NOMBRE=$([ "$V" = ig ] && echo "instagram" || echo "tiktok-youtube")
   ffmpeg -y -hide_banner -loglevel error -framerate 30 -i "build/seq_$V/f_%05d.jpg" -i "build/audio_$V.wav" \
-    -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -profile:v high -level 4.1 -g 60 \
+    -vf "hqdn3d=1.5:1.5:6:6" -c:v libx264 -preset slow -crf 19 -maxrate 9M -bufsize 18M \
+    -pix_fmt yuv420p -profile:v high -level 4.1 -g 60 \
     -c:a aac -b:a 192k -ar 48000 -af "$FILTRO" -movflags +faststart -shortest \
     "$SALIDA/tekorei-dia$DIA-$NOMBRE.mp4"
   echo "listo: $SALIDA/tekorei-dia$DIA-$NOMBRE.mp4"
