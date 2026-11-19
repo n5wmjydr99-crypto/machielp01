@@ -1,0 +1,568 @@
+<title>Plan tekorei.ai</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: una columna de lectura (máx 960px). El calendario es una tira de 15 días; debajo, la ficha del día elegido. */
+:root {
+  --bg: #f3f7f9;
+  --surface: #ffffff;
+  --sunken: #e9f0f4;
+  --ink: #0f1d2b;
+  --muted: #566878;
+  --line: #d6e0e8;
+  --kori: #0a8597;
+  --kori-soft: #dcf2f5;
+  --nico: #d45a14;
+  --nico-soft: #fce8dc;
+  --ok: #1d8a4e;
+  --warn: #a8660b;
+  --warn-soft: #fbf0dc;
+  --code-bg: #0f1d2b;
+  --code-fg: #d8f3f6;
+  --reel-bg1: #26313d;
+  --reel-bg2: #0d141b;
+  --reel-fg: #ffffff;
+  --reel-hi: #ffd23f;
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b131a; --surface: #121d27; --sunken: #0f1922; --ink: #e5eef4; --muted: #93a5b4; --line: #22323f;
+    --kori: #3ec8d8; --kori-soft: #0f2e35; --nico: #ff8c4a; --nico-soft: #3a2215; --ok: #4cc98a; --warn: #f0b04a; --warn-soft: #33260f;
+    --code-bg: #071017; --code-fg: #c9eef2; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b131a; --surface: #121d27; --sunken: #0f1922; --ink: #e5eef4; --muted: #93a5b4; --line: #22323f;
+  --kori: #3ec8d8; --kori-soft: #0f2e35; --nico: #ff8c4a; --nico-soft: #3a2215; --ok: #4cc98a; --warn: #f0b04a; --warn-soft: #33260f;
+  --code-bg: #071017; --code-fg: #c9eef2; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+a { color: var(--kori); }
+code, .mono { font-family: var(--f-mono); font-size: .86em; }
+.muted { color: var(--muted); }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+section { display: grid; gap: 16px; scroll-margin-top: 64px; }
+.section-head { display: grid; gap: 6px; }
+.section-head p { max-width: 65ch; color: var(--muted); }
+
+/* Encabezado */
+header.top { display: grid; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.kori-mark { width: 44px; height: 44px; flex: none; }
+.brand h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); letter-spacing: -.02em; }
+.brand h1 span { color: var(--kori); }
+.lede { max-width: 62ch; font-size: 1.02rem; }
+.status { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: .8rem; font-weight: 500; border: 1px solid var(--line); background: var(--surface); }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.pill.ok .dot { background: var(--ok); }
+.pill.warn { background: var(--warn-soft); border-color: transparent; color: var(--warn); }
+.pill.warn .dot { background: var(--warn); }
+nav.jump { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); margin-inline: -4px; padding: 8px 4px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); }
+nav.jump::-webkit-scrollbar { display: none; }
+nav.jump a { flex: none; text-decoration: none; color: var(--ink); font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: 8px; }
+nav.jump a:hover, nav.jump a:focus-visible { background: var(--sunken); outline: none; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+
+/* Calendario */
+.days { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.day { appearance: none; text-align: left; font: inherit; color: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 8px 10px; display: grid; gap: 2px; min-width: 0; position: relative; }
+.day .n { font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
+.day .kw { font-family: var(--f-display); font-weight: 700; font-size: .95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.day .t { font-size: .74rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.day[aria-pressed="true"] { border-color: var(--kori); box-shadow: inset 0 0 0 1px var(--kori); background: var(--kori-soft); }
+.day.done::after { content: "✓"; position: absolute; top: 6px; right: 8px; font-size: .8rem; font-weight: 700; color: var(--ok); }
+.day:focus-visible, button:focus-visible { outline: 2px solid var(--kori); outline-offset: 2px; }
+@media (max-width: 560px) { .days { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.detail { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.detail-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.detail-head h3 { font-size: 1.35rem; }
+.repos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.repo { display: inline-flex; gap: 8px; align-items: baseline; text-decoration: none; color: var(--ink); background: var(--sunken); border-radius: 8px; padding: 4px 10px; font-family: var(--f-mono); font-size: .8rem; max-width: 100%; overflow-wrap: anywhere; }
+.repo b { color: var(--warn); font-weight: 600; white-space: nowrap; }
+.toggle { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; cursor: pointer; user-select: none; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; }
+.toggle input { accent-color: var(--ok); width: 16px; height: 16px; }
+
+.split { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 680px) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+/* Vista previa tipo reel: un solo look a propósito, igual en ambos temas */
+.reel { width: 100%; max-width: 200px; aspect-ratio: 9 / 16; border-radius: 18px; background: linear-gradient(170deg, var(--reel-bg1), var(--reel-bg2)); color: var(--reel-fg); padding: 16px 12px; display: grid; grid-template-rows: auto 1fr auto auto; gap: 8px; overflow: hidden; position: relative; justify-self: center; }
+.reel .hook { font-family: var(--f-display); font-weight: 700; font-size: .98rem; text-align: center; line-height: 1.15; text-shadow: 0 2px 0 rgba(0,0,0,.45); }
+.reel .hook em { font-style: normal; color: var(--reel-hi); }
+.reel .stage { display: grid; place-items: end center; }
+.reel .sub { justify-self: center; background: rgba(0,0,0,.55); padding: 3px 10px; border-radius: 6px; font-family: var(--f-display); font-weight: 700; font-size: .85rem; }
+.reel .sub em { font-style: normal; color: var(--reel-hi); }
+.reel .handle { font-size: .65rem; opacity: .8; }
+
+.block { display: grid; gap: 8px; }
+.block-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.btn { appearance: none; font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 5px 10px; white-space: nowrap; }
+.btn:hover { border-color: var(--kori); color: var(--kori); }
+.btn.copied { border-color: var(--ok); color: var(--ok); }
+
+.script { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.line { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 8px 10px; border-radius: 10px; background: var(--sunken); }
+.who { font-family: var(--f-mono); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: 3px 0; text-align: center; border-radius: 6px; }
+.who.kori { background: var(--kori-soft); color: var(--kori); }
+.who.nico { background: var(--nico-soft); color: var(--nico); }
+.line .say { font-size: .95rem; }
+.line .shot { font-size: .76rem; color: var(--muted); margin-top: 2px; }
+@media (max-width: 480px) { .line { grid-template-columns: 46px minmax(0, 1fr); } .line .btn { grid-column: 2; justify-self: start; } }
+
+.cta-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 560px) { .cta-row { grid-template-columns: minmax(0, 1fr); } }
+.callout { border-radius: 10px; padding: 10px 12px; background: var(--nico-soft); display: grid; gap: 4px; min-width: 0; }
+.callout.alt { background: var(--kori-soft); }
+.callout strong { font-family: var(--f-display); font-size: 1.05rem; }
+.kwtag { font-family: var(--f-mono); font-weight: 600; color: var(--nico); }
+
+.dm-wrap { display: grid; gap: 6px; max-width: 520px; }
+.dm { background: var(--sunken); border-radius: 18px 18px 18px 4px; padding: 12px 14px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .9rem; }
+.dm-btn { justify-self: start; border: 1px solid var(--line); border-radius: 10px; padding: 6px 14px; font-weight: 600; font-size: .85rem; color: var(--kori); background: var(--surface); }
+.replies { display: flex; flex-wrap: wrap; gap: 6px; }
+.reply { font-size: .82rem; background: var(--sunken); border-radius: 999px; padding: 4px 12px; }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+.tab { appearance: none; font: inherit; font-size: .85rem; font-weight: 600; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--muted); padding: 6px 10px; cursor: pointer; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--kori); }
+.textbox { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--sunken); border-radius: 10px; padding: 10px 12px; font-size: .88rem; }
+.note { font-size: .84rem; color: var(--warn); background: var(--warn-soft); border-radius: 10px; padding: 8px 12px; }
+
+/* Fórmula */
+.timeline { display: grid; grid-template-columns: 2fr 6fr 12fr 6fr 4fr; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.timeline div { padding: 10px 8px; font-size: .78rem; min-width: 0; display: grid; gap: 2px; border-right: 1px solid var(--line); background: var(--surface); }
+.timeline div:last-child { border-right: 0; }
+.timeline b { font-family: var(--f-mono); font-size: .7rem; color: var(--muted); font-weight: 600; }
+.timeline .hot { background: var(--nico-soft); }
+.timeline .cool { background: var(--kori-soft); }
+@media (max-width: 560px) { .timeline { grid-template-columns: minmax(0, 1fr); } .timeline div { border-right: 0; border-bottom: 1px solid var(--line); } .timeline div:last-child { border-bottom: 0; } }
+.rules { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; max-width: 70ch; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.stat .v { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.stat .k { font-size: .78rem; color: var(--muted); }
+@media (max-width: 560px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Tarjetas genéricas */
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 720px) { .grid3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card ul, .card ol { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.card .tag { justify-self: start; font-family: var(--f-mono); font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 6px; background: var(--sunken); color: var(--muted); }
+.card .tag.rec { background: var(--kori-soft); color: var(--kori); }
+.char-head { display: flex; gap: 10px; align-items: center; }
+.swatch { width: 34px; height: 34px; border-radius: 10px; flex: none; }
+pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-radius: 10px; padding: 12px 14px; font-family: var(--f-mono); font-size: .78rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Flujo de automatización */
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; align-items: stretch; }
+.flow .step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: .82rem; display: grid; gap: 4px; align-content: start; position: relative; min-width: 0; }
+.flow .step b { font-family: var(--f-display); font-size: .9rem; }
+.flow .step .who { justify-self: start; padding: 2px 8px; }
+@media (max-width: 720px) { .flow { grid-template-columns: minmax(0, 1fr); } }
+.kwtable { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.kwtable th, .kwtable td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.kwtable th { font-family: var(--f-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+.kwtable td:first-child { font-family: var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.table-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checklist input { margin-top: 4px; accent-color: var(--ok); width: 16px; height: 16px; flex: none; }
+
+.money { display: grid; gap: 10px; }
+.money .row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.money .row h3 { font-size: .98rem; }
+.money .when { font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
+@media (max-width: 560px) { .money .row { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+.sources { font-size: .82rem; color: var(--muted); display: grid; gap: 4px; }
+.sources a { overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: no-preference) { .day, .btn, .tab { transition: background .15s, border-color .15s, color .15s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg class="kori-mark" viewBox="0 0 44 44" aria-hidden="true">
+        <line x1="22" y1="3" x2="22" y2="10" stroke="var(--muted)" stroke-width="2"/>
+        <circle cx="22" cy="4" r="3" fill="var(--nico)"/>
+        <rect x="5" y="10" width="34" height="30" rx="9" fill="var(--kori-soft)" stroke="var(--kori)" stroke-width="2"/>
+        <rect x="10" y="15" width="24" height="18" rx="5" fill="var(--code-bg)"/>
+        <rect x="14" y="20" width="4" height="6" rx="1" fill="#ffffff"/>
+        <rect x="26" y="20" width="4" height="6" rx="1" fill="#ffffff"/>
+      </svg>
+      <h1>tekorei<span>.ai</span></h1>
+    </div>
+    <p class="lede">Temporada 1: 15 videos verticales sobre repos, skills y plugins de IA. Cada video pide comentar una palabra distinta; esa palabra dispara un DM automático con el recurso, y un agente de IA responde el resto de los comentarios.</p>
+    <div class="status">
+      <span class="pill ok"><span class="dot"></span>16 repos verificados el 19/11/2026</span>
+      <span class="pill ok"><span class="dot"></span>16 automatizaciones listas para cargar</span>
+      <span class="pill warn"><span class="dot"></span>Falta conectar @tekorei.ai en ChatPlace</span>
+    </div>
+  </header>
+
+  <nav class="jump" aria-label="Secciones">
+    <a href="#calendario">Calendario</a>
+    <a href="#formula">Fórmula</a>
+    <a href="#personajes">Personajes</a>
+    <a href="#produccion">Producción</a>
+    <a href="#rutina">Rutina</a>
+    <a href="#automatizacion">Automatización</a>
+    <a href="#plata">Ganar plata</a>
+  </nav>
+
+  <section id="calendario" aria-labelledby="h-cal">
+    <div class="section-head">
+      <span class="eyebrow">Un video por día · 19:00 en Reels y Shorts</span>
+      <h2 id="h-cal">Calendario de 15 días</h2>
+      <p>Toca un día para ver el guion, los planos, el DM y los textos para publicar. Marca “Publicado” cuando lo subas; queda guardado en este navegador.</p>
+    </div>
+    <div class="days" id="days" role="group" aria-label="Días"></div>
+    <article class="detail" id="detail" aria-live="polite"></article>
+  </section>
+
+  <section id="formula" aria-labelledby="h-form">
+    <div class="section-head">
+      <span class="eyebrow">Lo que hace funcionar el video de referencia</span>
+      <h2 id="h-form">La fórmula del video</h2>
+      <p>El reel que mandaste tenía estos números en pantalla. Fíjate en los comentarios: casi la mitad que los likes. Eso pasa cuando el video pide comentar una palabra para recibir algo.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">26,6 mil</div><div class="k">me gusta</div></div>
+      <div class="stat"><div class="v">11,5 mil</div><div class="k">comentarios</div></div>
+      <div class="stat"><div class="v">30,2 mil</div><div class="k">guardados</div></div>
+      <div class="stat"><div class="v">9.012</div><div class="k">compartidos</div></div>
+    </div>
+    <div class="timeline" aria-label="Estructura de 30 segundos">
+      <div class="hot"><b>0–2 s</b>Gancho</div>
+      <div><b>2–8 s</b>Problema real y urgente</div>
+      <div class="cool"><b>8–20 s</b>Kori revela la herramienta</div>
+      <div><b>20–26 s</b>Prueba en pantalla</div>
+      <div class="hot"><b>26–30 s</b>“Comenta PALABRA”</div>
+    </div>
+    <ol class="rules">
+      <li><strong>Texto fijo arriba, todo el video.</strong> Dos líneas como máximo, con la palabra fuerte en amarillo. Es lo primero que se lee aunque el video esté en silencio.</li>
+      <li><strong>Arranca con un problema, no con un saludo.</strong> “El examen es mañana”, “se me acabaron los mensajes”. Nada de “hoy les traigo”.</li>
+      <li><strong>Diálogo entre dos personajes.</strong> Nico pregunta lo que pensaría tu audiencia; Kori responde. Es más fácil de seguir que un narrador solo.</li>
+      <li><strong>Subtítulos palabra por palabra</strong>, en el centro-abajo, con la palabra clave resaltada.</li>
+      <li><strong>Corta cada 1–2 segundos</strong> entre plano medio y primer plano. Cada línea del guion es un plano.</li>
+      <li><strong>Muestra 2–3 segundos de pantalla real</strong> (el repo en GitHub o la terminal). Eso le da credibilidad.</li>
+      <li><strong>La palabra clave aparece tres veces:</strong> dicha por Kori, escrita en pantalla y en el texto de la publicación.</li>
+      <li><strong>Termina en una pregunta</strong> (está en cada día) para que la gente comente otras cosas además de la palabra. El agente responde esos comentarios.</li>
+    </ol>
+  </section>
+
+  <section id="personajes" aria-labelledby="h-pers">
+    <div class="section-head">
+      <span class="eyebrow">Personajes propios de tekorei.ai</span>
+      <h2 id="h-pers">Nico y Kori</h2>
+      <p>Usa el mismo estilo de video que te gustó (3D low-poly con diálogo), pero con personajes propios. Así no se confunde tu cuenta con la que copiaste y Kori se vuelve tu marca.</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <div class="char-head"><span class="swatch" style="background: var(--nico)"></span><h3>Nico</h3></div>
+        <p id="nico-desc"></p>
+      </div>
+      <div class="card">
+        <div class="char-head"><span class="swatch" style="background: var(--kori)"></span><h3>Kori</h3></div>
+        <p id="kori-desc"></p>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-head"><h3>Prompt base de personajes (en inglés, funciona mejor en las IA de video)</h3><button class="btn" type="button" id="copy-base">Copiar</button></div>
+      <pre class="code" id="base-prompt"></pre>
+      <p class="muted">Genera primero una imagen de referencia de cada personaje y reúsala en todos los planos. En cada línea del guion, el botón “Copiar prompt” arma el prompt completo: personajes + escena del día + plano + diálogo.</p>
+    </div>
+  </section>
+
+  <section id="produccion" aria-labelledby="h-prod">
+    <div class="section-head">
+      <span class="eyebrow">Cómo fabricar cada video</span>
+      <h2 id="h-prod">Producción</h2>
+      <p>Tres caminos. Empieza por el primero; cuando tengas saldo en ChatPlace se puede generar desde aquí.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="tag rec">Para empezar</span>
+        <h3>Imagen a video</h3>
+        <ol>
+          <li>Crea las imágenes de referencia de Nico y Kori con tu IA de imágenes.</li>
+          <li>Por cada línea del guion, genera un clip de 2–4 s en tu IA de video con “Copiar prompt”.</li>
+          <li>Voces: graba tú las dos o usa voz sintética (Edge TTS es gratis).</li>
+          <li>Arma en CapCut: subtítulos automáticos, texto fijo arriba y la palabra clave al final.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <span class="tag">Desde Claude</span>
+        <h3>Virale en ChatPlace</h3>
+        <ol>
+          <li>Tu conector de Instagram incluye generación de video (Virale).</li>
+          <li>Hoy el saldo de IA está en 0, así que no se puede generar nada.</li>
+          <li>Con saldo, pídeme “genera el día 1” y lo armo con estos guiones.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <span class="tag">Más adelante</span>
+        <h3>Plantilla con Remotion</h3>
+        <ol>
+          <li>El día 10 presentas Remotion; también te sirve a ti.</li>
+          <li>Una plantilla con tu texto fijo, subtítulos y cierre de marca te ahorra la edición repetida.</li>
+          <li>Te la puedo programar cuando quieras.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="rutina" aria-labelledby="h-rut">
+    <div class="section-head">
+      <span class="eyebrow">Antes de empezar y cada día</span>
+      <h2 id="h-rut">Rutina</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Día 0, antes del primer video</h3>
+        <ul class="checklist" id="day0"></ul>
+      </div>
+      <div class="card">
+        <h3>Cada día (unas 2 horas)</h3>
+        <ul class="checklist" id="daily"></ul>
+      </div>
+    </div>
+    <div class="card">
+      <h3>YouTube Shorts es distinto</h3>
+      <p>YouTube no tiene mensajes directos, así que no puede mandar el link solo. Y los links en la descripción y comentarios de los Shorts no son clicables. Por eso el cierre en YouTube cambia: “Escríbeme EXAMEN por Instagram, @tekorei.ai”. Eso lleva gente de YouTube a tu Instagram, donde sí corre la automatización. Fija un comentario con el nombre del repo.</p>
+    </div>
+  </section>
+
+  <section id="automatizacion" aria-labelledby="h-auto">
+    <div class="section-head">
+      <span class="eyebrow">ChatPlace (tu conector de Instagram)</span>
+      <h2 id="h-auto">Automatización y agente</h2>
+      <p>Hay 15 palabras clave y una extra, AVISAME, que arma tu lista para avisar lanzamientos. Todo está guardado en <code>tekorei-ai/chatplace/</code> y se carga en un minuto cuando conectes la cuenta.</p>
+    </div>
+    <div class="flow" aria-label="Flujo de cada palabra clave">
+      <div class="step"><span class="who nico">Persona</span><b>Comenta EXAMEN</b>En cualquier video, o lo escribe por DM.</div>
+      <div class="step"><span class="who kori">Kori</span><b>Responde el comentario</b>“¡Listo! Te lo mandé por DM”. Hay tres variantes para que no parezca bot.</div>
+      <div class="step"><span class="who kori">Kori</span><b>Manda un DM</b>Con un botón “¡Lo quiero!”, y le pone una etiqueta a la persona.</div>
+      <div class="step"><span class="who kori">Kori</span><b>¿Te sigue?</b>Si no te sigue, le pide que te siga y toque “Ya te sigo”.</div>
+      <div class="step"><span class="who kori">Kori</span><b>Entrega</b>Los pasos de instalación y el botón al repo.</div>
+    </div>
+    <div class="table-scroll">
+      <table class="kwtable">
+        <thead><tr><th>Día</th><th>Palabra</th><th>Recurso</th><th>Etiqueta</th></tr></thead>
+        <tbody id="kw-rows"></tbody>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>El agente de IA</h3>
+        <p>Responde los comentarios y DMs que no son una palabra clave: dudas de instalación, “¿funciona en celular?”, “¿qué modelo me corre con 8 GB?”. Tiene una base de conocimiento con los 16 repos y reglas: no inventa comandos, no promete ingresos, no pide datos personales y pasa a un humano lo comercial.</p>
+      </div>
+      <div class="card">
+        <h3>Lo que falta para encenderlo</h3>
+        <ol>
+          <li>Conecta el Instagram de tekorei.ai en ChatPlace como un bot nuevo.</li>
+          <li>Pídeme “carga tekorei”: creo las 16 automatizaciones (pausadas), las respuestas a comentarios y el agente.</li>
+          <li>Pruebas comentando desde otra cuenta y, si está bien, las activamos.</li>
+          <li>El agente gasta saldo de IA de ChatPlace; hoy está en 0.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="plata" aria-labelledby="h-plata">
+    <div class="section-head">
+      <span class="eyebrow">Sin promesas de números</span>
+      <h2 id="h-plata">Cómo se gana plata con esto</h2>
+      <p>Los Shorts y Reels traen alcance, pero al principio pagan poco o nada por sí solos. La plata sale de lo que haces con la audiencia que juntas por DM.</p>
+    </div>
+    <div class="money">
+      <div class="row"><div><h3>Tu lista</h3><span class="when">desde el día 1</span></div><p>Cada persona que comenta una palabra queda etiquetada en ChatPlace (kw_examen, kw_robot…). AVISAME junta a los más interesados. Es tu activo principal: a esa lista le puedes escribir cuando lances algo, sin depender del algoritmo.</p></div>
+      <div class="row"><div><h3>Servicios</h3><span class="when">el más rápido</span></div><p>Instalar y configurar estas herramientas para otros: un robot de n8n para un negocio, fotos de producto con Upscayl y Rembg, Claude Code configurado para un emprendedor. Los videos te dan la vitrina.</p></div>
+      <div class="row"><div><h3>Producto digital</h3><span class="when">después de 2–4 semanas</span></div><p>Algo barato y útil para tu lista: guía en español de los 16 repos con capturas, pack de prompts, plantillas de n8n. ChatPlace puede cobrar con un botón de pago dentro del DM.</p></div>
+      <div class="row"><div><h3>Marcas y afiliados</h3><span class="when">con audiencia estable</span></div><p>Las herramientas de IA pagan por menciones cuando tus videos tienen vistas constantes. Los links de afiliado van en el DM y en tu perfil. Avisa siempre que es publicidad.</p></div>
+      <div class="row"><div><h3>Anuncios de YouTube</h3><span class="when">lo último</span></div><p>Para cobrar por anuncios en Shorts hoy necesitas 1.000 suscriptores y 10 millones de vistas de Shorts en 90 días. YouTube anunció en agosto de 2026 reglas más exigentes desde el 1 de febrero de 2027, y las cifras que publican los medios no coinciden. Revisa YouTube Studio antes de contar con eso.</p></div>
+    </div>
+  </section>
+
+  <footer class="sources">
+    <span class="eyebrow">Fuentes</span>
+    <span>Estrellas y descripciones: API de búsqueda de GitHub, 19/11/2026. Comandos: README de cada repositorio.</span>
+    <span>Monetización de YouTube: <a href="https://air.io/en/monetization/youtube-partner-program-requirements-2026-the-complete-guide" target="_blank" rel="noopener">AIR Media-Tech</a>, <a href="https://www.exchange4media.com/industry-briefing-news/youtube-sets-10-million-shorts-views-for-monetisation-from-2027-157245.html" target="_blank" rel="noopener">exchange4media</a>, <a href="https://ppc.land/youtube-cuts-shorts-pay-for-channels-under-10m-views-from-february-2027/" target="_blank" rel="noopener">PPC Land</a>.</span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">{"cuenta": "tekorei.ai", "hora_publicacion": "19:00", "verificado": "2026-11-19", "personajes": {"Nico": "Estudiante de 19 años que siempre está en apuros (examen, plata, trabajo). Hace las preguntas que haría tu audiencia. Pelo rizado oscuro, buzo naranja, auriculares al cuello, sin lentes.", "Kori": "La mascota de tekorei.ai: un robot-cubo de vidrio cian esmerilado con una pantalla de cara (ojos de píxeles grandes), antena con punta naranja que brilla y patitas cortas. Sabe de todos los repos y siempre tiene un plan.", "prompt_base": "Stylized low-poly 3D animation, soft matte clay materials, cozy cinematic lighting, vertical 9:16, shallow depth of field, subtle camera push-in. NICO: 19-year-old Latino student, curly dark brown hair, orange hoodie, headphones around his neck, big expressive eyes, no glasses. KORI: small robot shaped like a rounded cube of frosted cyan glass, black screen face with large white pixel eyes and pink pixel blush, tiny antenna with a glowing orange tip, short stubby legs, standing on the desk next to a laptop."}, "dias": [{"dia": 1, "palabra": "EXAMEN", "variantes": ["examen", "exámen"], "tema": "Exam Cram Coach", "para": "Estudiantes", "repos": [{"nombre": "ZeKaiNie/universal-examprep-skill", "estrellas": 398}], "gancho": "Examen MAÑANA y no abrí ni un PDF", "resaltar": "MAÑANA", "escena": "Habitación de noche, escritorio lleno de fotocopias y tazas de café, un reloj marca 23:47.", "guion": [{"p": "Nico", "t": "Kori… el examen es mañana y no abrí ni un PDF.", "plano": "Plano medio de Nico con la cara sobre los apuntes"}, {"p": "Kori", "t": "Pásame tus apuntes, tus tareas y los exámenes viejos.", "plano": "Primer plano de Kori, ojos decididos"}, {"p": "Nico", "t": "¿Me vas a hacer un resumen?", "plano": "Plano medio de Nico levantando la cabeza"}, {"p": "Kori", "t": "Mejor. Te doy clase desde el capítulo 1, con TUS apuntes.", "plano": "Primer plano de Kori, la pantalla muestra un libro"}, {"p": "Kori", "t": "Y te tomo examen con las preguntas de tus tareas.", "plano": "Plano detalle de la laptop con preguntas de práctica"}, {"p": "Nico", "t": "¿Y si inventa cosas?", "plano": "Primer plano de Nico, desconfiado"}, {"p": "Kori", "t": "Cada cosa que enseña te dice de qué página salió.", "plano": "Primer plano de Kori señalando la pantalla"}, {"p": "Nico", "t": "¿Y cuánto cuesta?", "plano": "Plano medio de Nico"}, {"p": "Kori", "t": "Cero. Es código abierto.", "plano": "Plano conjunto, Kori guiña un ojo de píxeles"}], "cta": "Comenta EXAMEN y te mando cómo instalarlo", "pregunta": "¿Qué materia te está matando este semestre?", "dm": "¡Aquí está, {{ username }}! 📚 Exam Cram Coach (gratis, código abierto):\nhttps://github.com/ZeKaiNie/universal-examprep-skill\n\n1) Instálala (necesitas Node.js y Python):\nnpx skills add ZeKaiNie/universal-examprep-skill\npip install pypdfium2\n\n2) Pon en una carpeta tus apuntes, PDFs, tareas y exámenes pasados.\n\n3) Abre Claude Code y pégale:\n“Usa la skill Exam Cram Coach. Mis materiales están en [tu carpeta]. El examen es en [X] días y empiezo de cero. Enséñame en español desde el capítulo 1.”\n\nMañana a las 19:00 subo otro repo 👀", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/ZeKaiNie/universal-examprep-skill"}, "respuestas": ["¡Listo! Te lo mandé por DM 📩", "Enviado 🚀 Revisa tus mensajes (y la carpeta de solicitudes)", "Ya te llegó por DM. ¡Éxitos en ese examen! 📚"], "caption": "El examen es mañana y empiezas de cero 😵‍💫 Esta skill gratis convierte TUS apuntes en clases y simulacros, y te dice de qué página sacó cada cosa.\n\nComenta EXAMEN y te mando el link + los 3 pasos por DM 📩\n\n¿Qué materia te está matando este semestre?", "yt_titulo": "Esta IA te da clase con TUS apuntes (gratis)", "yt_desc": "Exam Cram Coach: una skill open source que convierte tus apuntes, tareas y exámenes viejos en clases y simulacros.\nRepo: github.com/ZeKaiNie/universal-examprep-skill\nEscríbeme EXAMEN por DM en Instagram @tekorei.ai y te mando los 3 pasos.", "hashtags": "#claudecode #ia #estudiantes #github #skills", "nota": "Necesita Node.js 18+ y Python 3.8+. Funciona con Claude Code, Codex, Cursor, Gemini CLI y más de 40 agentes."}, {"dia": 2, "palabra": "FACELESS", "variantes": ["faceless", "face less"], "tema": "MoneyPrinterTurbo", "para": "Creadores", "repos": [{"nombre": "harry0703/MoneyPrinterTurbo", "estrellas": 144695}], "gancho": "Esta IA hace Shorts COMPLETOS con un solo tema", "resaltar": "COMPLETOS", "escena": "Escritorio con un aro de luz y un micrófono, pared llena de post-its con ideas para videos.", "guion": [{"p": "Nico", "t": "Quiero un canal sin mostrar la cara… pero no sé editar.", "plano": "Plano medio de Nico frente al aro de luz apagado"}, {"p": "Kori", "t": "Escríbeme un tema.", "plano": "Primer plano de Kori"}, {"p": "Nico", "t": "Eh… “5 datos raros del espacio”.", "plano": "Plano medio de Nico escribiendo en la laptop"}, {"p": "Kori", "t": "Guion… voz… clips… subtítulos… música.", "plano": "Primer plano de Kori, la pantalla muestra una barra de progreso"}, {"p": "Kori", "t": "Listo. Vertical, para Shorts y Reels.", "plano": "Plano detalle de un celular reproduciendo un video del espacio"}, {"p": "Nico", "t": "¿Y eso cuánto cuesta?", "plano": "Primer plano de Nico, boquiabierto"}, {"p": "Kori", "t": "El programa es gratis y open source. Solo conectas una IA para el guion.", "plano": "Primer plano de Kori"}, {"p": "Nico", "t": "Me acabo de quedar sin excusas.", "plano": "Plano conjunto, Nico se tapa la cara riéndose"}], "cta": "Comenta FACELESS y te paso el repo", "pregunta": "¿De qué tema harías tu canal faceless?", "dm": "¡Aquí está, {{ username }}! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/harry0703/MoneyPrinterTurbo"}, "respuestas": ["¡Te lo mandé por DM! 🎬", "Enviado 📩 Revisa tus mensajes", "Listo, ya está en tu DM. ¿De qué va a ser tu canal? 👀"], "caption": "Escribes un tema y te devuelve el Short terminado: guion, voz, clips, subtítulos y música 🎬 Es open source y tiene más de 144 mil estrellas en GitHub.\n\nComenta FACELESS y te paso el repo + cómo instalarlo por DM 📩\n\n¿De qué tema harías tu canal faceless?", "yt_titulo": "Esta IA hace Shorts completos con un solo tema", "yt_desc": "MoneyPrinterTurbo: genera videos verticales con guion, voz, clips y subtítulos a partir de un tema. Open source.\nRepo: github.com/harry0703/MoneyPrinterTurbo\nEscríbeme FACELESS por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#faceless #shorts #ia #github #creadores", "nota": "Gratis el programa; el guion usa una IA (API key de pago o Ollama local) y los clips usan una key gratis de Pexels o Pixabay."}, {"dia": 3, "palabra": "SKILLS", "variantes": ["skills"], "tema": "Skills oficiales de Anthropic", "para": "Todos", "repos": [{"nombre": "anthropics/skills", "estrellas": 197644}], "gancho": "Claude hace PowerPoints, Excel y PDFs DE VERDAD con esto", "resaltar": "DE VERDAD", "escena": "Oficina en casa, en la pantalla una diapositiva vacía, papeles por todas partes.", "guion": [{"p": "Nico", "t": "Le pedí una presentación a la IA y me dio… puro texto.", "plano": "Plano medio de Nico mostrando la pantalla vacía"}, {"p": "Kori", "t": "Porque no le diste la skill.", "plano": "Primer plano de Kori"}, {"p": "Nico", "t": "¿La qué?", "plano": "Primer plano de Nico, confundido"}, {"p": "Kori", "t": "Una skill es un manual que la IA lee para hacer algo bien.", "plano": "Primer plano de Kori, la pantalla muestra un libro abierto"}, {"p": "Kori", "t": "Anthropic publicó las suyas: Word, PowerPoint, Excel, PDF y diseño web.", "plano": "Plano detalle de iconos de archivos saliendo de la laptop"}, {"p": "Nico", "t": "¿Y me sale el archivo de verdad?", "plano": "Plano medio de Nico"}, {"p": "Kori", "t": "El .pptx listo para abrir.", "plano": "Plano conjunto, una presentación terminada en la pantalla"}], "cta": "Comenta SKILLS y te mando cómo instalarlas", "pregunta": "¿Qué archivo te gustaría que la IA te haga sola?", "dm": "¡Aquí están, {{ username }}! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/anthropics/skills"}, "respuestas": ["¡Listo! Te mandé las skills por DM 🧩", "Enviado 📩 Revisa tus mensajes", "Ya está en tu DM. ¿Qué archivo le vas a pedir primero? 👀"], "caption": "Si la IA te devuelve puro texto cuando le pides un PowerPoint, le falta la skill 🧩 Anthropic publicó las suyas para Word, PowerPoint, Excel, PDF y diseño web.\n\nComenta SKILLS y te mando cómo instalarlas por DM 📩\n\n¿Qué archivo te gustaría que la IA te haga sola?", "yt_titulo": "Claude hace PowerPoints y Excel de verdad con esto", "yt_desc": "Las Agent Skills oficiales de Anthropic: documentos de Word, PowerPoint, Excel y PDF desde Claude Code.\nRepo: github.com/anthropics/skills\nEscríbeme SKILLS por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#claude #claudecode #skills #ia #productividad", "nota": "Necesita Claude Code. También se pueden instalar con: npx skills add anthropics/skills"}, {"dia": 4, "palabra": "OFFLINE", "variantes": ["offline", "off line"], "tema": "Ollama + Open WebUI", "para": "Todos", "repos": [{"nombre": "ollama/ollama", "estrellas": 187649}, {"nombre": "open-webui/open-webui", "estrellas": 159096}], "gancho": "Tu propio ChatGPT, GRATIS y sin internet", "resaltar": "GRATIS", "escena": "Habitación a oscuras, solo la luz de la laptop; un router con las luces apagadas.", "guion": [{"p": "Nico", "t": "Se me acabaron los mensajes gratis… otra vez.", "plano": "Plano medio de Nico mirando un aviso de límite en la pantalla"}, {"p": "Kori", "t": "¿Y si la IA viviera en tu compu?", "plano": "Primer plano de Kori, la antena brilla"}, {"p": "Nico", "t": "¿Eso se puede?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "Ollama descarga modelos abiertos y los corre en tu PC.", "plano": "Plano detalle de una barra de descarga en la laptop"}, {"p": "Kori", "t": "Y Open WebUI le pone una pantalla igual a un chat.", "plano": "Plano detalle de una interfaz de chat en la pantalla"}, {"p": "Nico", "t": "¿Sin límite de mensajes?", "plano": "Plano medio de Nico, emocionado"}, {"p": "Kori", "t": "El límite lo pone tu compu. Y tus chats no salen de tu casa.", "plano": "Plano conjunto, Kori desconecta el cable del router"}], "cta": "Comenta OFFLINE y te paso los 2 repos", "pregunta": "¿Qué compu tienes? Dime la RAM y te digo qué modelo te corre 👇", "dm": "¡Aquí está, {{ username }}! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/ollama/ollama"}, "respuestas": ["¡Te mandé los 2 repos por DM! 💻", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. Cuéntame qué compu tienes 👀"], "caption": "Una IA que corre en tu compu: sin internet, sin límite de mensajes y tus chats no salen de tu casa 💻 Ollama + Open WebUI, los dos gratis y open source.\n\nComenta OFFLINE y te paso los 2 repos + los comandos por DM 📩\n\n¿Qué compu tienes? Dime la RAM y te digo qué modelo te corre 👇", "yt_titulo": "Tu propio ChatGPT gratis y sin internet", "yt_desc": "Ollama corre modelos abiertos en tu PC y Open WebUI les pone una interfaz de chat. Gratis y open source.\nRepos: github.com/ollama/ollama · github.com/open-webui/open-webui\nEscríbeme OFFLINE por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#ollama #ialocal #opensource #chatgpt #gratis", "nota": "Los modelos grandes necesitan mucha RAM o GPU. Con 8 GB de RAM, modelos chicos."}, {"dia": 5, "palabra": "PDF", "variantes": ["pdf"], "tema": "MarkItDown de Microsoft", "para": "Estudiantes y oficina", "repos": [{"nombre": "microsoft/markitdown", "estrellas": 196991}], "gancho": "El truco de Microsoft para que la IA lea CUALQUIER archivo", "resaltar": "CUALQUIER", "escena": "Mesa con una pila enorme de documentos impresos y carpetas que dicen PDF, DOCX y XLSX.", "guion": [{"p": "Nico", "t": "Le paso un PDF de 80 páginas a la IA… y me responde cualquier cosa.", "plano": "Plano medio de Nico detrás de una pila de papeles"}, {"p": "Kori", "t": "Porque se lo diste crudo.", "plano": "Primer plano de Kori"}, {"p": "Kori", "t": "Microsoft tiene una herramienta gratis: MarkItDown.", "plano": "Primer plano de Kori, la pantalla muestra un logo de documento"}, {"p": "Kori", "t": "Convierte PDF, Word, PowerPoint y Excel en texto limpio, con títulos y tablas.", "plano": "Plano detalle: los papeles entran a la laptop y salen ordenados"}, {"p": "Nico", "t": "¿Y eso cambia algo?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "La IA lo entiende mucho mejor.", "plano": "Primer plano de Kori, ojos sonrientes"}, {"p": "Nico", "t": "¿Y cuántos comandos son?", "plano": "Plano medio de Nico"}, {"p": "Kori", "t": "Uno.", "plano": "Plano conjunto, Kori levanta un dedo"}], "cta": "Comenta PDF y te lo mando", "pregunta": "¿Qué archivo le pasarías primero a la IA?", "dm": "¡Aquí está, {{ username }}! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/microsoft/markitdown"}, "respuestas": ["¡Listo! Te lo mandé por DM 📄", "Enviado 📩 Revisa tus mensajes", "Ya está en tu DM. ¿Qué archivo vas a convertir primero? 👀"], "caption": "Si le pasas un PDF gigante a la IA y te responde cualquier cosa, conviértelo primero 📄 MarkItDown (de Microsoft) pasa PDF, Word, PowerPoint y Excel a texto limpio que la IA entiende mucho mejor.\n\nComenta PDF y te lo mando por DM 📩\n\n¿Qué archivo le pasarías primero?", "yt_titulo": "El truco de Microsoft para que la IA lea cualquier archivo", "yt_desc": "MarkItDown convierte PDF, Word, PowerPoint y Excel a Markdown para usarlos con IA. Gratis y open source.\nRepo: github.com/microsoft/markitdown\nEscríbeme PDF por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#microsoft #ia #pdf #estudiantes #productividad", "nota": "Necesita Python 3.10 a 3.14."}, {"dia": 6, "palabra": "PODERES", "variantes": ["poderes"], "tema": "Superpowers para Claude Code", "para": "Programadores", "repos": [{"nombre": "obra/superpowers", "estrellas": 321961}], "gancho": "El plugin de Claude Code con +320 MIL estrellas", "resaltar": "+320 MIL", "escena": "Escritorio de programador con dos monitores llenos de errores en rojo.", "guion": [{"p": "Nico", "t": "Claude Code me escribe código rapidísimo… y después nada funciona.", "plano": "Plano medio de Nico frente a pantallas en rojo"}, {"p": "Kori", "t": "Porque arranca a programar sin pensar.", "plano": "Primer plano de Kori"}, {"p": "Kori", "t": "Superpowers le enseña a trabajar como un dev senior.", "plano": "Primer plano de Kori con una capa de superhéroe"}, {"p": "Kori", "t": "Primero pregunta. Después planifica. Escribe tests. Y revisa su propio código.", "plano": "Plano detalle de una lista de pasos que se va tachando"}, {"p": "Nico", "t": "¿Y cómo lo instalo?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "Una línea, desde el marketplace oficial.", "plano": "Plano conjunto, las pantallas pasan de rojo a verde"}], "cta": "Comenta PODERES y te paso el comando", "pregunta": "¿Qué app quieres construir con IA?", "dm": "¡Aquí está, {{ username }}! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/obra/superpowers"}, "respuestas": ["¡Te pasé el comando por DM! ⚡", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué vas a construir? 👀"], "caption": "Claude Code programa rapidísimo, pero sin plan todo se rompe ⚡ Superpowers le enseña a preguntar, planificar, escribir tests y revisar su código. Tiene más de 320 mil estrellas en GitHub.\n\nComenta PODERES y te paso el comando por DM 📩\n\n¿Qué app quieres construir con IA?", "yt_titulo": "El plugin de Claude Code con +320 mil estrellas", "yt_desc": "Superpowers: un framework de skills que hace que Claude Code planifique, escriba tests y revise antes de programar.\nRepo: github.com/obra/superpowers\nEscríbeme PODERES por DM en Instagram @tekorei.ai y te mando el comando.", "hashtags": "#claudecode #programacion #ia #github #devs", "nota": "Necesita Claude Code. También funciona en otros agentes (ver el README)."}, {"dia": 7, "palabra": "NOTEBOOK", "variantes": ["notebook", "note book"], "tema": "Open Notebook", "para": "Estudiantes", "repos": [{"nombre": "lfnovo/open-notebook", "estrellas": 42085}], "gancho": "NotebookLM… pero TUYO y open source", "resaltar": "TUYO", "escena": "Biblioteca acogedora con estantes de libros y cuadernos abiertos sobre la mesa.", "guion": [{"p": "Nico", "t": "Uso NotebookLM para estudiar, pero quiero más control.", "plano": "Plano medio de Nico entre libros"}, {"p": "Kori", "t": "Prueba Open Notebook. Es la versión open source.", "plano": "Primer plano de Kori sosteniendo un cuaderno"}, {"p": "Kori", "t": "Le subes PDFs, videos y páginas web… y chateas con todo.", "plano": "Plano detalle: documentos volando hacia la pantalla"}, {"p": "Kori", "t": "Hace resúmenes y hasta podcasts con tus fuentes.", "plano": "Primer plano de Kori con auriculares"}, {"p": "Nico", "t": "¿Y con qué IA funciona?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "Con la que quieras. Incluso una local, gratis.", "plano": "Plano conjunto, Nico se pone los auriculares y escucha"}], "cta": "Comenta NOTEBOOK y te paso cómo montarlo", "pregunta": "¿Qué estudiarías con esto?", "dm": "¡Aquí está, {{ username }}! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/lfnovo/open-notebook"}, "respuestas": ["¡Te lo mandé por DM! 📓", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué vas a estudiar con esto? 👀"], "caption": "Como NotebookLM, pero open source y en tu compu 📓 Subes PDFs, videos y páginas, chateas con todo y genera resúmenes y podcasts con tus fuentes.\n\nComenta NOTEBOOK y te paso cómo montarlo por DM 📩\n\n¿Qué estudiarías con esto?", "yt_titulo": "NotebookLM pero tuyo y open source", "yt_desc": "Open Notebook: chatea con tus PDFs, videos y webs, y genera podcasts. Open source, funciona con la IA que elijas.\nRepo: github.com/lfnovo/open-notebook\nEscríbeme NOTEBOOK por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#notebooklm #opensource #estudiantes #ia #github", "nota": "Necesita Docker y una IA (API key de un proveedor u Ollama local)."}, {"dia": 8, "palabra": "MEMORIA", "variantes": ["memoria"], "tema": "Claude-Mem", "para": "Usuarios de Claude Code", "repos": [{"nombre": "thedotmack/claude-mem", "estrellas": 118401}], "gancho": "Claude se OLVIDA de todo… hasta que instalas esto", "resaltar": "OLVIDA", "escena": "Escritorio cubierto de notas adhesivas; Kori sostiene una libreta y un lápiz.", "guion": [{"p": "Nico", "t": "Ayer le expliqué todo mi proyecto a Claude… y hoy no se acuerda de nada.", "plano": "Plano medio de Nico, frustrado"}, {"p": "Kori", "t": "Cada sesión empieza de cero.", "plano": "Primer plano de Kori, la pantalla se pone en blanco"}, {"p": "Kori", "t": "Claude-Mem toma notas mientras trabajas.", "plano": "Primer plano de Kori escribiendo en su libreta"}, {"p": "Kori", "t": "Y en la próxima sesión, Claude ya sabe dónde te quedaste.", "plano": "Plano detalle de la laptop mostrando un resumen de la sesión anterior"}, {"p": "Nico", "t": "¿Y mis cosas dónde quedan?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "En tu compu. La nube es opcional.", "plano": "Plano conjunto, Kori guarda la libreta en un cajón"}], "cta": "Comenta MEMORIA y te mando cómo instalarlo", "pregunta": "¿Qué es lo que más te molesta repetirle a la IA?", "dm": "¡Aquí está, {{ username }}! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/thedotmack/claude-mem"}, "respuestas": ["¡Te lo mandé por DM! 🧠", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. Ahora Claude no se olvida 😉"], "caption": "Le explicas todo tu proyecto a Claude y al otro día no se acuerda de nada 🧠 Claude-Mem toma notas mientras trabajas y la próxima sesión arranca donde te quedaste. La memoria queda en tu compu.\n\nComenta MEMORIA y te mando cómo instalarlo por DM 📩\n\n¿Qué es lo que más te molesta repetirle a la IA?", "yt_titulo": "Claude se olvida de todo hasta que instalas esto", "yt_desc": "Claude-Mem le da memoria entre sesiones a Claude Code y otros agentes. La memoria se guarda en tu compu.\nRepo: github.com/thedotmack/claude-mem\nEscríbeme MEMORIA por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#claudecode #ia #productividad #github #devs", "nota": "El instalador ofrece una prueba paga opcional; se puede usar con tu propio plan de Anthropic, OpenRouter o Gemini."}, {"dia": 9, "palabra": "FOTOS", "variantes": ["fotos"], "tema": "Upscayl + Rembg", "para": "Emprendedores", "repos": [{"nombre": "upscayl/upscayl", "estrellas": 52937}, {"nombre": "danielgatis/rembg", "estrellas": 25588}], "gancho": "Deja de PAGAR por quitar fondos y mejorar fotos", "resaltar": "PAGAR", "escena": "Pequeño emprendimiento en casa: cajas de productos, un celular sacando fotos sobre una sábana blanca.", "guion": [{"p": "Nico", "t": "Me piden fotos de producto para la tienda… y salen horribles.", "plano": "Plano medio de Nico sacando una foto borrosa con el celular"}, {"p": "Kori", "t": "Dos herramientas gratis.", "plano": "Primer plano de Kori levantando dos dedos"}, {"p": "Kori", "t": "Upscayl agarra una foto borrosa y la agranda con IA.", "plano": "Plano detalle: una foto borrosa se vuelve nítida"}, {"p": "Kori", "t": "Y Rembg le quita el fondo en segundos.", "plano": "Plano detalle: el fondo desaparece de la foto del producto"}, {"p": "Nico", "t": "¿En mi compu? ¿Sin subir nada?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "Todo local. Tus fotos no salen de tu PC.", "plano": "Primer plano de Kori"}, {"p": "Nico", "t": "Acabo de encontrar un negocio: fotos para tiendas.", "plano": "Plano conjunto, Nico sonríe con el celular en la mano"}], "cta": "Comenta FOTOS y te paso las dos", "pregunta": "¿Qué venderías con fotos así?", "dm": "¡Aquí están, {{ username }}! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉", "boton": {"texto": "Ver Upscayl", "url": "https://github.com/upscayl/upscayl"}, "respuestas": ["¡Te mandé las dos por DM! 📸", "Enviado 📩 Revisa tus mensajes", "Listo, están en tu DM. ¿Qué vas a vender? 👀"], "caption": "Fotos de producto que parecen de estudio, gratis y sin subir nada a internet 📸 Upscayl mejora las fotos con IA y Rembg quita el fondo. Las dos son open source.\n\nComenta FOTOS y te paso las dos por DM 📩\n\n¿Qué venderías con fotos así?", "yt_titulo": "Deja de pagar por quitar fondos y mejorar fotos", "yt_desc": "Upscayl (mejora fotos con IA) y Rembg (quita fondos). Gratis, open source y local.\nRepos: github.com/upscayl/upscayl · github.com/danielgatis/rembg\nEscríbeme FOTOS por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#emprendedores #fotografia #ia #gratis #opensource", "nota": "Upscayl necesita GPU compatible con Vulkan. Rembg necesita Python 3.11 a 3.13."}, {"dia": 10, "palabra": "EDITOR", "variantes": ["editor"], "tema": "Remotion + skills", "para": "Creadores", "repos": [{"nombre": "remotion-dev/remotion", "estrellas": 74334}, {"nombre": "remotion-dev/skills", "estrellas": 7562}], "gancho": "Le pedí un video a Claude… y lo PROGRAMÓ", "resaltar": "PROGRAMÓ", "escena": "Mini estudio de edición con una línea de tiempo en pantalla y una claqueta sobre la mesa.", "guion": [{"p": "Nico", "t": "Editar un video me toma horas.", "plano": "Plano medio de Nico, ojeroso, frente a una línea de tiempo"}, {"p": "Kori", "t": "¿Y si lo describes y la IA lo programa?", "plano": "Primer plano de Kori con una claqueta"}, {"p": "Kori", "t": "Remotion hace videos con código. Y tiene skills para Claude Code.", "plano": "Plano detalle de código que se convierte en animación"}, {"p": "Nico", "t": "O sea que le digo “hazme una intro con mi logo”…", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "…y te arma la animación. La ves, pides cambios y la exportas.", "plano": "Plano detalle de un render terminado"}, {"p": "Nico", "t": "Un editor que no se cansa nunca.", "plano": "Plano conjunto, Nico se estira relajado"}], "cta": "Comenta EDITOR y te paso cómo empezar", "pregunta": "¿Qué video le pedirías primero?", "dm": "¡Aquí está, {{ username }}! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/remotion-dev/skills"}, "respuestas": ["¡Te lo mandé por DM! 🎞️", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué video vas a pedir? 👀"], "caption": "Describes el video y Claude lo programa 🎞️ Remotion hace videos con código y tiene skills oficiales para agentes de IA: pides, revisas, pides cambios y exportas.\n\nComenta EDITOR y te paso cómo empezar por DM 📩\n\n¿Qué video le pedirías primero?", "yt_titulo": "Le pedí un video a Claude y lo programó", "yt_desc": "Remotion crea videos con React y tiene skills para Claude Code y otros agentes.\nRepos: github.com/remotion-dev/remotion · github.com/remotion-dev/skills\nEscríbeme EDITOR por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#remotion #claudecode #edicion #ia #creadores", "nota": "Remotion tiene licencia especial: gratis para personas y equipos pequeños; empresas más grandes pagan."}, {"dia": 11, "palabra": "NAVEGADOR", "variantes": ["navegador"], "tema": "Playwright MCP", "para": "Todos", "repos": [{"nombre": "microsoft/playwright-mcp", "estrellas": 39903}], "gancho": "La IA ya usa tu navegador POR TI", "resaltar": "POR TI", "escena": "Escritorio con la pantalla llena de pestañas de tiendas abiertas.", "guion": [{"p": "Nico", "t": "Tengo que comparar precios en diez tiendas… otra vez.", "plano": "Plano medio de Nico frente a decenas de pestañas"}, {"p": "Kori", "t": "Dale un navegador a Claude.", "plano": "Primer plano de Kori"}, {"p": "Kori", "t": "Playwright MCP, de Microsoft, deja que la IA abra páginas, haga clic y lea.", "plano": "Plano detalle: el cursor se mueve solo por una tienda"}, {"p": "Nico", "t": "¿Y lo puedo ver haciéndolo?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "En vivo. Se abre el navegador y la IA lo maneja.", "plano": "Plano detalle de una tabla de precios llenándose"}, {"p": "Nico", "t": "¿Y si compra algo?", "plano": "Primer plano de Nico, preocupado"}, {"p": "Kori", "t": "Nunca le des tu tarjeta. Tú revisas y tú decides.", "plano": "Plano conjunto, Kori esconde una tarjeta detrás de su espalda"}], "cta": "Comenta NAVEGADOR y te mando el comando", "pregunta": "¿Qué tarea aburrida de internet le darías?", "dm": "¡Aquí está, {{ username }}! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/microsoft/playwright-mcp"}, "respuestas": ["¡Te mandé el comando por DM! 🌐", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué tarea le vas a dar? 👀"], "caption": "Le das un navegador a la IA y compara precios, llena tablas y lee páginas por ti 🌐 Playwright MCP es de Microsoft y es open source. Regla de oro: nunca le des tu tarjeta.\n\nComenta NAVEGADOR y te mando el comando por DM 📩\n\n¿Qué tarea aburrida de internet le darías?", "yt_titulo": "La IA ya usa tu navegador por ti", "yt_desc": "Playwright MCP: deja que Claude Code y otros agentes manejen un navegador real.\nRepo: github.com/microsoft/playwright-mcp\nEscríbeme NAVEGADOR por DM en Instagram @tekorei.ai y te mando el comando.", "hashtags": "#mcp #claudecode #automatizacion #microsoft #ia", "nota": "Necesita Node.js y un agente con MCP (Claude Code, Cursor, VS Code…). Supervisa siempre lo que hace."}, {"dia": 12, "palabra": "DOCS", "variantes": ["docs"], "tema": "Context7", "para": "Programadores", "repos": [{"nombre": "upstash/context7", "estrellas": 65133}], "gancho": "Por qué la IA te da código que NO funciona", "resaltar": "NO", "escena": "Escritorio con un libro de documentación viejo y lleno de polvo; telarañas en la esquina del monitor.", "guion": [{"p": "Nico", "t": "La IA me dio código… y la librería dice que esa función ya no existe.", "plano": "Plano medio de Nico frente a un error"}, {"p": "Kori", "t": "La IA aprendió con documentación vieja.", "plano": "Primer plano de Kori soplando polvo de un libro"}, {"p": "Kori", "t": "Context7 le pasa la documentación actualizada antes de responder.", "plano": "Plano detalle: un libro nuevo y brillante entra en la laptop"}, {"p": "Nico", "t": "¿Y tengo que buscarla yo?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "No. Tú programas normal y ella busca la versión correcta.", "plano": "Plano conjunto, el error se pone verde"}], "cta": "Comenta DOCS y te paso el setup", "pregunta": "¿Con qué lenguaje o framework programas?", "dm": "¡Aquí está, {{ username }}! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/upstash/context7"}, "respuestas": ["¡Te pasé el setup por DM! 📚", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Con qué programas? 👀"], "caption": "Si la IA te da funciones que ya no existen, es porque aprendió con documentación vieja 📚 Context7 le pasa la documentación actualizada antes de responder.\n\nComenta DOCS y te paso el setup por DM 📩\n\n¿Con qué lenguaje o framework programas?", "yt_titulo": "Por qué la IA te da código que no funciona", "yt_desc": "Context7 da documentación actualizada a Claude Code, Cursor y otros agentes.\nRepo: github.com/upstash/context7\nEscríbeme DOCS por DM en Instagram @tekorei.ai y te mando el setup.", "hashtags": "#programacion #claudecode #cursor #ia #devs", "nota": "Necesita Node.js 22.13+. La API key gratuita da más límite."}, {"dia": 13, "palabra": "PLANO", "variantes": ["plano", "planos"], "tema": "Spec Kit de GitHub", "para": "Programadores y emprendedores", "repos": [{"nombre": "github/spec-kit", "estrellas": 150674}], "gancho": "Cómo hacer una app con IA sin que se rompa TODO", "resaltar": "TODO", "escena": "Mesa de arquitecto con planos azules enrollados y una maqueta de una app.", "guion": [{"p": "Nico", "t": "Le pedí una app a la IA… y cada cambio rompe otra cosa.", "plano": "Plano medio de Nico, una torre de bloques se cae"}, {"p": "Kori", "t": "Le pediste código sin decir QUÉ querías.", "plano": "Primer plano de Kori"}, {"p": "Kori", "t": "GitHub creó Spec Kit: primero escribes la especificación.", "plano": "Primer plano de Kori desenrollando un plano azul"}, {"p": "Kori", "t": "Después el plan, después las tareas… y recién ahí el código.", "plano": "Plano detalle de cuatro pasos que se encienden en orden"}, {"p": "Nico", "t": "Como un arquitecto con planos.", "plano": "Primer plano de Nico con un casco de obra"}, {"p": "Kori", "t": "Exacto. La IA deja de improvisar.", "plano": "Plano conjunto, la torre de bloques queda firme"}], "cta": "Comenta PLANO y te paso los comandos", "pregunta": "¿Qué app harías primero?", "dm": "¡Aquí está, {{ username }}! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/github/spec-kit"}, "respuestas": ["¡Te pasé el plano por DM! 📐", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué app vas a hacer? 👀"], "caption": "Si cada cambio que le pides a la IA rompe otra cosa, te falta el plano 📐 Spec Kit (de GitHub) te hace definir qué quieres, planificar y dividir en tareas antes de escribir código.\n\nComenta PLANO y te paso los comandos por DM 📩\n\n¿Qué app harías primero?", "yt_titulo": "Cómo hacer una app con IA sin que se rompa todo", "yt_desc": "Spec Kit de GitHub: desarrollo guiado por especificaciones para Claude Code, Copilot y otros agentes.\nRepo: github.com/github/spec-kit\nEscríbeme PLANO por DM en Instagram @tekorei.ai y te mando los comandos.", "hashtags": "#github #programacion #claudecode #ia #apps", "nota": "Necesita Python 3.11+, uv y un agente compatible (Claude Code, Copilot, Gemini CLI…)."}, {"dia": 14, "palabra": "ROBOT", "variantes": ["robot"], "tema": "n8n", "para": "Emprendedores y freelancers", "repos": [{"nombre": "n8n-io/n8n", "estrellas": 211422}], "gancho": "El robot que trabaja mientras DUERMES", "resaltar": "DUERMES", "escena": "Habitación de noche, Nico duerme; en la pantalla, bloques conectados que se encienden uno tras otro.", "guion": [{"p": "Nico", "t": "Contesto los mismos mensajes y copio datos a Excel todo el día.", "plano": "Plano medio de Nico rodeado de notificaciones"}, {"p": "Kori", "t": "Constrúyete un robot.", "plano": "Primer plano de Kori con un casco de obrero"}, {"p": "Kori", "t": "n8n conecta tus apps con IA: Gmail, Sheets, Telegram… más de mil.", "plano": "Plano detalle de bloques conectados en la pantalla"}, {"p": "Kori", "t": "Arrastras bloques y armas el flujo.", "plano": "Primer plano de Kori moviendo un bloque"}, {"p": "Nico", "t": "¿Y eso se puede vender?", "plano": "Primer plano de Nico, curioso"}, {"p": "Kori", "t": "Muchos negocios pagan por automatizaciones así.", "plano": "Plano conjunto, Nico duerme y la pantalla sigue trabajando"}], "cta": "Comenta ROBOT y te paso cómo instalarlo gratis", "pregunta": "¿Qué tarea automatizarías primero?", "dm": "¡Aquí está, {{ username }}! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸", "boton": {"texto": "Ver en GitHub", "url": "https://github.com/n8n-io/n8n"}, "respuestas": ["¡Te lo mandé por DM! 🤖", "Enviado 📩 Revisa tus mensajes", "Listo, está en tu DM. ¿Qué vas a automatizar? 👀"], "caption": "Un robot que responde, copia datos y avisa mientras duermes 🤖 n8n conecta tus apps con IA arrastrando bloques, y lo puedes instalar gratis en tu compu.\n\nComenta ROBOT y te paso cómo instalarlo por DM 📩\n\n¿Qué tarea automatizarías primero?", "yt_titulo": "El robot que trabaja mientras duermes", "yt_desc": "n8n: automatizaciones con IA conectando tus apps. Se puede instalar gratis con Docker.\nRepo: github.com/n8n-io/n8n\nEscríbeme ROBOT por DM en Instagram @tekorei.ai y te mando los pasos.", "hashtags": "#n8n #automatizacion #ia #emprendedores #nocode", "nota": "Licencia fair-code: gratis para usarlo tú o en tu negocio; revisa la licencia si lo vas a revender como servicio."}, {"dia": 15, "palabra": "KIT", "variantes": ["kit"], "tema": "El kit completo", "para": "Todos", "repos": [{"nombre": "vercel-labs/skills", "estrellas": 40074}], "gancho": "Mi KIT de IA: 16 repos gratis en una lista", "resaltar": "KIT", "escena": "Escritorio con una caja de herramientas brillante que se abre y muestra 16 tarjetas con logos de repos.", "guion": [{"p": "Nico", "t": "Kori, en 15 días me pasaste 16 repos.", "plano": "Plano medio de Nico con muchas notas en la mano"}, {"p": "Kori", "t": "Y ahora van todos en una sola lista.", "plano": "Primer plano de Kori abriendo una caja de herramientas"}, {"p": "Kori", "t": "Para estudiar, crear videos, programar y automatizar.", "plano": "Plano detalle de tarjetas que salen de la caja"}, {"p": "Kori", "t": "Y un truco extra: con “npx skills find” buscas skills de cualquier tema.", "plano": "Plano detalle de la terminal con resultados de búsqueda"}, {"p": "Nico", "t": "¿Y mañana qué?", "plano": "Primer plano de Nico"}, {"p": "Kori", "t": "Mañana empieza la temporada 2.", "plano": "Plano conjunto, Kori guiña y la antena brilla"}], "cta": "Comenta KIT y te mando la lista completa", "pregunta": "¿Qué repo quieres que explique a fondo?", "dm": "¡Aquí está tu KIT, {{ username }}! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Respóndeme AVISAME 🔔", "boton": {"texto": "Buscar más skills", "url": "https://skills.sh"}, "respuestas": ["¡Tu KIT ya está en el DM! 🧰", "Enviado 📩 Revisa tus mensajes", "Listo, te mandé los 16. ¿Cuál quieres que explique a fondo? 👀"], "caption": "15 días, 16 repos de IA gratis y open source: para estudiar, crear videos, programar y automatizar 🧰 Te los mando todos juntos en una lista.\n\nComenta KIT y te llega por DM 📩\n\n¿Qué repo quieres que explique a fondo?", "yt_titulo": "Mi kit de IA: 16 repos gratis en una lista", "yt_desc": "Los 16 repos de la temporada 1 de tekorei.ai: estudiar, crear, programar y automatizar con IA.\nBusca más skills con: npx skills find [tema]\nEscríbeme KIT por DM en Instagram @tekorei.ai y te mando la lista.", "hashtags": "#github #ia #opensource #claudecode #herramientas", "nota": "El DM pide responder AVISAME: eso etiqueta a la persona para avisarle de lanzamientos (tu lista propia)."}]}</script>
+<script>
+(function () {
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var DIAS = DATA.dias;
+  var P = DATA.personajes;
+  var STORE = 'tekorei-plan-v1';
+
+  function load() { try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(STORE, JSON.stringify(s)); } catch (e) {} }
+  var state = load();
+  state.done = state.done || {};
+  state.checks = state.checks || {};
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function stars(n) { return n >= 1000 ? (Math.round(n / 100) / 10).toString().replace('.', ',') + ' mil' : String(n); }
+  function highlight(text, word) {
+    var t = esc(text);
+    if (!word) return t;
+    var w = esc(word);
+    var i = t.indexOf(w);
+    return i < 0 ? t : t.slice(0, i) + '<em>' + w + '</em>' + t.slice(i + w.length);
+  }
+
+  function copy(btn, text) {
+    function done() { var old = btn.textContent; btn.textContent = 'Copiado'; btn.classList.add('copied'); setTimeout(function () { btn.textContent = old; btn.classList.remove('copied'); }, 1400); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else { btn.textContent = 'Selecciona y copia'; }
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  }
+
+  function prompt(d, line) {
+    return P.prompt_base + '\nScene: ' + d.escena + '\nShot: ' + line.plano + '\n' + line.p.toUpperCase() + ' speaks in Spanish (lip-sync): "' + line.t + '"';
+  }
+
+  var current = 1;
+  var tab = 'ig';
+
+  function renderDays() {
+    var el = document.getElementById('days');
+    el.innerHTML = DIAS.map(function (d) {
+      return '<button type="button" class="day' + (state.done[d.dia] ? ' done' : '') + '" data-d="' + d.dia + '" aria-pressed="' + (d.dia === current) + '">' +
+        '<span class="n">Día ' + d.dia + '</span><span class="kw">' + esc(d.palabra) + '</span><span class="t">' + esc(d.tema) + '</span></button>';
+    }).join('');
+  }
+
+  function renderDetail() {
+    var d = DIAS[current - 1];
+    var el = document.getElementById('detail');
+    var repos = d.repos.map(function (r) { return '<a class="repo" href="https://github.com/' + esc(r.nombre) + '" target="_blank" rel="noopener">' + esc(r.nombre) + '<b>★ ' + stars(r.estrellas) + '</b></a>'; }).join('');
+    var lines = d.guion.map(function (l, i) {
+      var who = l.p.toLowerCase();
+      return '<li class="line"><span class="who ' + who + '">' + esc(l.p) + '</span><div><div class="say">' + esc(l.t) + '</div><div class="shot">' + esc(l.plano) + '</div></div>' +
+        '<button class="btn" type="button" data-prompt="' + i + '">Copiar prompt</button></li>';
+    }).join('');
+    var dmPreview = d.dm.replace(/\{\{\s*username\s*\}\}/g, '@tu_seguidor');
+    var pub = tab === 'ig'
+      ? '<div class="block"><div class="block-head"><span class="eyebrow">Texto del Reel</span><button class="btn" type="button" data-copy="caption">Copiar</button></div><div class="textbox">' + esc(d.caption + '\n\n' + d.hashtags) + '</div></div>'
+      : '<div class="block"><div class="block-head"><span class="eyebrow">Título del Short</span><button class="btn" type="button" data-copy="yt_titulo">Copiar</button></div><div class="textbox">' + esc(d.yt_titulo) + '</div></div>' +
+        '<div class="block"><div class="block-head"><span class="eyebrow">Descripción</span><button class="btn" type="button" data-copy="yt_desc">Copiar</button></div><div class="textbox">' + esc(d.yt_desc + '\n\n' + d.hashtags) + '</div></div>';
+
+    el.innerHTML =
+      '<div class="detail-head"><div><span class="eyebrow">Día ' + d.dia + ' · para ' + esc(d.para) + '</span><h3>' + esc(d.tema) + '</h3><div class="repos">' + repos + '</div></div>' +
+      '<label class="toggle"><input type="checkbox" id="done-' + d.dia + '"' + (state.done[d.dia] ? ' checked' : '') + '> Publicado</label></div>' +
+      '<div class="split">' +
+        '<div class="reel" aria-label="Vista previa del video"><div class="hook">' + highlight(d.gancho, d.resaltar) + '</div><div class="stage">' +
+          '<svg viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><line x1="60" y1="6" x2="60" y2="18" stroke="#9fb3c2" stroke-width="3"/><circle cx="60" cy="7" r="5" fill="#ff8c4a"/><rect x="22" y="18" width="76" height="62" rx="18" fill="#bfeef3" fill-opacity=".85" stroke="#3ec8d8" stroke-width="3"/><rect x="33" y="29" width="54" height="38" rx="10" fill="#0d141b"/><rect x="44" y="40" width="8" height="12" rx="2" fill="#fff"/><rect x="68" y="40" width="8" height="12" rx="2" fill="#fff"/><rect x="39" y="55" width="6" height="3" rx="1.5" fill="#ff8fb1"/><rect x="75" y="55" width="6" height="3" rx="1.5" fill="#ff8fb1"/></svg>' +
+        '</div><div class="sub">Comenta <em>' + esc(d.palabra) + '</em></div><div class="handle">@tekorei.ai</div></div>' +
+        '<div class="block"><div class="block-head"><span class="eyebrow">Guion · ' + d.guion.length + ' planos</span><button class="btn" type="button" data-copy="guion">Copiar guion</button></div><ol class="script">' + lines + '</ol>' +
+        '<p class="muted" style="font-size:.8rem">Escena: ' + esc(d.escena) + '</p></div>' +
+      '</div>' +
+      '<div class="cta-row"><div class="callout"><span class="eyebrow">Cierre (dicho y en pantalla)</span><strong>' + highlight(d.cta, d.palabra) + '</strong></div>' +
+      '<div class="callout alt"><span class="eyebrow">Pregunta para el texto</span><strong>' + esc(d.pregunta) + '</strong></div></div>' +
+      '<div class="block"><div class="block-head"><span class="eyebrow">DM automático al comentar <span class="kwtag">' + esc(d.palabra) + '</span></span><button class="btn" type="button" data-copy="dm">Copiar DM</button></div>' +
+        '<div class="dm-wrap"><div class="dm">' + esc(dmPreview) + '</div><span class="dm-btn">' + esc(d.boton.texto) + '</span></div></div>' +
+      '<div class="block"><span class="eyebrow">Respuestas públicas al comentario (rotan)</span><div class="replies">' + d.respuestas.map(function (r) { return '<span class="reply">' + esc(r) + '</span>'; }).join('') + '</div></div>' +
+      '<div class="block"><div class="tabs" role="tablist"><button class="tab" role="tab" type="button" data-tab="ig" aria-selected="' + (tab === 'ig') + '">Instagram</button><button class="tab" role="tab" type="button" data-tab="yt" aria-selected="' + (tab === 'yt') + '">YouTube Shorts</button></div>' + pub + '</div>' +
+      '<p class="note">Requisitos: ' + esc(d.nota) + '</p>';
+  }
+
+  function select(n) {
+    current = n;
+    state.last = n; save(state);
+    renderDays(); renderDetail();
+    try { history.replaceState(null, '', '#dia-' + n); } catch (e) {}
+  }
+
+  document.getElementById('days').addEventListener('click', function (e) {
+    var b = e.target.closest('.day'); if (b) select(Number(b.dataset.d));
+  });
+  document.getElementById('detail').addEventListener('click', function (e) {
+    var d = DIAS[current - 1];
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.tab) { tab = b.dataset.tab; renderDetail(); return; }
+    if (b.dataset.prompt !== undefined) { copy(b, prompt(d, d.guion[Number(b.dataset.prompt)])); return; }
+    var k = b.dataset.copy;
+    if (k === 'guion') copy(b, d.guion.map(function (l) { return l.p.toUpperCase() + ': ' + l.t; }).join('\n') + '\nKORI: ' + d.cta + '.');
+    else if (k === 'caption') copy(b, d.caption + '\n\n' + d.hashtags);
+    else if (k === 'yt_desc') copy(b, d.yt_desc + '\n\n' + d.hashtags);
+    else if (k) copy(b, d[k]);
+  });
+  document.getElementById('detail').addEventListener('change', function (e) {
+    if (e.target.id && e.target.id.indexOf('done-') === 0) {
+      state.done[current] = e.target.checked; save(state); renderDays();
+    }
+  });
+
+  document.getElementById('nico-desc').textContent = P.Nico;
+  document.getElementById('kori-desc').textContent = P.Kori;
+  document.getElementById('base-prompt').textContent = P.prompt_base;
+  document.getElementById('copy-base').addEventListener('click', function (e) { copy(e.currentTarget, P.prompt_base); });
+
+  document.getElementById('kw-rows').innerHTML = DIAS.map(function (d) {
+    return '<tr><td>' + d.dia + '</td><td><span class="kwtag">' + esc(d.palabra) + '</span></td><td>' + esc(d.tema) + '</td><td class="mono">kw_' + esc(d.palabra.toLowerCase()) + '</td></tr>';
+  }).join('') + '<tr><td>15</td><td><span class="kwtag">AVISAME</span></td><td>Respuesta al DM del KIT: lista para lanzamientos</td><td class="mono">avisos</td></tr>';
+
+  function checklist(id, items) {
+    document.getElementById(id).innerHTML = items.map(function (t, i) {
+      var key = id + i;
+      return '<li><label><input type="checkbox" id="' + key + '"' + (state.checks[key] ? ' checked' : '') + '><span>' + t + '</span></label></li>';
+    }).join('');
+    document.getElementById(id).addEventListener('change', function (e) { state.checks[e.target.id] = e.target.checked; save(state); });
+  }
+  checklist('day0', [
+    'Crea @tekorei.ai en Instagram (cuenta profesional de creador) y el canal tekorei.ai en YouTube.',
+    'Bio: “Repos, skills y plugins de IA que sí sirven. Comenta la palabra del video y te llega por DM. Nuevo repo cada día 19:00.”',
+    'Conecta el Instagram de tekorei.ai en ChatPlace y avísame para cargar las automatizaciones.',
+    'Genera las imágenes de referencia de Nico y Kori y guárdalas.',
+    'Graba la pantalla de cada repo en GitHub y de la terminal instalándolo. Son tus planos de prueba.',
+    'Deja 3 videos listos antes de publicar el primero, para no atrasarte.'
+  ]);
+  checklist('daily', [
+    'Produce el video de mañana (no el de hoy).',
+    'Publica a las 19:00 en Reels y Shorts. En YouTube cambia el cierre por “Escríbeme la palabra por Instagram”.',
+    'Primeros 30 minutos: responde tú los comentarios y fija uno con la palabra clave.',
+    'Sube una historia con encuesta: “¿Qué repo quieres mañana?”.',
+    'Revisa en ChatPlace cuántos comentaron la palabra y cuántos tocaron el botón.'
+  ]);
+
+  var m = /^#dia-(\d+)$/.exec(location.hash);
+  var start = m ? Number(m[1]) : (state.last || 1);
+  if (!(start >= 1 && start <= DIAS.length)) start = 1;
+  current = start;
+  renderDays(); renderDetail();
+  window.addEventListener('hashchange', function () {
+    var mm = /^#dia-(\d+)$/.exec(location.hash);
+    if (mm && Number(mm[1]) >= 1 && Number(mm[1]) <= DIAS.length) select(Number(mm[1]));
+  });
+})();
+</script>

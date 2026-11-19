@@ -1,0 +1,1084 @@
+{
+  "cuenta": "tekorei.ai",
+  "hora_publicacion": "19:00",
+  "verificado": "2026-11-19",
+  "personajes": {
+    "Nico": "Estudiante de 19 años que siempre está en apuros (examen, plata, trabajo). Hace las preguntas que haría tu audiencia. Pelo rizado oscuro, buzo naranja, auriculares al cuello, sin lentes.",
+    "Kori": "La mascota de tekorei.ai: un robot-cubo de vidrio cian esmerilado con una pantalla de cara (ojos de píxeles grandes), antena con punta naranja que brilla y patitas cortas. Sabe de todos los repos y siempre tiene un plan.",
+    "prompt_base": "Stylized low-poly 3D animation, soft matte clay materials, cozy cinematic lighting, vertical 9:16, shallow depth of field, subtle camera push-in. NICO: 19-year-old Latino student, curly dark brown hair, orange hoodie, headphones around his neck, big expressive eyes, no glasses. KORI: small robot shaped like a rounded cube of frosted cyan glass, black screen face with large white pixel eyes and pink pixel blush, tiny antenna with a glowing orange tip, short stubby legs, standing on the desk next to a laptop."
+  },
+  "dias": [
+    {
+      "dia": 1,
+      "palabra": "EXAMEN",
+      "variantes": [
+        "examen",
+        "exámen"
+      ],
+      "tema": "Exam Cram Coach",
+      "para": "Estudiantes",
+      "repos": [
+        {
+          "nombre": "ZeKaiNie/universal-examprep-skill",
+          "estrellas": 398
+        }
+      ],
+      "gancho": "Examen MAÑANA y no abrí ni un PDF",
+      "resaltar": "MAÑANA",
+      "escena": "Habitación de noche, escritorio lleno de fotocopias y tazas de café, un reloj marca 23:47.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Kori… el examen es mañana y no abrí ni un PDF.",
+          "plano": "Plano medio de Nico con la cara sobre los apuntes"
+        },
+        {
+          "p": "Kori",
+          "t": "Pásame tus apuntes, tus tareas y los exámenes viejos.",
+          "plano": "Primer plano de Kori, ojos decididos"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Me vas a hacer un resumen?",
+          "plano": "Plano medio de Nico levantando la cabeza"
+        },
+        {
+          "p": "Kori",
+          "t": "Mejor. Te doy clase desde el capítulo 1, con TUS apuntes.",
+          "plano": "Primer plano de Kori, la pantalla muestra un libro"
+        },
+        {
+          "p": "Kori",
+          "t": "Y te tomo examen con las preguntas de tus tareas.",
+          "plano": "Plano detalle de la laptop con preguntas de práctica"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y si inventa cosas?",
+          "plano": "Primer plano de Nico, desconfiado"
+        },
+        {
+          "p": "Kori",
+          "t": "Cada cosa que enseña te dice de qué página salió.",
+          "plano": "Primer plano de Kori señalando la pantalla"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y cuánto cuesta?",
+          "plano": "Plano medio de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Cero. Es código abierto.",
+          "plano": "Plano conjunto, Kori guiña un ojo de píxeles"
+        }
+      ],
+      "cta": "Comenta EXAMEN y te mando cómo instalarlo",
+      "pregunta": "¿Qué materia te está matando este semestre?",
+      "dm": "¡Aquí está, {{ username }}! 📚 Exam Cram Coach (gratis, código abierto):\nhttps://github.com/ZeKaiNie/universal-examprep-skill\n\n1) Instálala (necesitas Node.js y Python):\nnpx skills add ZeKaiNie/universal-examprep-skill\npip install pypdfium2\n\n2) Pon en una carpeta tus apuntes, PDFs, tareas y exámenes pasados.\n\n3) Abre Claude Code y pégale:\n“Usa la skill Exam Cram Coach. Mis materiales están en [tu carpeta]. El examen es en [X] días y empiezo de cero. Enséñame en español desde el capítulo 1.”\n\nMañana a las 19:00 subo otro repo 👀",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/ZeKaiNie/universal-examprep-skill"
+      },
+      "respuestas": [
+        "¡Listo! Te lo mandé por DM 📩",
+        "Enviado 🚀 Revisa tus mensajes (y la carpeta de solicitudes)",
+        "Ya te llegó por DM. ¡Éxitos en ese examen! 📚"
+      ],
+      "caption": "El examen es mañana y empiezas de cero 😵‍💫 Esta skill gratis convierte TUS apuntes en clases y simulacros, y te dice de qué página sacó cada cosa.\n\nComenta EXAMEN y te mando el link + los 3 pasos por DM 📩\n\n¿Qué materia te está matando este semestre?",
+      "yt_titulo": "Esta IA te da clase con TUS apuntes (gratis)",
+      "yt_desc": "Exam Cram Coach: una skill open source que convierte tus apuntes, tareas y exámenes viejos en clases y simulacros.\nRepo: github.com/ZeKaiNie/universal-examprep-skill\nEscríbeme EXAMEN por DM en Instagram @tekorei.ai y te mando los 3 pasos.",
+      "hashtags": "#claudecode #ia #estudiantes #github #skills",
+      "nota": "Necesita Node.js 18+ y Python 3.8+. Funciona con Claude Code, Codex, Cursor, Gemini CLI y más de 40 agentes."
+    },
+    {
+      "dia": 2,
+      "palabra": "FACELESS",
+      "variantes": [
+        "faceless",
+        "face less"
+      ],
+      "tema": "MoneyPrinterTurbo",
+      "para": "Creadores",
+      "repos": [
+        {
+          "nombre": "harry0703/MoneyPrinterTurbo",
+          "estrellas": 144695
+        }
+      ],
+      "gancho": "Esta IA hace Shorts COMPLETOS con un solo tema",
+      "resaltar": "COMPLETOS",
+      "escena": "Escritorio con un aro de luz y un micrófono, pared llena de post-its con ideas para videos.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Quiero un canal sin mostrar la cara… pero no sé editar.",
+          "plano": "Plano medio de Nico frente al aro de luz apagado"
+        },
+        {
+          "p": "Kori",
+          "t": "Escríbeme un tema.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Nico",
+          "t": "Eh… “5 datos raros del espacio”.",
+          "plano": "Plano medio de Nico escribiendo en la laptop"
+        },
+        {
+          "p": "Kori",
+          "t": "Guion… voz… clips… subtítulos… música.",
+          "plano": "Primer plano de Kori, la pantalla muestra una barra de progreso"
+        },
+        {
+          "p": "Kori",
+          "t": "Listo. Vertical, para Shorts y Reels.",
+          "plano": "Plano detalle de un celular reproduciendo un video del espacio"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y eso cuánto cuesta?",
+          "plano": "Primer plano de Nico, boquiabierto"
+        },
+        {
+          "p": "Kori",
+          "t": "El programa es gratis y open source. Solo conectas una IA para el guion.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Nico",
+          "t": "Me acabo de quedar sin excusas.",
+          "plano": "Plano conjunto, Nico se tapa la cara riéndose"
+        }
+      ],
+      "cta": "Comenta FACELESS y te paso el repo",
+      "pregunta": "¿De qué tema harías tu canal faceless?",
+      "dm": "¡Aquí está, {{ username }}! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/harry0703/MoneyPrinterTurbo"
+      },
+      "respuestas": [
+        "¡Te lo mandé por DM! 🎬",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, ya está en tu DM. ¿De qué va a ser tu canal? 👀"
+      ],
+      "caption": "Escribes un tema y te devuelve el Short terminado: guion, voz, clips, subtítulos y música 🎬 Es open source y tiene más de 144 mil estrellas en GitHub.\n\nComenta FACELESS y te paso el repo + cómo instalarlo por DM 📩\n\n¿De qué tema harías tu canal faceless?",
+      "yt_titulo": "Esta IA hace Shorts completos con un solo tema",
+      "yt_desc": "MoneyPrinterTurbo: genera videos verticales con guion, voz, clips y subtítulos a partir de un tema. Open source.\nRepo: github.com/harry0703/MoneyPrinterTurbo\nEscríbeme FACELESS por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#faceless #shorts #ia #github #creadores",
+      "nota": "Gratis el programa; el guion usa una IA (API key de pago o Ollama local) y los clips usan una key gratis de Pexels o Pixabay."
+    },
+    {
+      "dia": 3,
+      "palabra": "SKILLS",
+      "variantes": [
+        "skills"
+      ],
+      "tema": "Skills oficiales de Anthropic",
+      "para": "Todos",
+      "repos": [
+        {
+          "nombre": "anthropics/skills",
+          "estrellas": 197644
+        }
+      ],
+      "gancho": "Claude hace PowerPoints, Excel y PDFs DE VERDAD con esto",
+      "resaltar": "DE VERDAD",
+      "escena": "Oficina en casa, en la pantalla una diapositiva vacía, papeles por todas partes.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Le pedí una presentación a la IA y me dio… puro texto.",
+          "plano": "Plano medio de Nico mostrando la pantalla vacía"
+        },
+        {
+          "p": "Kori",
+          "t": "Porque no le diste la skill.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Nico",
+          "t": "¿La qué?",
+          "plano": "Primer plano de Nico, confundido"
+        },
+        {
+          "p": "Kori",
+          "t": "Una skill es un manual que la IA lee para hacer algo bien.",
+          "plano": "Primer plano de Kori, la pantalla muestra un libro abierto"
+        },
+        {
+          "p": "Kori",
+          "t": "Anthropic publicó las suyas: Word, PowerPoint, Excel, PDF y diseño web.",
+          "plano": "Plano detalle de iconos de archivos saliendo de la laptop"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y me sale el archivo de verdad?",
+          "plano": "Plano medio de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "El .pptx listo para abrir.",
+          "plano": "Plano conjunto, una presentación terminada en la pantalla"
+        }
+      ],
+      "cta": "Comenta SKILLS y te mando cómo instalarlas",
+      "pregunta": "¿Qué archivo te gustaría que la IA te haga sola?",
+      "dm": "¡Aquí están, {{ username }}! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/anthropics/skills"
+      },
+      "respuestas": [
+        "¡Listo! Te mandé las skills por DM 🧩",
+        "Enviado 📩 Revisa tus mensajes",
+        "Ya está en tu DM. ¿Qué archivo le vas a pedir primero? 👀"
+      ],
+      "caption": "Si la IA te devuelve puro texto cuando le pides un PowerPoint, le falta la skill 🧩 Anthropic publicó las suyas para Word, PowerPoint, Excel, PDF y diseño web.\n\nComenta SKILLS y te mando cómo instalarlas por DM 📩\n\n¿Qué archivo te gustaría que la IA te haga sola?",
+      "yt_titulo": "Claude hace PowerPoints y Excel de verdad con esto",
+      "yt_desc": "Las Agent Skills oficiales de Anthropic: documentos de Word, PowerPoint, Excel y PDF desde Claude Code.\nRepo: github.com/anthropics/skills\nEscríbeme SKILLS por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#claude #claudecode #skills #ia #productividad",
+      "nota": "Necesita Claude Code. También se pueden instalar con: npx skills add anthropics/skills"
+    },
+    {
+      "dia": 4,
+      "palabra": "OFFLINE",
+      "variantes": [
+        "offline",
+        "off line"
+      ],
+      "tema": "Ollama + Open WebUI",
+      "para": "Todos",
+      "repos": [
+        {
+          "nombre": "ollama/ollama",
+          "estrellas": 187649
+        },
+        {
+          "nombre": "open-webui/open-webui",
+          "estrellas": 159096
+        }
+      ],
+      "gancho": "Tu propio ChatGPT, GRATIS y sin internet",
+      "resaltar": "GRATIS",
+      "escena": "Habitación a oscuras, solo la luz de la laptop; un router con las luces apagadas.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Se me acabaron los mensajes gratis… otra vez.",
+          "plano": "Plano medio de Nico mirando un aviso de límite en la pantalla"
+        },
+        {
+          "p": "Kori",
+          "t": "¿Y si la IA viviera en tu compu?",
+          "plano": "Primer plano de Kori, la antena brilla"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Eso se puede?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Ollama descarga modelos abiertos y los corre en tu PC.",
+          "plano": "Plano detalle de una barra de descarga en la laptop"
+        },
+        {
+          "p": "Kori",
+          "t": "Y Open WebUI le pone una pantalla igual a un chat.",
+          "plano": "Plano detalle de una interfaz de chat en la pantalla"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Sin límite de mensajes?",
+          "plano": "Plano medio de Nico, emocionado"
+        },
+        {
+          "p": "Kori",
+          "t": "El límite lo pone tu compu. Y tus chats no salen de tu casa.",
+          "plano": "Plano conjunto, Kori desconecta el cable del router"
+        }
+      ],
+      "cta": "Comenta OFFLINE y te paso los 2 repos",
+      "pregunta": "¿Qué compu tienes? Dime la RAM y te digo qué modelo te corre 👇",
+      "dm": "¡Aquí está, {{ username }}! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/ollama/ollama"
+      },
+      "respuestas": [
+        "¡Te mandé los 2 repos por DM! 💻",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. Cuéntame qué compu tienes 👀"
+      ],
+      "caption": "Una IA que corre en tu compu: sin internet, sin límite de mensajes y tus chats no salen de tu casa 💻 Ollama + Open WebUI, los dos gratis y open source.\n\nComenta OFFLINE y te paso los 2 repos + los comandos por DM 📩\n\n¿Qué compu tienes? Dime la RAM y te digo qué modelo te corre 👇",
+      "yt_titulo": "Tu propio ChatGPT gratis y sin internet",
+      "yt_desc": "Ollama corre modelos abiertos en tu PC y Open WebUI les pone una interfaz de chat. Gratis y open source.\nRepos: github.com/ollama/ollama · github.com/open-webui/open-webui\nEscríbeme OFFLINE por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#ollama #ialocal #opensource #chatgpt #gratis",
+      "nota": "Los modelos grandes necesitan mucha RAM o GPU. Con 8 GB de RAM, modelos chicos."
+    },
+    {
+      "dia": 5,
+      "palabra": "PDF",
+      "variantes": [
+        "pdf"
+      ],
+      "tema": "MarkItDown de Microsoft",
+      "para": "Estudiantes y oficina",
+      "repos": [
+        {
+          "nombre": "microsoft/markitdown",
+          "estrellas": 196991
+        }
+      ],
+      "gancho": "El truco de Microsoft para que la IA lea CUALQUIER archivo",
+      "resaltar": "CUALQUIER",
+      "escena": "Mesa con una pila enorme de documentos impresos y carpetas que dicen PDF, DOCX y XLSX.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Le paso un PDF de 80 páginas a la IA… y me responde cualquier cosa.",
+          "plano": "Plano medio de Nico detrás de una pila de papeles"
+        },
+        {
+          "p": "Kori",
+          "t": "Porque se lo diste crudo.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Kori",
+          "t": "Microsoft tiene una herramienta gratis: MarkItDown.",
+          "plano": "Primer plano de Kori, la pantalla muestra un logo de documento"
+        },
+        {
+          "p": "Kori",
+          "t": "Convierte PDF, Word, PowerPoint y Excel en texto limpio, con títulos y tablas.",
+          "plano": "Plano detalle: los papeles entran a la laptop y salen ordenados"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y eso cambia algo?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "La IA lo entiende mucho mejor.",
+          "plano": "Primer plano de Kori, ojos sonrientes"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y cuántos comandos son?",
+          "plano": "Plano medio de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Uno.",
+          "plano": "Plano conjunto, Kori levanta un dedo"
+        }
+      ],
+      "cta": "Comenta PDF y te lo mando",
+      "pregunta": "¿Qué archivo le pasarías primero a la IA?",
+      "dm": "¡Aquí está, {{ username }}! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/microsoft/markitdown"
+      },
+      "respuestas": [
+        "¡Listo! Te lo mandé por DM 📄",
+        "Enviado 📩 Revisa tus mensajes",
+        "Ya está en tu DM. ¿Qué archivo vas a convertir primero? 👀"
+      ],
+      "caption": "Si le pasas un PDF gigante a la IA y te responde cualquier cosa, conviértelo primero 📄 MarkItDown (de Microsoft) pasa PDF, Word, PowerPoint y Excel a texto limpio que la IA entiende mucho mejor.\n\nComenta PDF y te lo mando por DM 📩\n\n¿Qué archivo le pasarías primero?",
+      "yt_titulo": "El truco de Microsoft para que la IA lea cualquier archivo",
+      "yt_desc": "MarkItDown convierte PDF, Word, PowerPoint y Excel a Markdown para usarlos con IA. Gratis y open source.\nRepo: github.com/microsoft/markitdown\nEscríbeme PDF por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#microsoft #ia #pdf #estudiantes #productividad",
+      "nota": "Necesita Python 3.10 a 3.14."
+    },
+    {
+      "dia": 6,
+      "palabra": "PODERES",
+      "variantes": [
+        "poderes"
+      ],
+      "tema": "Superpowers para Claude Code",
+      "para": "Programadores",
+      "repos": [
+        {
+          "nombre": "obra/superpowers",
+          "estrellas": 321961
+        }
+      ],
+      "gancho": "El plugin de Claude Code con +320 MIL estrellas",
+      "resaltar": "+320 MIL",
+      "escena": "Escritorio de programador con dos monitores llenos de errores en rojo.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Claude Code me escribe código rapidísimo… y después nada funciona.",
+          "plano": "Plano medio de Nico frente a pantallas en rojo"
+        },
+        {
+          "p": "Kori",
+          "t": "Porque arranca a programar sin pensar.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Kori",
+          "t": "Superpowers le enseña a trabajar como un dev senior.",
+          "plano": "Primer plano de Kori con una capa de superhéroe"
+        },
+        {
+          "p": "Kori",
+          "t": "Primero pregunta. Después planifica. Escribe tests. Y revisa su propio código.",
+          "plano": "Plano detalle de una lista de pasos que se va tachando"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y cómo lo instalo?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Una línea, desde el marketplace oficial.",
+          "plano": "Plano conjunto, las pantallas pasan de rojo a verde"
+        }
+      ],
+      "cta": "Comenta PODERES y te paso el comando",
+      "pregunta": "¿Qué app quieres construir con IA?",
+      "dm": "¡Aquí está, {{ username }}! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/obra/superpowers"
+      },
+      "respuestas": [
+        "¡Te pasé el comando por DM! ⚡",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué vas a construir? 👀"
+      ],
+      "caption": "Claude Code programa rapidísimo, pero sin plan todo se rompe ⚡ Superpowers le enseña a preguntar, planificar, escribir tests y revisar su código. Tiene más de 320 mil estrellas en GitHub.\n\nComenta PODERES y te paso el comando por DM 📩\n\n¿Qué app quieres construir con IA?",
+      "yt_titulo": "El plugin de Claude Code con +320 mil estrellas",
+      "yt_desc": "Superpowers: un framework de skills que hace que Claude Code planifique, escriba tests y revise antes de programar.\nRepo: github.com/obra/superpowers\nEscríbeme PODERES por DM en Instagram @tekorei.ai y te mando el comando.",
+      "hashtags": "#claudecode #programacion #ia #github #devs",
+      "nota": "Necesita Claude Code. También funciona en otros agentes (ver el README)."
+    },
+    {
+      "dia": 7,
+      "palabra": "NOTEBOOK",
+      "variantes": [
+        "notebook",
+        "note book"
+      ],
+      "tema": "Open Notebook",
+      "para": "Estudiantes",
+      "repos": [
+        {
+          "nombre": "lfnovo/open-notebook",
+          "estrellas": 42085
+        }
+      ],
+      "gancho": "NotebookLM… pero TUYO y open source",
+      "resaltar": "TUYO",
+      "escena": "Biblioteca acogedora con estantes de libros y cuadernos abiertos sobre la mesa.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Uso NotebookLM para estudiar, pero quiero más control.",
+          "plano": "Plano medio de Nico entre libros"
+        },
+        {
+          "p": "Kori",
+          "t": "Prueba Open Notebook. Es la versión open source.",
+          "plano": "Primer plano de Kori sosteniendo un cuaderno"
+        },
+        {
+          "p": "Kori",
+          "t": "Le subes PDFs, videos y páginas web… y chateas con todo.",
+          "plano": "Plano detalle: documentos volando hacia la pantalla"
+        },
+        {
+          "p": "Kori",
+          "t": "Hace resúmenes y hasta podcasts con tus fuentes.",
+          "plano": "Primer plano de Kori con auriculares"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y con qué IA funciona?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Con la que quieras. Incluso una local, gratis.",
+          "plano": "Plano conjunto, Nico se pone los auriculares y escucha"
+        }
+      ],
+      "cta": "Comenta NOTEBOOK y te paso cómo montarlo",
+      "pregunta": "¿Qué estudiarías con esto?",
+      "dm": "¡Aquí está, {{ username }}! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/lfnovo/open-notebook"
+      },
+      "respuestas": [
+        "¡Te lo mandé por DM! 📓",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué vas a estudiar con esto? 👀"
+      ],
+      "caption": "Como NotebookLM, pero open source y en tu compu 📓 Subes PDFs, videos y páginas, chateas con todo y genera resúmenes y podcasts con tus fuentes.\n\nComenta NOTEBOOK y te paso cómo montarlo por DM 📩\n\n¿Qué estudiarías con esto?",
+      "yt_titulo": "NotebookLM pero tuyo y open source",
+      "yt_desc": "Open Notebook: chatea con tus PDFs, videos y webs, y genera podcasts. Open source, funciona con la IA que elijas.\nRepo: github.com/lfnovo/open-notebook\nEscríbeme NOTEBOOK por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#notebooklm #opensource #estudiantes #ia #github",
+      "nota": "Necesita Docker y una IA (API key de un proveedor u Ollama local)."
+    },
+    {
+      "dia": 8,
+      "palabra": "MEMORIA",
+      "variantes": [
+        "memoria"
+      ],
+      "tema": "Claude-Mem",
+      "para": "Usuarios de Claude Code",
+      "repos": [
+        {
+          "nombre": "thedotmack/claude-mem",
+          "estrellas": 118401
+        }
+      ],
+      "gancho": "Claude se OLVIDA de todo… hasta que instalas esto",
+      "resaltar": "OLVIDA",
+      "escena": "Escritorio cubierto de notas adhesivas; Kori sostiene una libreta y un lápiz.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Ayer le expliqué todo mi proyecto a Claude… y hoy no se acuerda de nada.",
+          "plano": "Plano medio de Nico, frustrado"
+        },
+        {
+          "p": "Kori",
+          "t": "Cada sesión empieza de cero.",
+          "plano": "Primer plano de Kori, la pantalla se pone en blanco"
+        },
+        {
+          "p": "Kori",
+          "t": "Claude-Mem toma notas mientras trabajas.",
+          "plano": "Primer plano de Kori escribiendo en su libreta"
+        },
+        {
+          "p": "Kori",
+          "t": "Y en la próxima sesión, Claude ya sabe dónde te quedaste.",
+          "plano": "Plano detalle de la laptop mostrando un resumen de la sesión anterior"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y mis cosas dónde quedan?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "En tu compu. La nube es opcional.",
+          "plano": "Plano conjunto, Kori guarda la libreta en un cajón"
+        }
+      ],
+      "cta": "Comenta MEMORIA y te mando cómo instalarlo",
+      "pregunta": "¿Qué es lo que más te molesta repetirle a la IA?",
+      "dm": "¡Aquí está, {{ username }}! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/thedotmack/claude-mem"
+      },
+      "respuestas": [
+        "¡Te lo mandé por DM! 🧠",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. Ahora Claude no se olvida 😉"
+      ],
+      "caption": "Le explicas todo tu proyecto a Claude y al otro día no se acuerda de nada 🧠 Claude-Mem toma notas mientras trabajas y la próxima sesión arranca donde te quedaste. La memoria queda en tu compu.\n\nComenta MEMORIA y te mando cómo instalarlo por DM 📩\n\n¿Qué es lo que más te molesta repetirle a la IA?",
+      "yt_titulo": "Claude se olvida de todo hasta que instalas esto",
+      "yt_desc": "Claude-Mem le da memoria entre sesiones a Claude Code y otros agentes. La memoria se guarda en tu compu.\nRepo: github.com/thedotmack/claude-mem\nEscríbeme MEMORIA por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#claudecode #ia #productividad #github #devs",
+      "nota": "El instalador ofrece una prueba paga opcional; se puede usar con tu propio plan de Anthropic, OpenRouter o Gemini."
+    },
+    {
+      "dia": 9,
+      "palabra": "FOTOS",
+      "variantes": [
+        "fotos"
+      ],
+      "tema": "Upscayl + Rembg",
+      "para": "Emprendedores",
+      "repos": [
+        {
+          "nombre": "upscayl/upscayl",
+          "estrellas": 52937
+        },
+        {
+          "nombre": "danielgatis/rembg",
+          "estrellas": 25588
+        }
+      ],
+      "gancho": "Deja de PAGAR por quitar fondos y mejorar fotos",
+      "resaltar": "PAGAR",
+      "escena": "Pequeño emprendimiento en casa: cajas de productos, un celular sacando fotos sobre una sábana blanca.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Me piden fotos de producto para la tienda… y salen horribles.",
+          "plano": "Plano medio de Nico sacando una foto borrosa con el celular"
+        },
+        {
+          "p": "Kori",
+          "t": "Dos herramientas gratis.",
+          "plano": "Primer plano de Kori levantando dos dedos"
+        },
+        {
+          "p": "Kori",
+          "t": "Upscayl agarra una foto borrosa y la agranda con IA.",
+          "plano": "Plano detalle: una foto borrosa se vuelve nítida"
+        },
+        {
+          "p": "Kori",
+          "t": "Y Rembg le quita el fondo en segundos.",
+          "plano": "Plano detalle: el fondo desaparece de la foto del producto"
+        },
+        {
+          "p": "Nico",
+          "t": "¿En mi compu? ¿Sin subir nada?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Todo local. Tus fotos no salen de tu PC.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Nico",
+          "t": "Acabo de encontrar un negocio: fotos para tiendas.",
+          "plano": "Plano conjunto, Nico sonríe con el celular en la mano"
+        }
+      ],
+      "cta": "Comenta FOTOS y te paso las dos",
+      "pregunta": "¿Qué venderías con fotos así?",
+      "dm": "¡Aquí están, {{ username }}! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉",
+      "boton": {
+        "texto": "Ver Upscayl",
+        "url": "https://github.com/upscayl/upscayl"
+      },
+      "respuestas": [
+        "¡Te mandé las dos por DM! 📸",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, están en tu DM. ¿Qué vas a vender? 👀"
+      ],
+      "caption": "Fotos de producto que parecen de estudio, gratis y sin subir nada a internet 📸 Upscayl mejora las fotos con IA y Rembg quita el fondo. Las dos son open source.\n\nComenta FOTOS y te paso las dos por DM 📩\n\n¿Qué venderías con fotos así?",
+      "yt_titulo": "Deja de pagar por quitar fondos y mejorar fotos",
+      "yt_desc": "Upscayl (mejora fotos con IA) y Rembg (quita fondos). Gratis, open source y local.\nRepos: github.com/upscayl/upscayl · github.com/danielgatis/rembg\nEscríbeme FOTOS por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#emprendedores #fotografia #ia #gratis #opensource",
+      "nota": "Upscayl necesita GPU compatible con Vulkan. Rembg necesita Python 3.11 a 3.13."
+    },
+    {
+      "dia": 10,
+      "palabra": "EDITOR",
+      "variantes": [
+        "editor"
+      ],
+      "tema": "Remotion + skills",
+      "para": "Creadores",
+      "repos": [
+        {
+          "nombre": "remotion-dev/remotion",
+          "estrellas": 74334
+        },
+        {
+          "nombre": "remotion-dev/skills",
+          "estrellas": 7562
+        }
+      ],
+      "gancho": "Le pedí un video a Claude… y lo PROGRAMÓ",
+      "resaltar": "PROGRAMÓ",
+      "escena": "Mini estudio de edición con una línea de tiempo en pantalla y una claqueta sobre la mesa.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Editar un video me toma horas.",
+          "plano": "Plano medio de Nico, ojeroso, frente a una línea de tiempo"
+        },
+        {
+          "p": "Kori",
+          "t": "¿Y si lo describes y la IA lo programa?",
+          "plano": "Primer plano de Kori con una claqueta"
+        },
+        {
+          "p": "Kori",
+          "t": "Remotion hace videos con código. Y tiene skills para Claude Code.",
+          "plano": "Plano detalle de código que se convierte en animación"
+        },
+        {
+          "p": "Nico",
+          "t": "O sea que le digo “hazme una intro con mi logo”…",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "…y te arma la animación. La ves, pides cambios y la exportas.",
+          "plano": "Plano detalle de un render terminado"
+        },
+        {
+          "p": "Nico",
+          "t": "Un editor que no se cansa nunca.",
+          "plano": "Plano conjunto, Nico se estira relajado"
+        }
+      ],
+      "cta": "Comenta EDITOR y te paso cómo empezar",
+      "pregunta": "¿Qué video le pedirías primero?",
+      "dm": "¡Aquí está, {{ username }}! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/remotion-dev/skills"
+      },
+      "respuestas": [
+        "¡Te lo mandé por DM! 🎞️",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué video vas a pedir? 👀"
+      ],
+      "caption": "Describes el video y Claude lo programa 🎞️ Remotion hace videos con código y tiene skills oficiales para agentes de IA: pides, revisas, pides cambios y exportas.\n\nComenta EDITOR y te paso cómo empezar por DM 📩\n\n¿Qué video le pedirías primero?",
+      "yt_titulo": "Le pedí un video a Claude y lo programó",
+      "yt_desc": "Remotion crea videos con React y tiene skills para Claude Code y otros agentes.\nRepos: github.com/remotion-dev/remotion · github.com/remotion-dev/skills\nEscríbeme EDITOR por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#remotion #claudecode #edicion #ia #creadores",
+      "nota": "Remotion tiene licencia especial: gratis para personas y equipos pequeños; empresas más grandes pagan."
+    },
+    {
+      "dia": 11,
+      "palabra": "NAVEGADOR",
+      "variantes": [
+        "navegador"
+      ],
+      "tema": "Playwright MCP",
+      "para": "Todos",
+      "repos": [
+        {
+          "nombre": "microsoft/playwright-mcp",
+          "estrellas": 39903
+        }
+      ],
+      "gancho": "La IA ya usa tu navegador POR TI",
+      "resaltar": "POR TI",
+      "escena": "Escritorio con la pantalla llena de pestañas de tiendas abiertas.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Tengo que comparar precios en diez tiendas… otra vez.",
+          "plano": "Plano medio de Nico frente a decenas de pestañas"
+        },
+        {
+          "p": "Kori",
+          "t": "Dale un navegador a Claude.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Kori",
+          "t": "Playwright MCP, de Microsoft, deja que la IA abra páginas, haga clic y lea.",
+          "plano": "Plano detalle: el cursor se mueve solo por una tienda"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y lo puedo ver haciéndolo?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "En vivo. Se abre el navegador y la IA lo maneja.",
+          "plano": "Plano detalle de una tabla de precios llenándose"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y si compra algo?",
+          "plano": "Primer plano de Nico, preocupado"
+        },
+        {
+          "p": "Kori",
+          "t": "Nunca le des tu tarjeta. Tú revisas y tú decides.",
+          "plano": "Plano conjunto, Kori esconde una tarjeta detrás de su espalda"
+        }
+      ],
+      "cta": "Comenta NAVEGADOR y te mando el comando",
+      "pregunta": "¿Qué tarea aburrida de internet le darías?",
+      "dm": "¡Aquí está, {{ username }}! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/microsoft/playwright-mcp"
+      },
+      "respuestas": [
+        "¡Te mandé el comando por DM! 🌐",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué tarea le vas a dar? 👀"
+      ],
+      "caption": "Le das un navegador a la IA y compara precios, llena tablas y lee páginas por ti 🌐 Playwright MCP es de Microsoft y es open source. Regla de oro: nunca le des tu tarjeta.\n\nComenta NAVEGADOR y te mando el comando por DM 📩\n\n¿Qué tarea aburrida de internet le darías?",
+      "yt_titulo": "La IA ya usa tu navegador por ti",
+      "yt_desc": "Playwright MCP: deja que Claude Code y otros agentes manejen un navegador real.\nRepo: github.com/microsoft/playwright-mcp\nEscríbeme NAVEGADOR por DM en Instagram @tekorei.ai y te mando el comando.",
+      "hashtags": "#mcp #claudecode #automatizacion #microsoft #ia",
+      "nota": "Necesita Node.js y un agente con MCP (Claude Code, Cursor, VS Code…). Supervisa siempre lo que hace."
+    },
+    {
+      "dia": 12,
+      "palabra": "DOCS",
+      "variantes": [
+        "docs"
+      ],
+      "tema": "Context7",
+      "para": "Programadores",
+      "repos": [
+        {
+          "nombre": "upstash/context7",
+          "estrellas": 65133
+        }
+      ],
+      "gancho": "Por qué la IA te da código que NO funciona",
+      "resaltar": "NO",
+      "escena": "Escritorio con un libro de documentación viejo y lleno de polvo; telarañas en la esquina del monitor.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "La IA me dio código… y la librería dice que esa función ya no existe.",
+          "plano": "Plano medio de Nico frente a un error"
+        },
+        {
+          "p": "Kori",
+          "t": "La IA aprendió con documentación vieja.",
+          "plano": "Primer plano de Kori soplando polvo de un libro"
+        },
+        {
+          "p": "Kori",
+          "t": "Context7 le pasa la documentación actualizada antes de responder.",
+          "plano": "Plano detalle: un libro nuevo y brillante entra en la laptop"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y tengo que buscarla yo?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "No. Tú programas normal y ella busca la versión correcta.",
+          "plano": "Plano conjunto, el error se pone verde"
+        }
+      ],
+      "cta": "Comenta DOCS y te paso el setup",
+      "pregunta": "¿Con qué lenguaje o framework programas?",
+      "dm": "¡Aquí está, {{ username }}! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/upstash/context7"
+      },
+      "respuestas": [
+        "¡Te pasé el setup por DM! 📚",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Con qué programas? 👀"
+      ],
+      "caption": "Si la IA te da funciones que ya no existen, es porque aprendió con documentación vieja 📚 Context7 le pasa la documentación actualizada antes de responder.\n\nComenta DOCS y te paso el setup por DM 📩\n\n¿Con qué lenguaje o framework programas?",
+      "yt_titulo": "Por qué la IA te da código que no funciona",
+      "yt_desc": "Context7 da documentación actualizada a Claude Code, Cursor y otros agentes.\nRepo: github.com/upstash/context7\nEscríbeme DOCS por DM en Instagram @tekorei.ai y te mando el setup.",
+      "hashtags": "#programacion #claudecode #cursor #ia #devs",
+      "nota": "Necesita Node.js 22.13+. La API key gratuita da más límite."
+    },
+    {
+      "dia": 13,
+      "palabra": "PLANO",
+      "variantes": [
+        "plano",
+        "planos"
+      ],
+      "tema": "Spec Kit de GitHub",
+      "para": "Programadores y emprendedores",
+      "repos": [
+        {
+          "nombre": "github/spec-kit",
+          "estrellas": 150674
+        }
+      ],
+      "gancho": "Cómo hacer una app con IA sin que se rompa TODO",
+      "resaltar": "TODO",
+      "escena": "Mesa de arquitecto con planos azules enrollados y una maqueta de una app.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Le pedí una app a la IA… y cada cambio rompe otra cosa.",
+          "plano": "Plano medio de Nico, una torre de bloques se cae"
+        },
+        {
+          "p": "Kori",
+          "t": "Le pediste código sin decir QUÉ querías.",
+          "plano": "Primer plano de Kori"
+        },
+        {
+          "p": "Kori",
+          "t": "GitHub creó Spec Kit: primero escribes la especificación.",
+          "plano": "Primer plano de Kori desenrollando un plano azul"
+        },
+        {
+          "p": "Kori",
+          "t": "Después el plan, después las tareas… y recién ahí el código.",
+          "plano": "Plano detalle de cuatro pasos que se encienden en orden"
+        },
+        {
+          "p": "Nico",
+          "t": "Como un arquitecto con planos.",
+          "plano": "Primer plano de Nico con un casco de obra"
+        },
+        {
+          "p": "Kori",
+          "t": "Exacto. La IA deja de improvisar.",
+          "plano": "Plano conjunto, la torre de bloques queda firme"
+        }
+      ],
+      "cta": "Comenta PLANO y te paso los comandos",
+      "pregunta": "¿Qué app harías primero?",
+      "dm": "¡Aquí está, {{ username }}! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/github/spec-kit"
+      },
+      "respuestas": [
+        "¡Te pasé el plano por DM! 📐",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué app vas a hacer? 👀"
+      ],
+      "caption": "Si cada cambio que le pides a la IA rompe otra cosa, te falta el plano 📐 Spec Kit (de GitHub) te hace definir qué quieres, planificar y dividir en tareas antes de escribir código.\n\nComenta PLANO y te paso los comandos por DM 📩\n\n¿Qué app harías primero?",
+      "yt_titulo": "Cómo hacer una app con IA sin que se rompa todo",
+      "yt_desc": "Spec Kit de GitHub: desarrollo guiado por especificaciones para Claude Code, Copilot y otros agentes.\nRepo: github.com/github/spec-kit\nEscríbeme PLANO por DM en Instagram @tekorei.ai y te mando los comandos.",
+      "hashtags": "#github #programacion #claudecode #ia #apps",
+      "nota": "Necesita Python 3.11+, uv y un agente compatible (Claude Code, Copilot, Gemini CLI…)."
+    },
+    {
+      "dia": 14,
+      "palabra": "ROBOT",
+      "variantes": [
+        "robot"
+      ],
+      "tema": "n8n",
+      "para": "Emprendedores y freelancers",
+      "repos": [
+        {
+          "nombre": "n8n-io/n8n",
+          "estrellas": 211422
+        }
+      ],
+      "gancho": "El robot que trabaja mientras DUERMES",
+      "resaltar": "DUERMES",
+      "escena": "Habitación de noche, Nico duerme; en la pantalla, bloques conectados que se encienden uno tras otro.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Contesto los mismos mensajes y copio datos a Excel todo el día.",
+          "plano": "Plano medio de Nico rodeado de notificaciones"
+        },
+        {
+          "p": "Kori",
+          "t": "Constrúyete un robot.",
+          "plano": "Primer plano de Kori con un casco de obrero"
+        },
+        {
+          "p": "Kori",
+          "t": "n8n conecta tus apps con IA: Gmail, Sheets, Telegram… más de mil.",
+          "plano": "Plano detalle de bloques conectados en la pantalla"
+        },
+        {
+          "p": "Kori",
+          "t": "Arrastras bloques y armas el flujo.",
+          "plano": "Primer plano de Kori moviendo un bloque"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y eso se puede vender?",
+          "plano": "Primer plano de Nico, curioso"
+        },
+        {
+          "p": "Kori",
+          "t": "Muchos negocios pagan por automatizaciones así.",
+          "plano": "Plano conjunto, Nico duerme y la pantalla sigue trabajando"
+        }
+      ],
+      "cta": "Comenta ROBOT y te paso cómo instalarlo gratis",
+      "pregunta": "¿Qué tarea automatizarías primero?",
+      "dm": "¡Aquí está, {{ username }}! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸",
+      "boton": {
+        "texto": "Ver en GitHub",
+        "url": "https://github.com/n8n-io/n8n"
+      },
+      "respuestas": [
+        "¡Te lo mandé por DM! 🤖",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, está en tu DM. ¿Qué vas a automatizar? 👀"
+      ],
+      "caption": "Un robot que responde, copia datos y avisa mientras duermes 🤖 n8n conecta tus apps con IA arrastrando bloques, y lo puedes instalar gratis en tu compu.\n\nComenta ROBOT y te paso cómo instalarlo por DM 📩\n\n¿Qué tarea automatizarías primero?",
+      "yt_titulo": "El robot que trabaja mientras duermes",
+      "yt_desc": "n8n: automatizaciones con IA conectando tus apps. Se puede instalar gratis con Docker.\nRepo: github.com/n8n-io/n8n\nEscríbeme ROBOT por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "hashtags": "#n8n #automatizacion #ia #emprendedores #nocode",
+      "nota": "Licencia fair-code: gratis para usarlo tú o en tu negocio; revisa la licencia si lo vas a revender como servicio."
+    },
+    {
+      "dia": 15,
+      "palabra": "KIT",
+      "variantes": [
+        "kit"
+      ],
+      "tema": "El kit completo",
+      "para": "Todos",
+      "repos": [
+        {
+          "nombre": "vercel-labs/skills",
+          "estrellas": 40074
+        }
+      ],
+      "gancho": "Mi KIT de IA: 16 repos gratis en una lista",
+      "resaltar": "KIT",
+      "escena": "Escritorio con una caja de herramientas brillante que se abre y muestra 16 tarjetas con logos de repos.",
+      "guion": [
+        {
+          "p": "Nico",
+          "t": "Kori, en 15 días me pasaste 16 repos.",
+          "plano": "Plano medio de Nico con muchas notas en la mano"
+        },
+        {
+          "p": "Kori",
+          "t": "Y ahora van todos en una sola lista.",
+          "plano": "Primer plano de Kori abriendo una caja de herramientas"
+        },
+        {
+          "p": "Kori",
+          "t": "Para estudiar, crear videos, programar y automatizar.",
+          "plano": "Plano detalle de tarjetas que salen de la caja"
+        },
+        {
+          "p": "Kori",
+          "t": "Y un truco extra: con “npx skills find” buscas skills de cualquier tema.",
+          "plano": "Plano detalle de la terminal con resultados de búsqueda"
+        },
+        {
+          "p": "Nico",
+          "t": "¿Y mañana qué?",
+          "plano": "Primer plano de Nico"
+        },
+        {
+          "p": "Kori",
+          "t": "Mañana empieza la temporada 2.",
+          "plano": "Plano conjunto, Kori guiña y la antena brilla"
+        }
+      ],
+      "cta": "Comenta KIT y te mando la lista completa",
+      "pregunta": "¿Qué repo quieres que explique a fondo?",
+      "dm": "¡Aquí está tu KIT, {{ username }}! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Respóndeme AVISAME 🔔",
+      "boton": {
+        "texto": "Buscar más skills",
+        "url": "https://skills.sh"
+      },
+      "respuestas": [
+        "¡Tu KIT ya está en el DM! 🧰",
+        "Enviado 📩 Revisa tus mensajes",
+        "Listo, te mandé los 16. ¿Cuál quieres que explique a fondo? 👀"
+      ],
+      "caption": "15 días, 16 repos de IA gratis y open source: para estudiar, crear videos, programar y automatizar 🧰 Te los mando todos juntos en una lista.\n\nComenta KIT y te llega por DM 📩\n\n¿Qué repo quieres que explique a fondo?",
+      "yt_titulo": "Mi kit de IA: 16 repos gratis en una lista",
+      "yt_desc": "Los 16 repos de la temporada 1 de tekorei.ai: estudiar, crear, programar y automatizar con IA.\nBusca más skills con: npx skills find [tema]\nEscríbeme KIT por DM en Instagram @tekorei.ai y te mando la lista.",
+      "hashtags": "#github #ia #opensource #claudecode #herramientas",
+      "nota": "El DM pide responder AVISAME: eso etiqueta a la persona para avisarle de lanzamientos (tu lista propia)."
+    }
+  ]
+}

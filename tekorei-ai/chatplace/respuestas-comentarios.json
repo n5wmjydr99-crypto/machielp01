@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Día 01 · EXAMEN",
+    "type": "contains",
+    "startMessages": [
+      "examen",
+      "EXAMEN",
+      "Examen",
+      "exámen",
+      "EXÁMEN",
+      "Exámen"
+    ],
+    "answers": [
+      "¡Listo! Te lo mandé por DM 📩",
+      "Enviado 🚀 Revisa tus mensajes (y la carpeta de solicitudes)",
+      "Ya te llegó por DM. ¡Éxitos en ese examen! 📚"
+    ]
+  },
+  {
+    "name": "Día 02 · FACELESS",
+    "type": "contains",
+    "startMessages": [
+      "faceless",
+      "FACELESS",
+      "Faceless",
+      "face less",
+      "FACE LESS",
+      "Face less"
+    ],
+    "answers": [
+      "¡Te lo mandé por DM! 🎬",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, ya está en tu DM. ¿De qué va a ser tu canal? 👀"
+    ]
+  },
+  {
+    "name": "Día 03 · SKILLS",
+    "type": "contains",
+    "startMessages": [
+      "skills",
+      "SKILLS",
+      "Skills"
+    ],
+    "answers": [
+      "¡Listo! Te mandé las skills por DM 🧩",
+      "Enviado 📩 Revisa tus mensajes",
+      "Ya está en tu DM. ¿Qué archivo le vas a pedir primero? 👀"
+    ]
+  },
+  {
+    "name": "Día 04 · OFFLINE",
+    "type": "contains",
+    "startMessages": [
+      "offline",
+      "OFFLINE",
+      "Offline",
+      "off line",
+      "OFF LINE",
+      "Off line"
+    ],
+    "answers": [
+      "¡Te mandé los 2 repos por DM! 💻",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. Cuéntame qué compu tienes 👀"
+    ]
+  },
+  {
+    "name": "Día 05 · PDF",
+    "type": "contains",
+    "startMessages": [
+      "pdf",
+      "PDF",
+      "Pdf"
+    ],
+    "answers": [
+      "¡Listo! Te lo mandé por DM 📄",
+      "Enviado 📩 Revisa tus mensajes",
+      "Ya está en tu DM. ¿Qué archivo vas a convertir primero? 👀"
+    ]
+  },
+  {
+    "name": "Día 06 · PODERES",
+    "type": "contains",
+    "startMessages": [
+      "poderes",
+      "PODERES",
+      "Poderes"
+    ],
+    "answers": [
+      "¡Te pasé el comando por DM! ⚡",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué vas a construir? 👀"
+    ]
+  },
+  {
+    "name": "Día 07 · NOTEBOOK",
+    "type": "contains",
+    "startMessages": [
+      "notebook",
+      "NOTEBOOK",
+      "Notebook",
+      "note book",
+      "NOTE BOOK",
+      "Note book"
+    ],
+    "answers": [
+      "¡Te lo mandé por DM! 📓",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué vas a estudiar con esto? 👀"
+    ]
+  },
+  {
+    "name": "Día 08 · MEMORIA",
+    "type": "contains",
+    "startMessages": [
+      "memoria",
+      "MEMORIA",
+      "Memoria"
+    ],
+    "answers": [
+      "¡Te lo mandé por DM! 🧠",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. Ahora Claude no se olvida 😉"
+    ]
+  },
+  {
+    "name": "Día 09 · FOTOS",
+    "type": "contains",
+    "startMessages": [
+      "fotos",
+      "FOTOS",
+      "Fotos"
+    ],
+    "answers": [
+      "¡Te mandé las dos por DM! 📸",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, están en tu DM. ¿Qué vas a vender? 👀"
+    ]
+  },
+  {
+    "name": "Día 10 · EDITOR",
+    "type": "contains",
+    "startMessages": [
+      "editor",
+      "EDITOR",
+      "Editor"
+    ],
+    "answers": [
+      "¡Te lo mandé por DM! 🎞️",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué video vas a pedir? 👀"
+    ]
+  },
+  {
+    "name": "Día 11 · NAVEGADOR",
+    "type": "contains",
+    "startMessages": [
+      "navegador",
+      "NAVEGADOR",
+      "Navegador"
+    ],
+    "answers": [
+      "¡Te mandé el comando por DM! 🌐",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué tarea le vas a dar? 👀"
+    ]
+  },
+  {
+    "name": "Día 12 · DOCS",
+    "type": "contains",
+    "startMessages": [
+      "docs",
+      "DOCS",
+      "Docs"
+    ],
+    "answers": [
+      "¡Te pasé el setup por DM! 📚",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Con qué programas? 👀"
+    ]
+  },
+  {
+    "name": "Día 13 · PLANO",
+    "type": "contains",
+    "startMessages": [
+      "plano",
+      "PLANO",
+      "Plano",
+      "planos",
+      "PLANOS",
+      "Planos"
+    ],
+    "answers": [
+      "¡Te pasé el plano por DM! 📐",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué app vas a hacer? 👀"
+    ]
+  },
+  {
+    "name": "Día 14 · ROBOT",
+    "type": "contains",
+    "startMessages": [
+      "robot",
+      "ROBOT",
+      "Robot"
+    ],
+    "answers": [
+      "¡Te lo mandé por DM! 🤖",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, está en tu DM. ¿Qué vas a automatizar? 👀"
+    ]
+  },
+  {
+    "name": "Día 15 · KIT",
+    "type": "contains",
+    "startMessages": [
+      "kit",
+      "KIT",
+      "Kit"
+    ],
+    "answers": [
+      "¡Tu KIT ya está en el DM! 🧰",
+      "Enviado 📩 Revisa tus mensajes",
+      "Listo, te mandé los 16. ¿Cuál quieres que explique a fondo? 👀"
+    ]
+  }
+]

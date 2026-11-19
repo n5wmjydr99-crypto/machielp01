@@ -1,0 +1,2146 @@
+[
+  {
+    "name": "Día 01 · EXAMEN · Exam Cram Coach",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "examen",
+        "EXAMEN",
+        "Examen",
+        "exámen",
+        "EXÁMEN",
+        "Exámen"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Exam Cram Coach. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_examen"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 📚 Exam Cram Coach (gratis, código abierto):\nhttps://github.com/ZeKaiNie/universal-examprep-skill\n\n1) Instálala (necesitas Node.js y Python):\nnpx skills add ZeKaiNie/universal-examprep-skill\npip install pypdfium2\n\n2) Pon en una carpeta tus apuntes, PDFs, tareas y exámenes pasados.\n\n3) Abre Claude Code y pégale:\n“Usa la skill Exam Cram Coach. Mis materiales están en [tu carpeta]. El examen es en [X] días y empiezo de cero. Enséñame en español desde el capítulo 1.”\n\nMañana a las 19:00 subo otro repo 👀",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/ZeKaiNie/universal-examprep-skill",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_examen_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 02 · FACELESS · MoneyPrinterTurbo",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "faceless",
+        "FACELESS",
+        "Faceless",
+        "face less",
+        "FACE LESS",
+        "Face less"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso MoneyPrinterTurbo. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_faceless"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_faceless_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 03 · SKILLS · Skills oficiales de Anthropic",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "skills",
+        "SKILLS",
+        "Skills"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Skills oficiales de Anthropic. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_skills"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí están, {{ username }}! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/anthropics/skills",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_skills_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 04 · OFFLINE · Ollama + Open WebUI",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "offline",
+        "OFFLINE",
+        "Offline",
+        "off line",
+        "OFF LINE",
+        "Off line"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Ollama + Open WebUI. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_offline"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/ollama/ollama",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_offline_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 05 · PDF · MarkItDown de Microsoft",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "pdf",
+        "PDF",
+        "Pdf"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso MarkItDown de Microsoft. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_pdf"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/microsoft/markitdown",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_pdf_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 06 · PODERES · Superpowers para Claude Code",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "poderes",
+        "PODERES",
+        "Poderes"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Superpowers para Claude Code. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_poderes"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/obra/superpowers",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_poderes_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 07 · NOTEBOOK · Open Notebook",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "notebook",
+        "NOTEBOOK",
+        "Notebook",
+        "note book",
+        "NOTE BOOK",
+        "Note book"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Open Notebook. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_notebook"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/lfnovo/open-notebook",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_notebook_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 08 · MEMORIA · Claude-Mem",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "memoria",
+        "MEMORIA",
+        "Memoria"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Claude-Mem. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_memoria"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/thedotmack/claude-mem",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_memoria_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 09 · FOTOS · Upscayl + Rembg",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "fotos",
+        "FOTOS",
+        "Fotos"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Upscayl + Rembg. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_fotos"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí están, {{ username }}! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver Upscayl",
+            "url": "https://github.com/upscayl/upscayl",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_fotos_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 10 · EDITOR · Remotion + skills",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "editor",
+        "EDITOR",
+        "Editor"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Remotion + skills. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_editor"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/remotion-dev/skills",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_editor_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 11 · NAVEGADOR · Playwright MCP",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "navegador",
+        "NAVEGADOR",
+        "Navegador"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Playwright MCP. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_navegador"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/microsoft/playwright-mcp",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_navegador_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 12 · DOCS · Context7",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "docs",
+        "DOCS",
+        "Docs"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Context7. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_docs"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/upstash/context7",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_docs_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 13 · PLANO · Spec Kit de GitHub",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "plano",
+        "PLANO",
+        "Plano",
+        "planos",
+        "PLANOS",
+        "Planos"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso Spec Kit de GitHub. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_plano"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/github/spec-kit",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_plano_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 14 · ROBOT · n8n",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "robot",
+        "ROBOT",
+        "Robot"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso n8n. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_robot"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está, {{ username }}! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Ver en GitHub",
+            "url": "https://github.com/n8n-io/n8n",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_robot_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Día 15 · KIT · El kit completo",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "commentContains",
+        "messageContains"
+      ],
+      "startMessages": [
+        "kit",
+        "KIT",
+        "Kit"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hola, {{ username }}! Vi tu comentario 👀 Te paso El kit completo. Toca el botón 👇",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "¡Lo quiero! 🔥",
+            "url": null,
+            "type": "onetime",
+            "nextStepId": 2
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "kw_kit"
+          ],
+          "nextStepId": 3
+        },
+        "nextStepId": 3
+      },
+      {
+        "stepId": 3,
+        "type": "condition",
+        "coordinateX": 1020,
+        "coordinateY": 100,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 4
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 4,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 400,
+        "content": "Para mandarte el link necesito que sigas a @tekorei.ai 🙏 Sígueme y toca el botón.",
+        "imageContent": null,
+        "callToAction": [
+          {
+            "name": "Ya te sigo ✅",
+            "url": null,
+            "type": "multiple",
+            "nextStepId": 7
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 5,
+        "type": "message",
+        "coordinateX": 1480,
+        "coordinateY": 100,
+        "content": "¡Aquí está tu KIT, {{ username }}! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Respóndeme AVISAME 🔔",
+        "imageContent": null,
+        "formType": "quickAnswer",
+        "callToAction": [],
+        "nextStepId": 6
+      },
+      {
+        "stepId": 6,
+        "type": "message",
+        "coordinateX": 1940,
+        "coordinateY": 100,
+        "content": "Aquí tienes el repo 👇",
+        "imageContent": null,
+        "formType": "template",
+        "callToAction": [
+          {
+            "name": "Buscar más skills",
+            "url": "https://skills.sh",
+            "type": "multiple",
+            "nextStepId": null,
+            "trackClicks": true,
+            "tagNames": [
+              "kw_kit_click"
+            ]
+          }
+        ],
+        "nextStepId": null
+      },
+      {
+        "stepId": 7,
+        "type": "condition",
+        "coordinateX": 1940,
+        "coordinateY": 400,
+        "condition": {
+          "type": "check_subscription",
+          "value": {
+            "subscriptionCondition": null
+          },
+          "nextStepId": 5,
+          "failedStepId": 8
+        },
+        "nextStepId": null
+      },
+      {
+        "stepId": 8,
+        "type": "message",
+        "coordinateX": 2400,
+        "coordinateY": 400,
+        "content": "Todavía no veo tu follow 🙈 Sígueme y vuelve a tocar “Ya te sigo ✅”.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": null
+      }
+    ]
+  },
+  {
+    "name": "Lista · AVISAME",
+    "status": "paused",
+    "triggers": {
+      "triggerTypes": [
+        "messageContains"
+      ],
+      "startMessages": [
+        "avisame",
+        "AVISAME",
+        "Avisame",
+        "avísame",
+        "Avísame",
+        "AVÍSAME"
+      ]
+    },
+    "steps": [
+      {
+        "stepId": 1,
+        "type": "message",
+        "coordinateX": 100,
+        "coordinateY": 100,
+        "content": "¡Hecho, {{ username }}! 🔔 Eres de los primeros: te escribo por aquí cuando salga un repo nuevo o algo especial de tekorei.ai.",
+        "imageContent": null,
+        "callToAction": [],
+        "nextStepId": 2
+      },
+      {
+        "stepId": 2,
+        "type": "action",
+        "coordinateX": 560,
+        "coordinateY": 100,
+        "action": {
+          "type": "add_tag",
+          "tagNames": [
+            "tekorei",
+            "avisos"
+          ],
+          "nextStepId": null
+        },
+        "nextStepId": null
+      }
+    ]
+  }
+]
