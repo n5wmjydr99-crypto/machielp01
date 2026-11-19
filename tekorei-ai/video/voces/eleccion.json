@@ -1,0 +1,82 @@
+{
+ "nico": {
+  "elegida": {
+   "toma": 1,
+   "archivo": "nico_1.wav",
+   "segundos": 8.24,
+   "wer": 0.083,
+   "tono_hz": 120.0,
+   "puntaje": 0.083,
+   "oido": "Bueno, te cuento, mañana tengo examen de matemáticas y todavía no abrí ni una punte. ¿Me ayudas? Te prometo que esta vez me concentro."
+  },
+  "candidatas": [
+   {
+    "toma": 0,
+    "archivo": "nico_0.wav",
+    "segundos": 9.76,
+    "wer": 0.083,
+    "tono_hz": 182.2,
+    "puntaje": 0.488,
+    "oido": "Bueno, te cuento. Mañana tengo examen de matemáticas y todavía no abrí ni una punte. ¿Me ayudas? ¿Te prometo que esta vez? Me concentro."
+   },
+   {
+    "toma": 1,
+    "archivo": "nico_1.wav",
+    "segundos": 8.24,
+    "wer": 0.083,
+    "tono_hz": 120.0,
+    "puntaje": 0.083,
+    "oido": "Bueno, te cuento, mañana tengo examen de matemáticas y todavía no abrí ni una punte. ¿Me ayudas? Te prometo que esta vez me concentro."
+   },
+   {
+    "toma": 2,
+    "archivo": "nico_2.wav",
+    "segundos": 8.96,
+    "wer": 0.083,
+    "tono_hz": 129.1,
+    "puntaje": 0.083,
+    "oido": "Bueno, te cuento, mañana tengo examen de matemáticas y todavía no abrí ni una punte. ¿Me ayudas? Te prometo que esta vez me concentro."
+   }
+  ]
+ },
+ "kori": {
+  "elegida": {
+   "toma": 2,
+   "archivo": "kori_2.wav",
+   "segundos": 11.36,
+   "wer": 0.13,
+   "tono_hz": 417.1,
+   "puntaje": 1.048,
+   "oido": "¡Hola! Soy Cori, tu asistente de Tecorey. Hoy te traigo una herramienta gratis que te va a ahorar horas de trabajo. ¿Listo? ¡Vamos!"
+  },
+  "candidatas": [
+   {
+    "toma": 0,
+    "archivo": "kori_0.wav",
+    "segundos": 9.2,
+    "wer": 0.087,
+    "tono_hz": 439.3,
+    "puntaje": 1.237,
+    "oido": "¡Hola! Soy Cori, tu asistente de Tecore. Hoy te traigo una herramienta gratis que te va a ahorrar horas de trabajo. ¿Listo? ¡Vamos!"
+   },
+   {
+    "toma": 1,
+    "archivo": "kori_1.wav",
+    "segundos": 10.96,
+    "wer": 0.348,
+    "tono_hz": 418.5,
+    "puntaje": 1.28,
+    "oido": "¡Hola! Soy Gari. Tu asistente de tecora. Hoy te traigo una herramienta gratis que te va a arraig o ra's de tu bakl. ¿Listo? ¡Vamos!"
+   },
+   {
+    "toma": 2,
+    "archivo": "kori_2.wav",
+    "segundos": 11.36,
+    "wer": 0.13,
+    "tono_hz": 417.1,
+    "puntaje": 1.048,
+    "oido": "¡Hola! Soy Cori, tu asistente de Tecorey. Hoy te traigo una herramienta gratis que te va a ahorar horas de trabajo. ¿Listo? ¡Vamos!"
+   }
+  ]
+ }
+}

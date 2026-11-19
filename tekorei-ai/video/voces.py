@@ -7,7 +7,7 @@ Salida en build/: audio_ig.wav, audio_tt.wav, timeline_ig.json, timeline_tt.json
 Voces (gratis, licencia comercial):
 - Por defecto (TEKOREI_VOZ=qwen): voces inventadas y fijas de Qwen3-TTS (Apache-2.0).
   Cada personaje clona siempre su muestra maestra de voces/<personaje>.wav (ver voz_qwen.py).
-  Kori lleva +1 semitono y un 30 % de señal robotizada.
+  Kori lleva un 25 % de señal robotizada.
 - Respaldo (TEKOREI_VOZ=clasico): SVOX Pico para Kori y MBROLA mx2 para Nico.
 """
 
@@ -113,13 +113,14 @@ def efecto_nico(entrada, salida):
 
 
 def efecto_kori(entrada, salida):
-    """+1 semitono y 30 % de señal robotizada (filtro robotize de FFmpeg), siempre igual."""
+    """25 % de señal robotizada (filtro robotize de FFmpeg), siempre igual.
+    La voz maestra de Kori ya es aguda (unos 420 Hz), así que no se le sube el tono."""
     alto = salida.with_suffix(".alto.wav")
-    run(["sox", str(entrada), "-r", str(SR), str(alto), "highpass", "90", "pitch", "100"])
+    run(["sox", str(entrada), "-r", str(SR), str(alto), "highpass", "90"])
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(alto), "-filter_complex",
          "[0:a]asplit[a][b];"
          "[b]afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75[r];"
-         "[a][r]amix=inputs=2:weights='0.7 0.3':normalize=0[m]",
+         "[a][r]amix=inputs=2:weights='0.75 0.25':normalize=0[m]",
          "-map", "[m]", "-ar", str(SR), "-ac", "1", str(salida)])
     return leer(salida)
 

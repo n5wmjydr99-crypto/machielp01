@@ -15,7 +15,7 @@ licencia Apache-2.0: se pueden usar gratis en videos monetizados. El porqué est
   No las borres ni las regeneres: si se rediseñan, la voz cambia.
 - `voces/eleccion.json`: las tomas candidatas, con lo que entendió Whisper y el tono medido, y cuál se eligió.
 
-Kori lleva además un efecto fijo: +1 semitono y 30 % de señal robotizada (filtro robotize de FFmpeg).
+Kori lleva además un efecto fijo: 25 % de señal robotizada (filtro robotize de FFmpeg). Su voz maestra ya es aguda, así que no se le sube el tono.
 
 ## Requisitos (Ubuntu)
 
