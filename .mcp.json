@@ -6,7 +6,12 @@
       "env": {
         "HF_KEY": "${HF_KEY:-}",
         "HF_API_KEY": "${HF_API_KEY:-}",
-        "HF_API_SECRET": "${HF_API_SECRET:-}"
+        "HF_API_SECRET": "${HF_API_SECRET:-}",
+        "NODE_USE_ENV_PROXY": "1",
+        "HTTPS_PROXY": "${HTTPS_PROXY:-}",
+        "NO_PROXY": "${NO_PROXY:-}",
+        "NODE_EXTRA_CA_CERTS": "${NODE_EXTRA_CA_CERTS:-}",
+        "CCR_AGENT_PROXY_ENABLED": "${CCR_AGENT_PROXY_ENABLED:-}"
       }
     }
   }

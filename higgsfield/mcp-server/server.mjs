@@ -24,6 +24,9 @@ function credential() {
   if (process.env.HF_KEY) return process.env.HF_KEY;
   const { HF_API_KEY: k, HF_API_SECRET: s } = process.env;
   if (k && s) return `${k}:${s}`;
+  // En Claude Code en la nube la clave se guarda como "network secret" y el proxy la inyecta en el
+  // encabezado Authorization; basta con enviar un valor de relleno que el proxy reemplaza.
+  if (process.env.CCR_AGENT_PROXY_ENABLED) return 'proxy-injected';
   throw new Error('Faltan credenciales de Higgsfield: define HF_KEY ("id:secret") o HF_API_KEY + HF_API_SECRET.');
 }
 
