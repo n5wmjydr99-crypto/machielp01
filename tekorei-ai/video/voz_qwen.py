@@ -88,9 +88,10 @@ def transcribir(ruta):
 
 def tono_mediano(wav, sr):
     import librosa
-    f0, voz, _ = librosa.pyin(wav.astype(np.float32), fmin=65, fmax=600, sr=sr)
-    f0 = f0[voz & ~np.isnan(f0)]
-    return float(np.median(f0)) if len(f0) else 0.0
+    f0 = librosa.yin(wav.astype(np.float32), fmin=60, fmax=600, sr=sr, frame_length=2048)
+    rms = librosa.feature.rms(y=wav.astype(np.float32), frame_length=2048, hop_length=512)[0]
+    n = min(len(f0), len(rms))
+    return float(np.median(f0[:n][rms[:n] > rms.max() * 0.1]))
 
 
 # ------------------------------------------------------------ 1) diseño (una sola vez)
@@ -107,14 +108,15 @@ def disenar(tomas=3):
                 wav, sr = sf.read(str(ruta), dtype="float32")
                 wavs = [wav]
             else:
-                torch.manual_seed(1000 + k)
+                torch.manual_seed(2000 + k)
                 wavs, sr = modelo.generate_voice_design(text=p["texto_referencia"], instruct=p["descripcion"], language=IDIOMA)
                 sf.write(ruta, wavs[0], sr)
             oido = transcribir(ruta)
             error = wer(p["texto_referencia"], oido)
             f0 = tono_mediano(wavs[0], sr)
             lo, hi = p["tono_hz"]
-            castigo = 0 if lo <= f0 <= hi else 0.5
+            fuera = 0 if lo <= f0 <= hi else min(abs(f0 - lo), abs(f0 - hi)) / lo  # cuánto se aleja del tono buscado
+            castigo = 2 * fuera
             candidatas.append({"toma": k, "archivo": ruta.name, "segundos": round(len(wavs[0]) / sr, 2),
                                "wer": round(error, 3), "tono_hz": round(f0, 1), "puntaje": round(error + castigo, 3), "oido": oido})
             print(f"{nombre} toma {k}: {candidatas[-1]}", flush=True)

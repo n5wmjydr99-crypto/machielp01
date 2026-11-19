@@ -1,18 +1,18 @@
 {
   "nico": {
-    "descripcion": "Male, about 19 years old, native Latin American Spanish speaker with a neutral Latin American accent (not Spain). Warm, friendly, slightly husky young voice in the baritone-tenor range. Casual and relaxed, like a university student talking to a close friend, with natural, expressive intonation and a hint of nervousness. Clear diction, moderate pace, no exaggeration.",
+    "descripcion": "Adult male voice: a 20-year-old man with a low-to-medium baritone pitch, clearly masculine, warm and slightly raspy. Native Latin American Spanish speaker with a neutral accent (not Spain). Casual and relaxed, like a college student chatting with a friend, natural expressive intonation, moderate pace, no exaggeration.",
     "texto_referencia": "Bueno, te cuento: mañana tengo examen de matemáticas y todavía no abrí ni un apunte. ¿Me ayudas? Te prometo que esta vez me concentro.",
     "tono_hz": [
       85,
-      175
+      165
     ]
   },
   "kori": {
-    "descripcion": "Bright, cheerful, youthful androgynous voice, high-pitched and playful, like an energetic cartoon sidekick. Native Latin American Spanish speaker with a neutral Latin American accent (not Spain). Upbeat and confident, smiling while speaking, clear articulation, slightly fast pace, natural and human-sounding.",
+    "descripcion": "Friendly, bright, youthful androgynous voice with a medium-high pitch, like a cheerful teenager; not squeaky, not childish. Native Latin American Spanish speaker with a neutral accent (not Spain). Upbeat, warm and confident, smiling while speaking, clear articulation, natural and human-sounding.",
     "texto_referencia": "¡Hola! Soy Kori, tu asistente de tekorei. Hoy te traigo una herramienta gratis que te va a ahorrar horas de trabajo. ¿Listo? ¡Vamos!",
     "tono_hz": [
-      170,
-      420
+      190,
+      330
     ]
   }
 }
