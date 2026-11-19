@@ -4,12 +4,15 @@
 Uso:  python3 voces.py dia01.json
 Salida en build/: audio_ig.wav, audio_tt.wav, timeline_ig.json, timeline_tt.json
 
-Voces (sin internet, sin costo):
-- Kori: SVOX Pico (es-ES) con tono más alto y un leve efecto robótico.
-- Nico: MBROLA mx2 (español de México) generado desde espeak-ng.
+Voces (gratis, licencia comercial):
+- Por defecto (TEKOREI_VOZ=qwen): voces inventadas y fijas de Qwen3-TTS (Apache-2.0).
+  Cada personaje clona siempre su muestra maestra de voces/<personaje>.wav (ver voz_qwen.py).
+  Kori lleva +1 semitono y un 30 % de señal robotizada.
+- Respaldo (TEKOREI_VOZ=clasico): SVOX Pico para Kori y MBROLA mx2 para Nico.
 """
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -25,6 +28,8 @@ FPS = 30
 AQUI = Path(__file__).resolve().parent
 BUILD = AQUI / "build"
 RNG = np.random.default_rng(7)
+MOTOR = os.environ.get("TEKOREI_VOZ", "qwen")
+PY_TTS = os.environ.get("TEKOREI_PY", "/home/user/tts-venv/bin/python")
 
 
 # ---------------------------------------------------------------- utilidades de audio
@@ -97,6 +102,40 @@ def voz_nico(texto, salida):
          "compand", "0.01,0.15", "-70,-70,-40,-24,-10,-8,0,-4", "-2",
          "reverb", "8", "50", "25", "50", "0", "-9", "gain", "-n", "-3"])
     return leer(salida)
+
+
+def efecto_nico(entrada, salida):
+    """Voz humana: solo limpieza y un compresor suave."""
+    run(["sox", str(entrada), "-r", str(SR), str(salida),
+         "highpass", "70", "equalizer", "3500", "1q", "2",
+         "compand", "0.01,0.2", "-70,-70,-40,-30,-12,-10,0,-6", "-2", "gain", "-n", "-3"])
+    return leer(salida)
+
+
+def efecto_kori(entrada, salida):
+    """+1 semitono y 30 % de señal robotizada (filtro robotize de FFmpeg), siempre igual."""
+    alto = salida.with_suffix(".alto.wav")
+    run(["sox", str(entrada), "-r", str(SR), str(alto), "highpass", "90", "pitch", "100"])
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(alto), "-filter_complex",
+         "[0:a]asplit[a][b];"
+         "[b]afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75[r];"
+         "[a][r]amix=inputs=2:weights='0.7 0.3':normalize=0[m]",
+         "-map", "[m]", "-ar", str(SR), "-ac", "1", str(salida)])
+    return leer(salida)
+
+
+def voces_qwen(lineas, nombres):
+    """Genera todas las líneas con las voces fijas (en el entorno de Qwen3-TTS) y aplica el efecto de cada personaje."""
+    pedido = [{"id": n, "who": l["who"], "text": l["tts"]} for l, n in zip(lineas, nombres)]
+    ruta = BUILD / "pedido_voces.json"
+    ruta.write_text(json.dumps(pedido, ensure_ascii=False), encoding="utf-8")
+    subprocess.run([PY_TTS, str(AQUI / "voz_qwen.py"), "generar", str(ruta), str(BUILD / "tts_cache")], check=True)
+    pedido = json.loads(ruta.read_text(encoding="utf-8"))
+    salida = []
+    for item in pedido:
+        destino = BUILD / f"{item['id']}.wav"
+        salida.append(efecto_kori(item["wav"], destino) if item["who"] == "kori" else efecto_nico(item["wav"], destino))
+    return salida
 
 
 # ---------------------------------------------------------------- tiempos de palabras
@@ -352,13 +391,16 @@ def construir(guion_path):
     comunes = guion["lineas"]
 
     # Generar todas las voces una vez.
-    def generar(linea, nombre):
-        ruta = BUILD / f"{nombre}.wav"
-        x = voz_kori(linea["tts"], ruta) if linea["who"] == "kori" else voz_nico(linea["tts"], ruta)
-        return igualar_rms(recortar_silencio(x))
-
-    audios = [generar(l, f"voz_{i:02d}") for i, l in enumerate(comunes)]
-    cierres = {v: generar(guion["cierre"][v], f"voz_cierre_{v}") for v in ("ig", "tt")}
+    todas = comunes + [guion["cierre"]["ig"], guion["cierre"]["tt"]]
+    nombres = [f"voz_{i:02d}" for i in range(len(comunes))] + ["voz_cierre_ig", "voz_cierre_tt"]
+    if MOTOR == "qwen":
+        crudos = voces_qwen(todas, nombres)
+    else:
+        crudos = [voz_kori(l["tts"], BUILD / f"{n}.wav") if l["who"] == "kori" else voz_nico(l["tts"], BUILD / f"{n}.wav")
+                  for l, n in zip(todas, nombres)]
+    listos = [igualar_rms(recortar_silencio(x)) for x in crudos]
+    audios = listos[:len(comunes)]
+    cierres = {"ig": listos[-2], "tt": listos[-1]}
 
     for version in ("ig", "tt"):
         lineas = comunes + [guion["cierre"][version]]
