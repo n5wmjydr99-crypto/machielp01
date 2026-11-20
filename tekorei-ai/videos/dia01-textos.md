@@ -18,7 +18,7 @@ Comenta EXAMEN y te mando el link + los 3 pasos por DM 📩
 #claudecode #ia #estudiantes #github #skills
 ```
 
-Mientras ChatPlace no esté conectado a @tekorei.ai, responde a mano por DM a cada “EXAMEN” con esto:
+Esto ya es automático con Zernio (automatización “Día 01 · EXAMEN”, activa desde el 20/11/2026): quien comente “examen” en cualquier publicación, o te lo escriba por DM, recibe este mensaje una sola vez, y su comentario recibe una respuesta como “¡Listo! Te lo mandé por DM 📩”. Si algún día la automatización falla, este es el texto para mandar a mano:
 
 ```
 ¡Aquí está! 📚 Exam Cram Coach (gratis, código abierto):
