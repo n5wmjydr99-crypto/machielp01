@@ -73,7 +73,7 @@
     },
     {
       "question": "¿Qué es Open Notebook y cómo lo consigo?",
-      "answer": "Open Notebook (github.com/lfnovo/open-notebook). Comenta NOTEBOOK en el video o escríbeme NOTEBOOK por DM y te mando los pasos. Requisitos: Necesita Docker y una IA (API key de un proveedor u Ollama local)."
+      "answer": "Open Notebook (github.com/lfnovo/open-notebook). Comenta CUADERNO en el video o escríbeme CUADERNO por DM y te mando los pasos. Requisitos: Necesita Docker y una IA (API key de un proveedor u Ollama local)."
     },
     {
       "question": "¿Qué es Claude-Mem y cómo lo consigo?",
@@ -101,7 +101,7 @@
     },
     {
       "question": "¿Qué es n8n y cómo lo consigo?",
-      "answer": "n8n (github.com/n8n-io/n8n). Comenta ROBOT en el video o escríbeme ROBOT por DM y te mando los pasos. Requisitos: Licencia fair-code: gratis para usarlo tú o en tu negocio; revisa la licencia si lo vas a revender como servicio."
+      "answer": "n8n (github.com/n8n-io/n8n). Comenta AUTOMATIZAR en el video o escríbeme AUTOMATIZAR por DM y te mando los pasos. Requisitos: Licencia fair-code: gratis para usarlo tú o en tu negocio; revisa la licencia si lo vas a revender como servicio."
     },
     {
       "question": "¿Qué es El kit completo y cómo lo consigo?",

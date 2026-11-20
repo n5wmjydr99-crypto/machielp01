@@ -843,7 +843,7 @@
     ]
   },
   {
-    "name": "Día 07 · NOTEBOOK · Open Notebook",
+    "name": "Día 07 · CUADERNO · Open Notebook",
     "status": "paused",
     "triggers": {
       "triggerTypes": [
@@ -851,12 +851,12 @@
         "messageContains"
       ],
       "startMessages": [
-        "notebook",
-        "NOTEBOOK",
-        "Notebook",
-        "note book",
-        "NOTE BOOK",
-        "Note book"
+        "cuaderno",
+        "CUADERNO",
+        "Cuaderno",
+        "cuadernos",
+        "CUADERNOS",
+        "Cuadernos"
       ]
     },
     "steps": [
@@ -886,7 +886,7 @@
           "type": "add_tag",
           "tagNames": [
             "tekorei",
-            "kw_notebook"
+            "kw_cuaderno"
           ],
           "nextStepId": 3
         },
@@ -951,7 +951,7 @@
             "nextStepId": null,
             "trackClicks": true,
             "tagNames": [
-              "kw_notebook_click"
+              "kw_cuaderno_click"
             ]
           }
         ],
@@ -1822,7 +1822,7 @@
     ]
   },
   {
-    "name": "Día 14 · ROBOT · n8n",
+    "name": "Día 14 · AUTOMATIZAR · n8n",
     "status": "paused",
     "triggers": {
       "triggerTypes": [
@@ -1830,9 +1830,12 @@
         "messageContains"
       ],
       "startMessages": [
-        "robot",
-        "ROBOT",
-        "Robot"
+        "automatizar",
+        "AUTOMATIZAR",
+        "Automatizar",
+        "automatiza",
+        "AUTOMATIZA",
+        "Automatiza"
       ]
     },
     "steps": [
@@ -1862,7 +1865,7 @@
           "type": "add_tag",
           "tagNames": [
             "tekorei",
-            "kw_robot"
+            "kw_automatizar"
           ],
           "nextStepId": 3
         },
@@ -1927,7 +1930,7 @@
             "nextStepId": null,
             "trackClicks": true,
             "tagNames": [
-              "kw_robot_click"
+              "kw_automatizar_click"
             ]
           }
         ],

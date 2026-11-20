@@ -1,0 +1,362 @@
+[
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 02 · FACELESS · MoneyPrinterTurbo",
+  "trigger": "comment",
+  "keywords": [
+   "faceless"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉",
+  "comment_reply": "¡Te lo mandé por DM! 🎬",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, ya está en tu DM. ¿De qué va a ser tu canal? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb71353cdaa96a3c985c4"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 03 · SKILLS · Skills oficiales de Anthropic",
+  "trigger": "comment",
+  "keywords": [
+   "skills"
+  ],
+  "dm_message": "¡Aquí están, {{username}}! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀",
+  "comment_reply": "¡Listo! Te mandé las skills por DM 🧩",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Ya está en tu DM. ¿Qué archivo le vas a pedir primero? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb7167df3b1c4ecc91493"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 04 · OFFLINE · Ollama + Open WebUI",
+  "trigger": "comment",
+  "keywords": [
+   "offline"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.",
+  "comment_reply": "¡Te mandé los 2 repos por DM! 💻",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. Cuéntame qué compu tienes 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb71953cdaa96a3c985c9"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 05 · PDF · MarkItDown de Microsoft",
+  "trigger": "comment",
+  "keywords": [
+   "pdf"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.",
+  "comment_reply": "¡Listo! Te lo mandé por DM 📄",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Ya está en tu DM. ¿Qué archivo vas a convertir primero? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "zernio_id": "6affb71d37effd9493d9442f"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 06 · PODERES · Superpowers para Claude Code",
+  "trigger": "comment",
+  "keywords": [
+   "poderes"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠",
+  "comment_reply": "¡Te pasé el comando por DM! ⚡",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué vas a construir? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb72253cdaa96a3c985cf"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 07 · CUADERNO · Open Notebook",
+  "trigger": "comment",
+  "keywords": [
+   "cuaderno",
+   "cuadernos"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).",
+  "comment_reply": "¡Te lo mandé por DM! 📓",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué vas a estudiar con esto? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb72c7df3b1c4ecc914a4"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 08 · MEMORIA · Claude-Mem",
+  "trigger": "comment",
+  "keywords": [
+   "memoria"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).",
+  "comment_reply": "¡Te lo mandé por DM! 🧠",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. Ahora Claude no se olvida 😉"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [
+   "ram",
+   "gb"
+  ],
+  "zernio_id": "6affb73037effd9493d94433"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 09 · FOTOS · Upscayl + Rembg",
+  "trigger": "comment",
+  "keywords": [
+   "fotos"
+  ],
+  "dm_message": "¡Aquí están, {{username}}! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉",
+  "comment_reply": "¡Te mandé las dos por DM! 📸",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, están en tu DM. ¿Qué vas a vender? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "zernio_id": "6affb7357df3b1c4ecc914a7"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 10 · EDITOR · Remotion + skills",
+  "trigger": "comment",
+  "keywords": [
+   "editor"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).",
+  "comment_reply": "¡Te lo mandé por DM! 🎞️",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué video vas a pedir? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb73e37effd9493d9443b"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 11 · NAVEGADOR · Playwright MCP",
+  "trigger": "comment",
+  "keywords": [
+   "navegador"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.",
+  "comment_reply": "¡Te mandé el comando por DM! 🌐",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué tarea le vas a dar? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb7417df3b1c4ecc914ab"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 12 · DOCS · Context7",
+  "trigger": "comment",
+  "keywords": [
+   "docs"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.",
+  "comment_reply": "¡Te pasé el setup por DM! 📚",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Con qué programas? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "zernio_id": "6affb74a37effd9493d94442"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 13 · PLANO · Spec Kit de GitHub",
+  "trigger": "comment",
+  "keywords": [
+   "plano",
+   "planos"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement",
+  "comment_reply": "¡Te pasé el plano por DM! 📐",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué app vas a hacer? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "zernio_id": "6affb74f7df3b1c4ecc914b4"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 14 · AUTOMATIZAR · n8n",
+  "trigger": "comment",
+  "keywords": [
+   "automatizar"
+  ],
+  "dm_message": "¡Aquí está, {{username}}! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸",
+  "comment_reply": "¡Te lo mandé por DM! 🤖",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, está en tu DM. ¿Qué vas a automatizar? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "zernio_id": "6affb754a3ee28ddaa662193"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Día 15 · KIT · El kit completo",
+  "trigger": "comment",
+  "keywords": [
+   "kit"
+  ],
+  "dm_message": "¡Aquí está tu KIT, {{username}}! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Respóndeme AVISAME 🔔",
+  "comment_reply": "¡Tu KIT ya está en el DM! 🧰",
+  "comment_reply_variations": [
+   "Enviado 📩 Revisa tus mensajes",
+   "Listo, te mandé los 16. ¿Cuál quieres que explique a fondo? 👀"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "match_mode": "word",
+  "zernio_id": "6affb75953cdaa96a3c985eb"
+ },
+ {
+  "profile_id": "6affa9743a51030b16bbf670",
+  "account_id": "6affac0c4f0125480f7187e5",
+  "name": "Lista · AVISAME",
+  "trigger": "comment",
+  "keywords": [
+   "avisame",
+   "avísame"
+  ],
+  "match_mode": "word",
+  "dm_message": "¡Hecho, {{username}}! 🔔 Quedaste anotado: te escribo por aquí cuando salga un repo nuevo o algo especial de tekorei.ai.",
+  "comment_reply": "¡Anotado! Te escribí por DM 🔔",
+  "comment_reply_variations": [
+   "Listo, quedaste en la lista 🔔 Revisa tus mensajes"
+  ],
+  "also_match_in_dms": true,
+  "repeat_policy": {
+   "mode": "once"
+  },
+  "public_reply_policy": "after_dm",
+  "is_active": true,
+  "zernio_id": "6affb75c1dd209748396bbec"
+ }
+]

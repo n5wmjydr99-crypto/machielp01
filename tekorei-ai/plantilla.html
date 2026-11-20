@@ -211,8 +211,8 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
     <p class="lede">Temporada 1: 15 videos verticales sobre repos, skills y plugins de IA. Cada video pide comentar una palabra distinta; esa palabra dispara un DM automático con el recurso, y un agente de IA responde el resto de los comentarios.</p>
     <div class="status">
       <span class="pill ok"><span class="dot"></span>16 repos verificados el 19/11/2026</span>
-      <span class="pill ok"><span class="dot"></span>16 automatizaciones listas para cargar</span>
-      <span class="pill warn"><span class="dot"></span>Falta conectar @tekorei.ai en ChatPlace</span>
+      <span class="pill ok"><span class="dot"></span>16 DM automáticos activos en Zernio</span>
+      <span class="pill ok"><span class="dot"></span>Video del día 1 listo para subir</span>
     </div>
   </header>
 
@@ -294,26 +294,25 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
     <div class="section-head">
       <span class="eyebrow">Cómo fabricar cada video</span>
       <h2 id="h-prod">Producción</h2>
-      <p>Tres caminos. Empieza por el primero; cuando tengas saldo en ChatPlace se puede generar desde aquí.</p>
+      <p>El día 1 ya está hecho con la fábrica de videos del repositorio (<code>tekorei-ai/video/</code>): escena 3D, voces fijas de Nico y Kori y subtítulos. Estos son los caminos para los demás.</p>
     </div>
     <div class="grid3">
       <div class="card">
-        <span class="tag rec">Para empezar</span>
-        <h3>Imagen a video</h3>
+        <span class="tag rec">Gratis, ya funciona</span>
+        <h3>Fábrica de videos</h3>
         <ol>
-          <li>Crea las imágenes de referencia de Nico y Kori con tu IA de imágenes.</li>
-          <li>Por cada línea del guion, genera un clip de 2–4 s en tu IA de video con “Copiar prompt”.</li>
-          <li>Voces: graba tú las dos o usa voz sintética (Edge TTS es gratis).</li>
-          <li>Arma en CapCut: subtítulos automáticos, texto fijo arriba y la palabra clave al final.</li>
+          <li>Así se hizo el día 1: escena 3D de Nico y Kori, voces fijas y subtítulos, todo en <code>tekorei-ai/video/</code>.</li>
+          <li>Para cada día se escribe su guion (<code>dia02.json</code>…) y se corre <code>./hacer_video.sh</code>.</li>
+          <li>O pídeme “haz el día 2” y lo armo yo.</li>
         </ol>
       </div>
       <div class="card">
-        <span class="tag">Desde Claude</span>
-        <h3>Virale en ChatPlace</h3>
+        <span class="tag">Con créditos</span>
+        <h3>Video con IA (Higgsfield)</h3>
         <ol>
-          <li>Tu conector de Instagram incluye generación de video (Virale).</li>
-          <li>Hoy el saldo de IA está en 0, así que no se puede generar nada.</li>
-          <li>Con saldo, pídeme “genera el día 1” y lo armo con estos guiones.</li>
+          <li>Tu entorno tiene una clave de Higgsfield: modelos como Seedance 2.5 generan video 3D con voces.</li>
+          <li>Gasta créditos de tu cuenta; conviene probar primero un borrador barato en 480p.</li>
+          <li>Pídemelo si algún día quieres ese estilo para un video especial.</li>
         </ol>
       </div>
       <div class="card">
@@ -351,35 +350,35 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
 
   <section id="automatizacion" aria-labelledby="h-auto">
     <div class="section-head">
-      <span class="eyebrow">ChatPlace (tu conector de Instagram)</span>
+      <span class="eyebrow">Zernio (tu conector de Instagram)</span>
       <h2 id="h-auto">Automatización y agente</h2>
-      <p>Hay 15 palabras clave y una extra, AVISAME, que arma tu lista para avisar lanzamientos. Todo está guardado en <code>tekorei-ai/chatplace/</code> y se carga en un minuto cuando conectes la cuenta.</p>
+      <p>Las 15 palabras clave y AVISAME están <strong>activas en Zernio</strong> desde el 20/11/2026. Funcionan en cualquier publicación de @tekorei.ai: según la palabra que comenten, mandan el DM de ese video. Corren solas las 24 horas.</p>
     </div>
     <div class="flow" aria-label="Flujo de cada palabra clave">
       <div class="step"><span class="who nico">Persona</span><b>Comenta EXAMEN</b>En cualquier video, o lo escribe por DM.</div>
-      <div class="step"><span class="who kori">Kori</span><b>Responde el comentario</b>“¡Listo! Te lo mandé por DM”. Hay tres variantes para que no parezca bot.</div>
-      <div class="step"><span class="who kori">Kori</span><b>Manda un DM</b>Con un botón “¡Lo quiero!”, y le pone una etiqueta a la persona.</div>
-      <div class="step"><span class="who kori">Kori</span><b>¿Te sigue?</b>Si no te sigue, le pide que te siga y toque “Ya te sigo”.</div>
-      <div class="step"><span class="who kori">Kori</span><b>Entrega</b>Los pasos de instalación y el botón al repo.</div>
+      <div class="step"><span class="who kori">Zernio</span><b>Detecta la palabra</b>Sabe de qué video es por la palabra, en cualquier publicación.</div>
+      <div class="step"><span class="who kori">Zernio</span><b>Manda el DM</b>Los pasos de instalación y el link al repo de ese video.</div>
+      <div class="step"><span class="who kori">Zernio</span><b>Responde el comentario</b>“¡Listo! Te lo mandé por DM”, con variantes para que no parezca bot.</div>
+      <div class="step"><span class="who kori">Zernio</span><b>Una sola vez</b>Cada persona recibe cada DM una vez, aunque comente de nuevo.</div>
     </div>
     <div class="table-scroll">
       <table class="kwtable">
-        <thead><tr><th>Día</th><th>Palabra</th><th>Recurso</th><th>Etiqueta</th></tr></thead>
+        <thead><tr><th>Día</th><th>Palabra</th><th>Recurso</th><th>Estado</th></tr></thead>
         <tbody id="kw-rows"></tbody>
       </table>
     </div>
     <div class="grid2">
       <div class="card">
         <h3>El agente de IA</h3>
-        <p>Responde los comentarios y DMs que no son una palabra clave: dudas de instalación, “¿funciona en celular?”, “¿qué modelo me corre con 8 GB?”. Tiene una base de conocimiento con los 16 repos y reglas: no inventa comandos, no promete ingresos, no pide datos personales y pasa a un humano lo comercial.</p>
+        <p>Para los comentarios que no son una palabra clave (dudas de instalación, “¿funciona en celular?”, “¿qué modelo me corre con 8 GB?”), Zernio no tiene un agente de IA para Instagram. La opción es que Claude revise los comentarios nuevos cada hora y responda con la base de conocimiento de los 16 repos. Está pendiente de tu visto bueno, porque respondería en público a tu nombre.</p>
       </div>
       <div class="card">
-        <h3>Lo que falta para encenderlo</h3>
+        <h3>Cómo probarlo</h3>
         <ol>
-          <li>Conecta el Instagram de tekorei.ai en ChatPlace como un bot nuevo.</li>
-          <li>Pídeme “carga tekorei”: creo las 16 automatizaciones (pausadas), las respuestas a comentarios y el agente.</li>
-          <li>Pruebas comentando desde otra cuenta y, si está bien, las activamos.</li>
-          <li>El agente gasta saldo de IA de ChatPlace; hoy está en 0.</li>
+          <li>Desde otra cuenta de Instagram, comenta la palabra del video (por ejemplo “examen”).</li>
+          <li>Llega el DM. Si esa cuenta no te sigue, aparece en “Solicitudes de mensajes”.</li>
+          <li>Debajo del comentario aparece la respuesta “¡Listo! Te lo mandé por DM”.</li>
+          <li>Solo responde comentarios hechos después de activar las automatizaciones.</li>
         </ol>
       </div>
     </div>
@@ -392,9 +391,9 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
       <p>Los Shorts y Reels traen alcance, pero al principio pagan poco o nada por sí solos. La plata sale de lo que haces con la audiencia que juntas por DM.</p>
     </div>
     <div class="money">
-      <div class="row"><div><h3>Tu lista</h3><span class="when">desde el día 1</span></div><p>Cada persona que comenta una palabra queda etiquetada en ChatPlace (kw_examen, kw_robot…). AVISAME junta a los más interesados. Es tu activo principal: a esa lista le puedes escribir cuando lances algo, sin depender del algoritmo.</p></div>
+      <div class="row"><div><h3>Tu lista</h3><span class="when">desde el día 1</span></div><p>Cada persona que comenta una palabra queda como contacto en Zernio, con el registro de qué DM recibió. AVISAME junta a los más interesados. Es tu activo principal: a esa lista le puedes escribir cuando lances algo, sin depender del algoritmo.</p></div>
       <div class="row"><div><h3>Servicios</h3><span class="when">el más rápido</span></div><p>Instalar y configurar estas herramientas para otros: un robot de n8n para un negocio, fotos de producto con Upscayl y Rembg, Claude Code configurado para un emprendedor. Los videos te dan la vitrina.</p></div>
-      <div class="row"><div><h3>Producto digital</h3><span class="when">después de 2–4 semanas</span></div><p>Algo barato y útil para tu lista: guía en español de los 16 repos con capturas, pack de prompts, plantillas de n8n. ChatPlace puede cobrar con un botón de pago dentro del DM.</p></div>
+      <div class="row"><div><h3>Producto digital</h3><span class="when">después de 2–4 semanas</span></div><p>Algo barato y útil para tu lista: guía en español de los 16 repos con capturas, pack de prompts, plantillas de n8n. El link de pago puede ir en el DM de la palabra clave.</p></div>
       <div class="row"><div><h3>Marcas y afiliados</h3><span class="when">con audiencia estable</span></div><p>Las herramientas de IA pagan por menciones cuando tus videos tienen vistas constantes. Los links de afiliado van en el DM y en tu perfil. Avisa siempre que es publicidad.</p></div>
       <div class="row"><div><h3>Anuncios de YouTube</h3><span class="when">lo último</span></div><p>Para cobrar por anuncios en Shorts hoy necesitas 1.000 suscriptores y 10 millones de vistas de Shorts en 90 días. YouTube anunció en agosto de 2026 reglas más exigentes desde el 1 de febrero de 2027, y las cifras que publican los medios no coinciden. Revisa YouTube Studio antes de contar con eso.</p></div>
     </div>
@@ -529,8 +528,8 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
   document.getElementById('copy-base').addEventListener('click', function (e) { copy(e.currentTarget, P.prompt_base); });
 
   document.getElementById('kw-rows').innerHTML = DIAS.map(function (d) {
-    return '<tr><td>' + d.dia + '</td><td><span class="kwtag">' + esc(d.palabra) + '</span></td><td>' + esc(d.tema) + '</td><td class="mono">kw_' + esc(d.palabra.toLowerCase()) + '</td></tr>';
-  }).join('') + '<tr><td>15</td><td><span class="kwtag">AVISAME</span></td><td>Respuesta al DM del KIT: lista para lanzamientos</td><td class="mono">avisos</td></tr>';
+    return '<tr><td>' + d.dia + '</td><td><span class="kwtag">' + esc(d.palabra) + '</span></td><td>' + esc(d.tema) + '</td><td>Activa</td></tr>';
+  }).join('') + '<tr><td>15</td><td><span class="kwtag">AVISAME</span></td><td>Respuesta al DM del KIT: lista para lanzamientos</td><td>Activa</td></tr>';
 
   function checklist(id, items) {
     document.getElementById(id).innerHTML = items.map(function (t, i) {
@@ -542,7 +541,7 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
   checklist('day0', [
     'Crea @tekorei.ai en Instagram (cuenta profesional de creador) y el canal tekorei.ai en YouTube.',
     'Bio: “Repos, skills y plugins de IA que sí sirven. Comenta la palabra del video y te llega por DM. Nuevo repo cada día 19:00.”',
-    'Conecta el Instagram de tekorei.ai en ChatPlace y avísame para cargar las automatizaciones.',
+    'Instagram conectado a Zernio con los 16 DM automáticos (hecho).',
     'Genera las imágenes de referencia de Nico y Kori y guárdalas.',
     'Graba la pantalla de cada repo en GitHub y de la terminal instalándolo. Son tus planos de prueba.',
     'Deja 3 videos listos antes de publicar el primero, para no atrasarte.'
@@ -552,7 +551,7 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
     'Publica a las 19:00 en Reels y Shorts. En YouTube cambia el cierre por “Escríbeme la palabra por Instagram”.',
     'Primeros 30 minutos: responde tú los comentarios y fija uno con la palabra clave.',
     'Sube una historia con encuesta: “¿Qué repo quieres mañana?”.',
-    'Revisa en ChatPlace cuántos comentaron la palabra y cuántos tocaron el botón.'
+    'Revisa en Zernio cuántos comentaron la palabra y a cuántos les llegó el DM.'
   ]);
 
   var m = /^#dia-(\d+)$/.exec(location.hash);

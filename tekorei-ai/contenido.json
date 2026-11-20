@@ -464,10 +464,10 @@
     },
     {
       "dia": 7,
-      "palabra": "NOTEBOOK",
+      "palabra": "CUADERNO",
       "variantes": [
-        "notebook",
-        "note book"
+        "cuaderno",
+        "cuadernos"
       ],
       "tema": "Open Notebook",
       "para": "Estudiantes",
@@ -512,7 +512,7 @@
           "plano": "Plano conjunto, Nico se pone los auriculares y escucha"
         }
       ],
-      "cta": "Comenta NOTEBOOK y te paso cómo montarlo",
+      "cta": "Comenta CUADERNO y te paso cómo montarlo",
       "pregunta": "¿Qué estudiarías con esto?",
       "dm": "¡Aquí está, {{ username }}! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).",
       "boton": {
@@ -524,9 +524,9 @@
         "Enviado 📩 Revisa tus mensajes",
         "Listo, está en tu DM. ¿Qué vas a estudiar con esto? 👀"
       ],
-      "caption": "Como NotebookLM, pero open source y en tu compu 📓 Subes PDFs, videos y páginas, chateas con todo y genera resúmenes y podcasts con tus fuentes.\n\nComenta NOTEBOOK y te paso cómo montarlo por DM 📩\n\n¿Qué estudiarías con esto?",
+      "caption": "Como NotebookLM, pero open source y en tu compu 📓 Subes PDFs, videos y páginas, chateas con todo y genera resúmenes y podcasts con tus fuentes.\n\nComenta CUADERNO y te paso cómo montarlo por DM 📩\n\n¿Qué estudiarías con esto?",
       "yt_titulo": "NotebookLM pero tuyo y open source",
-      "yt_desc": "Open Notebook: chatea con tus PDFs, videos y webs, y genera podcasts. Open source, funciona con la IA que elijas.\nRepo: github.com/lfnovo/open-notebook\nEscríbeme NOTEBOOK por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "yt_desc": "Open Notebook: chatea con tus PDFs, videos y webs, y genera podcasts. Open source, funciona con la IA que elijas.\nRepo: github.com/lfnovo/open-notebook\nEscríbeme CUADERNO por DM en Instagram @tekorei.ai y te mando los pasos.",
       "hashtags": "#notebooklm #opensource #estudiantes #ia #github",
       "nota": "Necesita Docker y una IA (API key de un proveedor u Ollama local)."
     },
@@ -948,9 +948,10 @@
     },
     {
       "dia": 14,
-      "palabra": "ROBOT",
+      "palabra": "AUTOMATIZAR",
       "variantes": [
-        "robot"
+        "automatizar",
+        "automatiza"
       ],
       "tema": "n8n",
       "para": "Emprendedores y freelancers",
@@ -995,7 +996,7 @@
           "plano": "Plano conjunto, Nico duerme y la pantalla sigue trabajando"
         }
       ],
-      "cta": "Comenta ROBOT y te paso cómo instalarlo gratis",
+      "cta": "Comenta AUTOMATIZAR y te paso cómo instalarlo gratis",
       "pregunta": "¿Qué tarea automatizarías primero?",
       "dm": "¡Aquí está, {{ username }}! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸",
       "boton": {
@@ -1007,9 +1008,9 @@
         "Enviado 📩 Revisa tus mensajes",
         "Listo, está en tu DM. ¿Qué vas a automatizar? 👀"
       ],
-      "caption": "Un robot que responde, copia datos y avisa mientras duermes 🤖 n8n conecta tus apps con IA arrastrando bloques, y lo puedes instalar gratis en tu compu.\n\nComenta ROBOT y te paso cómo instalarlo por DM 📩\n\n¿Qué tarea automatizarías primero?",
+      "caption": "Un robot que responde, copia datos y avisa mientras duermes 🤖 n8n conecta tus apps con IA arrastrando bloques, y lo puedes instalar gratis en tu compu.\n\nComenta AUTOMATIZAR y te paso cómo instalarlo por DM 📩\n\n¿Qué tarea automatizarías primero?",
       "yt_titulo": "El robot que trabaja mientras duermes",
-      "yt_desc": "n8n: automatizaciones con IA conectando tus apps. Se puede instalar gratis con Docker.\nRepo: github.com/n8n-io/n8n\nEscríbeme ROBOT por DM en Instagram @tekorei.ai y te mando los pasos.",
+      "yt_desc": "n8n: automatizaciones con IA conectando tus apps. Se puede instalar gratis con Docker.\nRepo: github.com/n8n-io/n8n\nEscríbeme AUTOMATIZAR por DM en Instagram @tekorei.ai y te mando los pasos.",
       "hashtags": "#n8n #automatizacion #ia #emprendedores #nocode",
       "nota": "Licencia fair-code: gratis para usarlo tú o en tu negocio; revisa la licencia si lo vas a revender como servicio."
     },

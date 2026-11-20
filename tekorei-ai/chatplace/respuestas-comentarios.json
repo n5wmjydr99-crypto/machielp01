@@ -93,15 +93,15 @@
     ]
   },
   {
-    "name": "Día 07 · NOTEBOOK",
+    "name": "Día 07 · CUADERNO",
     "type": "contains",
     "startMessages": [
-      "notebook",
-      "NOTEBOOK",
-      "Notebook",
-      "note book",
-      "NOTE BOOK",
-      "Note book"
+      "cuaderno",
+      "CUADERNO",
+      "Cuaderno",
+      "cuadernos",
+      "CUADERNOS",
+      "Cuadernos"
     ],
     "answers": [
       "¡Te lo mandé por DM! 📓",
@@ -197,12 +197,15 @@
     ]
   },
   {
-    "name": "Día 14 · ROBOT",
+    "name": "Día 14 · AUTOMATIZAR",
     "type": "contains",
     "startMessages": [
-      "robot",
-      "ROBOT",
-      "Robot"
+      "automatizar",
+      "AUTOMATIZAR",
+      "Automatizar",
+      "automatiza",
+      "AUTOMATIZA",
+      "Automatiza"
     ],
     "answers": [
       "¡Te lo mandé por DM! 🤖",
