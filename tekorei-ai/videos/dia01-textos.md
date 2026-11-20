@@ -1,5 +1,11 @@
 # Día 1 · EXAMEN · textos para publicar
 
+## Publicado
+
+- YouTube Shorts: https://www.youtube.com/watch?v=ddOP6bKtg9k (subido a mano el 19/11/2026).
+- Instagram Reels: https://www.instagram.com/reel/Df8r2zZkuyt/ (publicado desde Zernio el 20/11/2026 a las 03:26 UTC, con la portada y el texto de abajo).
+- TikTok: falta subirlo a mano. El plan gratis de Zernio admite solo 2 cuentas (Instagram y YouTube); para conectar TikTok pide agregar un medio de pago.
+
 Hora sugerida: 19:00. Los videos duran unos 26–27 segundos, en vertical 1080x1920, con audio a volumen estándar de redes.
 
 ## Instagram (Reels)
