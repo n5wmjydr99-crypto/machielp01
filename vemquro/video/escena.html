@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Vemquro · escena</title>
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/600.css">
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/700.css">
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/montserrat/900.css">
+<style>
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  canvas { position: absolute; inset: 0; }
+  #capa { position: absolute; inset: 0; pointer-events: none; font-family: Montserrat, Inter, sans-serif; color: #fff; }
+
+  /* Subtítulos palabra por palabra, estilo del video de referencia */
+  #subs { position: absolute; left: 50px; right: 50px; text-align: center; transform: translateY(-50%);
+          font: 800 80px/1.08 Montserrat, sans-serif; letter-spacing: -1.5px;
+          text-shadow: 0 6px 26px rgba(0,0,0,.92), 0 2px 5px rgba(0,0,0,.85); }
+  #subs .w { display: inline-block; margin: 0 .13em; opacity: .4; }
+  #subs .w.on { opacity: 1; }
+  #subs .w.key.on { color: #ff3b4d; }
+
+  /* Panel de precios (se arma de a una fila) */
+  #precios { position: absolute; left: 64px; right: 64px; top: 210px; opacity: 0; }
+  .fila { display: flex; align-items: center; gap: 30px; padding: 30px 36px; margin-bottom: 22px; border-radius: 30px;
+          background: rgba(18,18,22,.78); border: 1.5px solid rgba(255,255,255,.09);
+          box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
+          backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); opacity: 0; }
+  .fila .ico { flex: 0 0 104px; height: 104px; border-radius: 26px; display: grid; place-items: center;
+               background: linear-gradient(145deg, #ff3b4d, #b3121f); box-shadow: 0 10px 30px rgba(255,59,77,.35); }
+  .fila .ico svg { width: 58px; height: 58px; }
+  .fila .txt { flex: 1; min-width: 0; }
+  .fila .t1 { font: 700 34px/1.15 Montserrat; color: rgba(255,255,255,.62); letter-spacing: .5px; text-transform: uppercase; }
+  .fila .t2 { font: 900 60px/1.05 Montserrat; letter-spacing: -1.5px; margin-top: 6px; white-space: nowrap; }
+  .fila .t2 small { font: 700 34px Montserrat; color: rgba(255,255,255,.7); letter-spacing: 0; }
+  .pill { display: inline-block; margin-top: 12px; padding: 8px 20px; border-radius: 999px; font: 800 30px Montserrat;
+          background: rgba(255,59,77,.16); color: #ff6b79; border: 1.5px solid rgba(255,59,77,.45); opacity: 0; }
+
+  /* Mensaje "WEB" estilo DM */
+  #dm { position: absolute; left: 70px; right: 70px; top: 230px; opacity: 0; }
+  #dm .cab { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+  #dm .avatar { width: 92px; height: 92px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff6b79, #b3121f 70%);
+                display: grid; place-items: center; font: 900 46px Montserrat; box-shadow: 0 0 0 5px rgba(255,255,255,.08); }
+  #dm .quien { font: 800 40px Montserrat; }
+  #dm .quien small { display: block; font: 600 28px Montserrat; color: rgba(255,255,255,.55); margin-top: 4px; }
+  #dm .burbuja { margin-left: auto; width: max-content; padding: 26px 44px; border-radius: 44px 44px 12px 44px;
+                 background: linear-gradient(135deg, #ff3b4d, #c4162a); font: 900 74px Montserrat; letter-spacing: 2px;
+                 box-shadow: 0 18px 50px rgba(255,59,77,.4); transform-origin: 100% 100%; }
+  #dm .visto { text-align: right; font: 600 28px Montserrat; color: rgba(255,255,255,.5); margin-top: 14px; opacity: 0; }
+
+  /* Cierre de marca */
+  #cierre { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            opacity: 0; background: radial-gradient(120% 70% at 50% 45%, rgba(0,0,0,.5), rgba(0,0,0,.88)); }
+  #cierre .marca { font: 900 150px/1 Montserrat; letter-spacing: 14px; margin-right: -14px; }
+  #cierre .linea { width: 0; height: 6px; margin: 34px 0 30px; border-radius: 3px; background: linear-gradient(90deg, #ff3b4d, #ff8a5c); }
+  #cierre .lema { font: 800 54px Montserrat; letter-spacing: 1px; }
+  #cierre .lema b { color: #ff3b4d; }
+  #cierre .usuario { margin-top: 36px; font: 700 40px Montserrat; color: rgba(255,255,255,.7); }
+  #cierre .pie { margin-top: 70px; padding: 22px 40px; border-radius: 999px; border: 2px solid rgba(255,255,255,.18);
+                 font: 800 38px Montserrat; background: rgba(255,255,255,.06); }
+  #cierre .pie b { color: #ff3b4d; }
+
+  #fundido { position: absolute; inset: 0; background: #000; opacity: 0; }
+</style>
+<script type="importmap">
+  { "imports": { "three": "./node_modules/three/build/three.module.js",
+                 "three/addons/": "./node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="capa">
+  <div id="precios">
+    <div class="fila" id="f1">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div class="txt"><div class="t1">Desarrollo</div><div class="t2">USD 20 – 40 <small>/ hora</small></div><div class="pill" id="p1">según el tipo de web</div></div>
+    </div>
+    <div class="fila" id="f2">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><line x1="7" y1="7.5" x2="7.01" y2="7.5"/><line x1="7" y1="16.5" x2="7.01" y2="16.5"/></svg></div>
+      <div class="txt"><div class="t1">Hosting</div><div class="t2">Lo gestiona Vemquro</div><div class="pill" id="p2">se cobra por mes</div></div>
+    </div>
+    <div class="fila" id="f3">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><path d="M12 2.5a14.5 14.5 0 0 1 0 19a14.5 14.5 0 0 1 0-19z"/></svg></div>
+      <div class="txt"><div class="t1">Dominio</div><div class="t2">Aparte</div><div class="pill" id="p3">una vez al año</div></div>
+    </div>
+  </div>
+  <div id="dm">
+    <div class="cab"><div class="avatar">V</div><div class="quien">vemquro.py<small>Mensaje nuevo</small></div></div>
+    <div class="burbuja" id="burbuja">WEB</div>
+    <div class="visto" id="visto">Enviado</div>
+  </div>
+  <div id="subs"></div>
+  <div id="cierre">
+    <div class="marca">VEMQURO</div>
+    <div class="linea" id="cierre-linea"></div>
+    <div class="lema">Webs <b>·</b> Impresiones 3D</div>
+    <div class="usuario">@vemquro.py</div>
+    <div class="pie">Mandanos <b>WEB</b> por mensaje</div>
+  </div>
+  <div id="fundido"></div>
+</div>
+<script type="module" src="escena.js"></script>
+</body>
+</html>

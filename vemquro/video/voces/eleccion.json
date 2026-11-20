@@ -1,0 +1,51 @@
+{
+ "narrador": {
+  "elegida": {
+   "toma": 0,
+   "archivo": "narrador_0.wav",
+   "segundos": 11.52,
+   "wer": 0.0,
+   "tono_hz": 136.7,
+   "puntaje": 0.0,
+   "oido": "Mira, te muestro cómo quedó esta web. La diseñamos a medida, la probás desde el celular y en pocos días ya está lista para vender. ¿Tenés un negocio? Escribínos."
+  },
+  "candidatas": [
+   {
+    "toma": 0,
+    "archivo": "narrador_0.wav",
+    "segundos": 11.52,
+    "wer": 0.0,
+    "tono_hz": 136.7,
+    "puntaje": 0.0,
+    "oido": "Mira, te muestro cómo quedó esta web. La diseñamos a medida, la probás desde el celular y en pocos días ya está lista para vender. ¿Tenés un negocio? Escribínos."
+   },
+   {
+    "toma": 1,
+    "archivo": "narrador_1.wav",
+    "segundos": 11.36,
+    "wer": 0.0,
+    "tono_hz": 129.1,
+    "puntaje": 0.0,
+    "oido": "Mira, te muestro cómo quedó esta web. La diseñamos a medida, la probás desde el celular y en pocos días ya está lista para vender. ¿Tenés un negocio? Escribínos."
+   },
+   {
+    "toma": 2,
+    "archivo": "narrador_2.wav",
+    "segundos": 10.32,
+    "wer": 0.0,
+    "tono_hz": 160.2,
+    "puntaje": 0.227,
+    "oido": "Mira, te muestro cómo quedó esta web. La diseñamos a medida, la probás desde el celular y en pocos días ya está lista para vender. ¿Tenés un negocio? Escribinos."
+   },
+   {
+    "toma": 3,
+    "archivo": "narrador_3.wav",
+    "segundos": 10.64,
+    "wer": 0.034,
+    "tono_hz": 177.0,
+    "puntaje": 0.634,
+    "oido": "¡Mirá! Te muestro cómo quedó esta web, la diseñamos a medida, la aprobas desde el celular y en pocos días ya está lista para vender. ¿Tenés un negocio? ¡Escribinos!"
+   }
+  ]
+ }
+}

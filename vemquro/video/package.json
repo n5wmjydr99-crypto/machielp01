@@ -1,0 +1,9 @@
+{
+  "name": "vemquro-video",
+  "private": true,
+  "description": "Render del video de Vemquro (Three.js + Playwright + ffmpeg)",
+  "dependencies": {
+    "three": "0.160.0",
+    "@fontsource/montserrat": "5.0.19"
+  }
+}

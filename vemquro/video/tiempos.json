@@ -1,0 +1,872 @@
+{
+ "duracion": 49.67,
+ "lineas": [
+  {
+   "id": "l01",
+   "texto": "¿Cuánto cuesta hacer una página como esta?",
+   "inicio": 0.12,
+   "fin": 2.5,
+   "palabras": [
+    {
+     "w": "¿Cuánto",
+     "s": 0.12,
+     "e": 0.545
+    },
+    {
+     "w": "cuesta",
+     "s": 0.507,
+     "e": 0.873
+    },
+    {
+     "w": "hacer",
+     "s": 0.828,
+     "e": 1.152
+    },
+    {
+     "w": "una",
+     "s": 1.107,
+     "e": 1.313
+    },
+    {
+     "w": "página",
+     "s": 1.27,
+     "e": 1.67
+    },
+    {
+     "w": "como",
+     "s": 1.642,
+     "e": 1.998
+    },
+    {
+     "w": "esta?",
+     "s": 1.978,
+     "e": 2.302
+    }
+   ],
+   "oido": " ¿Cuánto  cuesta  hacer  una  página  como  esta?"
+  },
+  {
+   "id": "l02",
+   "texto": "Mirá esta demo que armamos para NexusTech.",
+   "inicio": 2.66,
+   "fin": 5.12,
+   "palabras": [
+    {
+     "w": "Mirá",
+     "s": 2.66,
+     "e": 2.84
+    },
+    {
+     "w": "esta",
+     "s": 2.798,
+     "e": 3.122
+    },
+    {
+     "w": "demo",
+     "s": 3.093,
+     "e": 3.388
+    },
+    {
+     "w": "que",
+     "s": 3.347,
+     "e": 3.553
+    },
+    {
+     "w": "armamos",
+     "s": 3.509,
+     "e": 3.951
+    },
+    {
+     "w": "para",
+     "s": 3.908,
+     "e": 4.172
+    },
+    {
+     "w": "NexusTech.",
+     "s": 4.132,
+     "e": 4.853
+    }
+   ],
+   "oido": " Mira  esta  demo  que  armamos  para  Nexus  Tech."
+  },
+  {
+   "id": "l03",
+   "texto": "La tienda todavía no existe, está en proyecto.",
+   "inicio": 5.28,
+   "fin": 8.05,
+   "palabras": [
+    {
+     "w": "La",
+     "s": 5.28,
+     "e": 5.425
+    },
+    {
+     "w": "tienda",
+     "s": 5.388,
+     "e": 5.772
+    },
+    {
+     "w": "todavía",
+     "s": 5.727,
+     "e": 6.153
+    },
+    {
+     "w": "no",
+     "s": 6.14,
+     "e": 6.36
+    },
+    {
+     "w": "existe,",
+     "s": 6.355,
+     "e": 6.805
+    },
+    {
+     "w": "está",
+     "s": 7.072,
+     "e": 7.368
+    },
+    {
+     "w": "en",
+     "s": 7.325,
+     "e": 7.475
+    },
+    {
+     "w": "proyecto.",
+     "s": 7.415,
+     "e": 7.725
+    }
+   ],
+   "oido": " La  tienda  todavía  no  existe,  está  en  proyecto."
+  },
+  {
+   "id": "l04",
+   "texto": "Nos pidieron una demo básica para probar la idea.",
+   "inicio": 8.21,
+   "fin": 10.95,
+   "palabras": [
+    {
+     "w": "Nos",
+     "s": 8.21,
+     "e": 8.433
+    },
+    {
+     "w": "pidieron",
+     "s": 8.401,
+     "e": 8.939
+    },
+    {
+     "w": "una",
+     "s": 8.9,
+     "e": 9.12
+    },
+    {
+     "w": "demo",
+     "s": 9.075,
+     "e": 9.325
+    },
+    {
+     "w": "básica",
+     "s": 9.288,
+     "e": 9.772
+    },
+    {
+     "w": "para",
+     "s": 9.74,
+     "e": 10.02
+    },
+    {
+     "w": "probar",
+     "s": 9.985,
+     "e": 10.435
+    },
+    {
+     "w": "la",
+     "s": 10.395,
+     "e": 10.545
+    },
+    {
+     "w": "idea.",
+     "s": 10.49,
+     "e": 10.71
+    }
+   ],
+   "oido": " Nos  pidieron  una  demo  básica  para  probar  la  idea."
+  },
+  {
+   "id": "l05",
+   "texto": "Entrás al catálogo y tocás «Celulares».",
+   "inicio": 11.33,
+   "fin": 13.81,
+   "palabras": [
+    {
+     "w": "Entrás",
+     "s": 11.33,
+     "e": 11.737
+    },
+    {
+     "w": "al",
+     "s": 11.72,
+     "e": 11.92
+    },
+    {
+     "w": "catálogo",
+     "s": 11.901,
+     "e": 12.439
+    },
+    {
+     "w": "y",
+     "s": 12.52,
+     "e": 12.62
+    },
+    {
+     "w": "tocás",
+     "s": 12.706,
+     "e": 13.094
+    },
+    {
+     "w": "«Celulares».",
+     "s": 13.058,
+     "e": 13.602
+    }
+   ],
+   "oido": " Entras  al  catálogo  y  tocas  celulares."
+  },
+  {
+   "id": "l06",
+   "texto": "Después elegís la marca Samsung.",
+   "inicio": 13.97,
+   "fin": 16.19,
+   "palabras": [
+    {
+     "w": "Después",
+     "s": 13.97,
+     "e": 14.381
+    },
+    {
+     "w": "elegís",
+     "s": 14.743,
+     "e": 15.177
+    },
+    {
+     "w": "la",
+     "s": 15.14,
+     "e": 15.3
+    },
+    {
+     "w": "marca",
+     "s": 15.254,
+     "e": 15.546
+    },
+    {
+     "w": "Samsung.",
+     "s": 15.49,
+     "e": 15.83
+    }
+   ],
+   "oido": " Después,  elegís  la  marca  Samsung."
+  },
+  {
+   "id": "l07",
+   "texto": "Y ahí tenés los modelos.",
+   "inicio": 16.35,
+   "fin": 17.69,
+   "palabras": [
+    {
+     "w": "Y",
+     "s": 16.36,
+     "e": 16.46
+    },
+    {
+     "w": "ahí",
+     "s": 16.457,
+     "e": 16.663
+    },
+    {
+     "w": "tenés",
+     "s": 16.622,
+     "e": 16.978
+    },
+    {
+     "w": "los",
+     "s": 16.93,
+     "e": 17.11
+    },
+    {
+     "w": "modelos.",
+     "s": 17.066,
+     "e": 17.594
+    }
+   ],
+   "oido": " Y  ahí  tenés  los  modelos."
+  },
+  {
+   "id": "l08",
+   "texto": "Acá ves la foto y el precio en guaraníes.",
+   "inicio": 17.85,
+   "fin": 20.17,
+   "palabras": [
+    {
+     "w": "Acá",
+     "s": 17.85,
+     "e": 18.14
+    },
+    {
+     "w": "ves",
+     "s": 18.11,
+     "e": 18.29
+    },
+    {
+     "w": "la",
+     "s": 18.245,
+     "e": 18.415
+    },
+    {
+     "w": "foto",
+     "s": 18.382,
+     "e": 18.678
+    },
+    {
+     "w": "y",
+     "s": 18.7,
+     "e": 18.8
+    },
+    {
+     "w": "el",
+     "s": 18.825,
+     "e": 18.995
+    },
+    {
+     "w": "precio",
+     "s": 18.955,
+     "e": 19.305
+    },
+    {
+     "w": "en",
+     "s": 19.27,
+     "e": 19.45
+    },
+    {
+     "w": "guaraníes.",
+     "s": 19.423,
+     "e": 20.057
+    }
+   ],
+   "oido": " Acá  ves  la  foto  y  el  precio  en  Guaraníes."
+  },
+  {
+   "id": "l09",
+   "texto": "¿Tenés dudas? Podés consultar por WhatsApp.",
+   "inicio": 20.33,
+   "fin": 22.86,
+   "palabras": [
+    {
+     "w": "¿Tenés",
+     "s": 20.33,
+     "e": 20.658
+    },
+    {
+     "w": "dudas?",
+     "s": 20.638,
+     "e": 21.122
+    },
+    {
+     "w": "Podés",
+     "s": 21.286,
+     "e": 21.674
+    },
+    {
+     "w": "consultar",
+     "s": 21.641,
+     "e": 22.239
+    },
+    {
+     "w": "por",
+     "s": 22.2,
+     "e": 22.42
+    },
+    {
+     "w": "WhatsApp.",
+     "s": 22.36,
+     "e": 22.6
+    }
+   ],
+   "oido": " ¿Tenés  dudas?  Podés  consultar  por  WhatsApp."
+  },
+  {
+   "id": "l10",
+   "texto": "Y fijate en lo que pasa con este combo.",
+   "inicio": 23.02,
+   "fin": 24.92,
+   "palabras": [
+    {
+     "w": "Y",
+     "s": 23.02,
+     "e": 23.12
+    },
+    {
+     "w": "fijate",
+     "s": 23.113,
+     "e": 23.547
+    },
+    {
+     "w": "en",
+     "s": 23.505,
+     "e": 23.655
+    },
+    {
+     "w": "lo",
+     "s": 23.6,
+     "e": 23.74
+    },
+    {
+     "w": "que",
+     "s": 23.677,
+     "e": 23.843
+    },
+    {
+     "w": "pasa",
+     "s": 23.788,
+     "e": 24.053
+    },
+    {
+     "w": "con",
+     "s": 24.017,
+     "e": 24.263
+    },
+    {
+     "w": "este",
+     "s": 24.22,
+     "e": 24.44
+    },
+    {
+     "w": "combo.",
+     "s": 24.388,
+     "e": 24.712
+    }
+   ],
+   "oido": " y  fíjate  en  lo  que  pasa  con  este  combo."
+  },
+  {
+   "id": "l11",
+   "texto": "Un clic y agregás los dos productos.",
+   "inicio": 25.08,
+   "fin": 27.25,
+   "palabras": [
+    {
+     "w": "Un",
+     "s": 25.08,
+     "e": 25.24
+    },
+    {
+     "w": "clic",
+     "s": 25.208,
+     "e": 25.472
+    },
+    {
+     "w": "y",
+     "s": 25.54,
+     "e": 25.64
+    },
+    {
+     "w": "agregás",
+     "s": 25.711,
+     "e": 26.189
+    },
+    {
+     "w": "los",
+     "s": 26.147,
+     "e": 26.353
+    },
+    {
+     "w": "dos",
+     "s": 26.313,
+     "e": 26.547
+    },
+    {
+     "w": "productos.",
+     "s": 26.503,
+     "e": 26.977
+    }
+   ],
+   "oido": " Un  clic  y  agregas  los  dos  productos."
+  },
+  {
+   "id": "l12",
+   "texto": "Ya ves el descuento en el carrito.",
+   "inicio": 27.41,
+   "fin": 29.22,
+   "palabras": [
+    {
+     "w": "Ya",
+     "s": 27.425,
+     "e": 27.675
+    },
+    {
+     "w": "ves",
+     "s": 27.683,
+     "e": 27.917
+    },
+    {
+     "w": "el",
+     "s": 27.88,
+     "e": 28.04
+    },
+    {
+     "w": "descuento",
+     "s": 27.997,
+     "e": 28.523
+    },
+    {
+     "w": "en",
+     "s": 28.475,
+     "e": 28.625
+    },
+    {
+     "w": "el",
+     "s": 28.575,
+     "e": 28.725
+    },
+    {
+     "w": "carrito.",
+     "s": 28.676,
+     "e": 29.084
+    }
+   ],
+   "oido": " Ya  ves  el  descuento  en  el  carrito."
+  },
+  {
+   "id": "l13",
+   "texto": "En Vemquro cobramos entre 20 y 40 dólares por hora de desarrollo, según el tipo de web.",
+   "inicio": 29.6,
+   "fin": 34.72,
+   "palabras": [
+    {
+     "w": "En",
+     "s": 29.6,
+     "e": 29.76
+    },
+    {
+     "w": "Vemquro",
+     "s": 29.794,
+     "e": 30.209
+    },
+    {
+     "w": "cobramos",
+     "s": 30.171,
+     "e": 30.709
+    },
+    {
+     "w": "entre",
+     "s": 30.662,
+     "e": 30.938
+    },
+    {
+     "w": "20",
+     "s": 30.945,
+     "e": 31.215
+    },
+    {
+     "w": "y",
+     "s": 31.26,
+     "e": 31.36
+    },
+    {
+     "w": "40",
+     "s": 31.395,
+     "e": 31.645
+    },
+    {
+     "w": "dólares",
+     "s": 31.646,
+     "e": 32.054
+    },
+    {
+     "w": "por",
+     "s": 32.03,
+     "e": 32.33
+    },
+    {
+     "w": "hora",
+     "s": 32.302,
+     "e": 32.537
+    },
+    {
+     "w": "de",
+     "s": 32.49,
+     "e": 32.65
+    },
+    {
+     "w": "desarrollo,",
+     "s": 32.602,
+     "e": 33.098
+    },
+    {
+     "w": "según",
+     "s": 33.392,
+     "e": 33.748
+    },
+    {
+     "w": "el",
+     "s": 33.73,
+     "e": 33.93
+    },
+    {
+     "w": "tipo",
+     "s": 33.908,
+     "e": 34.172
+    },
+    {
+     "w": "de",
+     "s": 34.145,
+     "e": 34.335
+    },
+    {
+     "w": "web.",
+     "s": 34.31,
+     "e": 34.53
+    }
+   ],
+   "oido": " En  BenCuro  cobramos  entre  20  y  40  dólares  por  hora  de  desarrollo,  según  el  tipo  de  web."
+  },
+  {
+   "id": "l14",
+   "texto": "Del hosting de tu web nos encargamos en Vemquro.",
+   "inicio": 34.88,
+   "fin": 38.07,
+   "palabras": [
+    {
+     "w": "Del",
+     "s": 34.88,
+     "e": 35.187
+    },
+    {
+     "w": "hosting",
+     "s": 35.173,
+     "e": 35.667
+    },
+    {
+     "w": "de",
+     "s": 35.65,
+     "e": 35.85
+    },
+    {
+     "w": "tu",
+     "s": 35.83,
+     "e": 35.99
+    },
+    {
+     "w": "web",
+     "s": 35.96,
+     "e": 36.22
+    },
+    {
+     "w": "nos",
+     "s": 36.197,
+     "e": 36.443
+    },
+    {
+     "w": "encargamos",
+     "s": 36.414,
+     "e": 37.126
+    },
+    {
+     "w": "en",
+     "s": 37.115,
+     "e": 37.325
+    },
+    {
+     "w": "Vemquro.",
+     "s": 37.4,
+     "e": 37.9
+    }
+   ],
+   "oido": " Del  hosting  de  tu  web  nos  encargamos  en  Bencuro."
+  },
+  {
+   "id": "l15",
+   "texto": "Ese servicio se cobra por mes.",
+   "inicio": 38.23,
+   "fin": 39.93,
+   "palabras": [
+    {
+     "w": "Ese",
+     "s": 38.23,
+     "e": 38.437
+    },
+    {
+     "w": "servicio",
+     "s": 38.395,
+     "e": 38.845
+    },
+    {
+     "w": "se",
+     "s": 38.83,
+     "e": 39.05
+    },
+    {
+     "w": "cobra",
+     "s": 39.036,
+     "e": 39.344
+    },
+    {
+     "w": "por",
+     "s": 39.307,
+     "e": 39.553
+    },
+    {
+     "w": "mes.",
+     "s": 39.527,
+     "e": 39.773
+    }
+   ],
+   "oido": " Ese  servicio  se  cobra  por  mes."
+  },
+  {
+   "id": "l16",
+   "texto": "El dominio se paga aparte, una vez al año.",
+   "inicio": 40.09,
+   "fin": 42.67,
+   "palabras": [
+    {
+     "w": "El",
+     "s": 40.09,
+     "e": 40.28
+    },
+    {
+     "w": "dominio",
+     "s": 40.263,
+     "e": 40.757
+    },
+    {
+     "w": "se",
+     "s": 40.72,
+     "e": 40.88
+    },
+    {
+     "w": "paga",
+     "s": 40.845,
+     "e": 41.155
+    },
+    {
+     "w": "aparte,",
+     "s": 41.133,
+     "e": 41.667
+    },
+    {
+     "w": "una",
+     "s": 41.657,
+     "e": 41.943
+    },
+    {
+     "w": "vez",
+     "s": 41.93,
+     "e": 42.19
+    },
+    {
+     "w": "al",
+     "s": 42.175,
+     "e": 42.365
+    },
+    {
+     "w": "año.",
+     "s": 42.343,
+     "e": 42.577
+    }
+   ],
+   "oido": " El  dominio  se  paga  aparte  una  vez  al  año."
+  },
+  {
+   "id": "l17",
+   "texto": "¿Querés una web así para tu negocio?",
+   "inicio": 43.05,
+   "fin": 45.55,
+   "palabras": [
+    {
+     "w": "¿Querés",
+     "s": 43.05,
+     "e": 43.365
+    },
+    {
+     "w": "una",
+     "s": 43.317,
+     "e": 43.523
+    },
+    {
+     "w": "web",
+     "s": 43.5,
+     "e": 43.8
+    },
+    {
+     "w": "así",
+     "s": 43.83,
+     "e": 44.25
+    },
+    {
+     "w": "para",
+     "s": 44.29,
+     "e": 44.75
+    },
+    {
+     "w": "tu",
+     "s": 44.75,
+     "e": 44.93
+    },
+    {
+     "w": "negocio?",
+     "s": 44.904,
+     "e": 45.416
+    }
+   ],
+   "oido": " ¿Querés  una  web  así  para  tu  negocio?"
+  },
+  {
+   "id": "l18",
+   "texto": "Mandanos «WEB» por mensaje y contanos qué vendés.",
+   "inicio": 45.71,
+   "fin": 48.77,
+   "palabras": [
+    {
+     "w": "Mandanos",
+     "s": 45.71,
+     "e": 46.219
+    },
+    {
+     "w": "«WEB»",
+     "s": 46.2,
+     "e": 46.5
+    },
+    {
+     "w": "por",
+     "s": 46.49,
+     "e": 46.75
+    },
+    {
+     "w": "mensaje",
+     "s": 46.729,
+     "e": 47.291
+    },
+    {
+     "w": "y",
+     "s": 47.37,
+     "e": 47.47
+    },
+    {
+     "w": "contanos",
+     "s": 47.541,
+     "e": 48.079
+    },
+    {
+     "w": "qué",
+     "s": 48.047,
+     "e": 48.293
+    },
+    {
+     "w": "vendés.",
+     "s": 48.258,
+     "e": 48.642
+    }
+   ],
+   "oido": " mandanos  web  por  mensaje  y  contanos  que  vendes."
+  }
+ ]
+}

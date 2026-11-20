@@ -2,91 +2,109 @@
  {
   "id": "l01",
   "who": "narrador",
-  "text": "¿Cuánto cuesta hacer una página como esta?"
+  "text": "¿Cuánto cuesta hacer una página como esta?",
+  "wav": "build/tts_cache/narrador_d1ffbc8b0c208565.wav"
  },
  {
   "id": "l02",
   "who": "narrador",
-  "text": "Mirá esta demo que armamos para NexusTech."
+  "text": "Mirá esta demo que armamos para NexusTech.",
+  "wav": "build/tts_cache/narrador_f64a1568e98d2851.wav"
  },
  {
   "id": "l03",
   "who": "narrador",
-  "text": "La tienda todavía no existe, está en proyecto."
+  "text": "La tienda todavía no existe, está en proyecto.",
+  "wav": "build/tts_cache/narrador_8ef7285a3adf760b.wav"
  },
  {
   "id": "l04",
   "who": "narrador",
-  "text": "Nos pidieron una demo básica para probar la idea."
+  "text": "Nos pidieron una demo básica para probar la idea.",
+  "wav": "build/tts_cache/narrador_831bbe1739a856d5.wav"
  },
  {
   "id": "l05",
   "who": "narrador",
-  "text": "Entrás al catálogo y tocás Celulares."
+  "text": "Entrás al catálogo y tocás Celulares.",
+  "wav": "build/tts_cache/narrador_36ebf9b1e7794fc6.wav"
  },
  {
   "id": "l06",
   "who": "narrador",
-  "text": "Después elegís la marca Samsung."
+  "text": "Después elegís la marca Samsung.",
+  "wav": "build/tts_cache/narrador_7303a917fc6d4eef.wav"
  },
  {
   "id": "l07",
   "who": "narrador",
-  "text": "Y ahí tenés los modelos."
+  "text": "Y ahí tenés los modelos.",
+  "wav": "build/tts_cache/narrador_d718a5af893a24c9.wav"
  },
  {
   "id": "l08",
   "who": "narrador",
-  "text": "Acá ves la foto y el precio en guaraníes."
+  "text": "Acá ves la foto y el precio en guaraníes.",
+  "wav": "build/tts_cache/narrador_363cc324777b8d76.wav"
  },
  {
   "id": "l09",
   "who": "narrador",
-  "text": "¿Tenés dudas? Podés consultar por WhatsApp."
+  "text": "¿Tenés dudas? Podés consultar por WhatsApp.",
+  "wav": "build/tts_cache/narrador_d7fc87863e8ad5e6.wav"
  },
  {
   "id": "l10",
   "who": "narrador",
-  "text": "Y fijate en lo que pasa con este combo."
+  "text": "Y fijate en lo que pasa con este combo.",
+  "wav": "build/tts_cache/narrador_3842e54abfc15601.wav"
  },
  {
   "id": "l11",
   "who": "narrador",
-  "text": "Un clic y agregás los dos productos."
+  "text": "Un clic y agregás los dos productos.",
+  "wav": "build/tts_cache/narrador_6cbeaf864186bb68.wav"
  },
  {
   "id": "l12",
   "who": "narrador",
-  "text": "Ya ves el descuento en el carrito."
+  "text": "Ya ves el descuento en el carrito.",
+  "wav": "build/tts_cache/narrador_c3cec3296283b004.wav"
  },
  {
   "id": "l13",
   "who": "narrador",
-  "text": "En Vemquro cobramos entre veinte y cuarenta dólares por hora de desarrollo, según el tipo de web."
+  "text": "En Vemkuro cobramos entre veinte y cuarenta dólares por hora de desarrollo, según el tipo de web.",
+  "wav": "build/tts_cache/narrador_fe201e0401f98fa7.wav"
  },
  {
   "id": "l14",
   "who": "narrador",
-  "text": "Del hosting de tu web nos encargamos en Vemquro."
+  "text": "Del hosting de tu web nos encargamos en Vemkuro.",
+  "wav": "build/tts_cache/narrador_ae46d5cfacd7ba22.wav"
  },
  {
   "id": "l15",
   "who": "narrador",
-  "text": "Ese servicio se cobra por mes."
+  "text": "Ese servicio se cobra por mes.",
+  "wav": "build/tts_cache/narrador_107c3569eab797a8.wav"
  },
  {
   "id": "l16",
   "who": "narrador",
-  "text": "El dominio se paga aparte, una vez al año."
+  "text": "El dominio se paga aparte, una vez al año.",
+  "wav": "build/tts_cache/narrador_00ecae74c421e5e5.wav"
  },
  {
   "id": "l17",
   "who": "narrador",
-  "text": "¿Querés una web así para tu negocio?"
+  "text": "¿Querés una web, así, para tu negocio?",
+  "wav": "build/tts_cache/narrador_d8800e219a698fae.wav"
  },
  {
   "id": "l18",
   "who": "narrador",
-  "text": "Mandanos WEB por mensaje y contanos qué vendés."
+  "text": "Mandanos WEB por mensaje y contanos qué vendés.",
+  "wav": "build/tts_cache/narrador_5c0592c727ce8743.wav"
  }
 ]
