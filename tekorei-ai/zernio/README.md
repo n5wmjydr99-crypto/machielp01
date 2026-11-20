@@ -38,3 +38,48 @@ Configuración común:
 Cambios de palabra para evitar disparos por error: el día 7 usa **CUADERNO** (en Argentina y
 Paraguay “notebook” es la laptop) y el día 14 usa **AUTOMATIZAR** (Kori es un robot en todos los
 videos, así que “robot” saldría en muchos comentarios).
+
+## YouTube
+
+El canal **tekoreiai** también está conectado (cuenta `6affb9f48dc88f7a3edefd89`, mismo perfil).
+YouTube no tiene mensajes privados, así que ahí Zernio **responde en público** debajo del comentario
+con el link y los pasos (el mismo texto del DM, sin el nombre de usuario) y cierra con
+“Más repos gratis cada día en Instagram: @tekorei.ai”. Son 15 automatizaciones activas desde el
+20/11/2026 que miran **todos** los videos del canal, Shorts incluidos.
+
+| Día | Palabra | Cómo detecta la palabra | ID en Zernio |
+| --- | --- | --- | --- |
+| 1 | EXAMEN | contiene “examen” o “exámen” | `6affba48faa5ec2934785df0` |
+| 2 | FACELESS | palabra suelta, tolera errores de tipeo | `6affba5309306514540c2f9d` |
+| 3 | SKILLS | palabra suelta, tolera errores de tipeo | `6affba5b1dd209748396be26` |
+| 4 | OFFLINE | palabra suelta, tolera errores de tipeo | `6affba661dd209748396be29` |
+| 5 | PDF | palabra suelta | `6affba6bb7a8bb141d14b34d` |
+| 6 | PODERES | palabra suelta, tolera errores de tipeo | `6affba6eee19a59c20a26197` |
+| 7 | CUADERNO | palabra suelta, tolera errores de tipeo | `6affba7f18f1bcffdfafe053` |
+| 8 | MEMORIA | palabra suelta, tolera errores de tipeo, ignora si dice “ram” o “gb” | `6affba826203ea29645dc4d1` |
+| 9 | FOTOS | palabra suelta | `6affba84ee19a59c20a261a5` |
+| 10 | EDITOR | palabra suelta, tolera errores de tipeo | `6affba8bfaa5ec2934785e1e` |
+| 11 | NAVEGADOR | palabra suelta, tolera errores de tipeo | `6affba921dd209748396be39` |
+| 12 | DOCS | palabra suelta | `6affbb18a3ee28ddaa662457` |
+| 13 | PLANO | palabra suelta | `6affbb1bf918f2a1ef6615fb` |
+| 14 | AUTOMATIZAR | palabra suelta, tolera errores de tipeo | `6affbb1e18f1bcffdfafe0c9` |
+| 15 | KIT | palabra suelta | `6affbb20cc3c473de89b36d7` |
+
+- Dos versiones del texto que se alternan (“¡Aquí está!” y “¡Listo, acá va!”), para que no se vean
+  todas iguales.
+- Una sola respuesta por persona y por palabra (`repeat_policy: once`).
+- No hay AVISAME en YouTube: el texto del KIT invita a escribir AVISAME por Instagram.
+
+`youtube.json` tiene el texto exacto de cada una, con su ID.
+
+## Cómo probarlo
+
+Desde **otra** cuenta (no la de tekorei.ai), comenta la palabra del video, por ejemplo “EXAMEN”:
+
+- En Instagram llega el DM (si esa cuenta no te sigue, aparece en “Solicitudes de mensajes”) y el
+  comentario recibe una respuesta corta.
+- En YouTube aparece una respuesta debajo del comentario con el link y los pasos. Puede tardar unos
+  minutos.
+
+Cada cuenta de prueba recibe una sola respuesta por palabra; para repetir la prueba usa otra cuenta u
+otra palabra.

@@ -211,7 +211,7 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
     <p class="lede">Temporada 1: 15 videos verticales sobre repos, skills y plugins de IA. Cada video pide comentar una palabra distinta; esa palabra dispara un DM automático con el recurso, y un agente de IA responde el resto de los comentarios.</p>
     <div class="status">
       <span class="pill ok"><span class="dot"></span>16 repos verificados el 19/11/2026</span>
-      <span class="pill ok"><span class="dot"></span>16 DM automáticos activos en Zernio</span>
+      <span class="pill ok"><span class="dot"></span>Zernio activo: 16 DM en Instagram y 15 respuestas en YouTube</span>
       <span class="pill ok"><span class="dot"></span>Video del día 1 listo para subir</span>
     </div>
   </header>
@@ -350,9 +350,9 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
 
   <section id="automatizacion" aria-labelledby="h-auto">
     <div class="section-head">
-      <span class="eyebrow">Zernio (tu conector de Instagram)</span>
+      <span class="eyebrow">Zernio (tu conector de Instagram y YouTube)</span>
       <h2 id="h-auto">Automatización y agente</h2>
-      <p>Las 15 palabras clave y AVISAME están <strong>activas en Zernio</strong> desde el 20/11/2026. Funcionan en cualquier publicación de @tekorei.ai: según la palabra que comenten, mandan el DM de ese video. Corren solas las 24 horas.</p>
+      <p>Las 15 palabras clave y AVISAME están <strong>activas en Zernio</strong> desde el 20/11/2026. Funcionan en cualquier publicación de @tekorei.ai: según la palabra que comenten, mandan el DM de ese video. En YouTube no hay DM, así que Zernio responde debajo del comentario con el link y los pasos. Corren solas las 24 horas.</p>
     </div>
     <div class="flow" aria-label="Flujo de cada palabra clave">
       <div class="step"><span class="who nico">Persona</span><b>Comenta EXAMEN</b>En cualquier video, o lo escribe por DM.</div>
@@ -363,7 +363,7 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
     </div>
     <div class="table-scroll">
       <table class="kwtable">
-        <thead><tr><th>Día</th><th>Palabra</th><th>Recurso</th><th>Estado</th></tr></thead>
+        <thead><tr><th>Día</th><th>Palabra</th><th>Recurso</th><th>Activa en</th></tr></thead>
         <tbody id="kw-rows"></tbody>
       </table>
     </div>
@@ -378,7 +378,8 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
           <li>Desde otra cuenta de Instagram, comenta la palabra del video (por ejemplo “examen”).</li>
           <li>Llega el DM. Si esa cuenta no te sigue, aparece en “Solicitudes de mensajes”.</li>
           <li>Debajo del comentario aparece la respuesta “¡Listo! Te lo mandé por DM”.</li>
-          <li>Solo responde comentarios hechos después de activar las automatizaciones.</li>
+          <li>En YouTube, comenta la palabra en el Short desde otra cuenta: en unos minutos aparece la respuesta con el link y los pasos.</li>
+          <li>Solo responde comentarios hechos después de activar las automatizaciones, y una vez por persona y palabra.</li>
         </ol>
       </div>
     </div>
@@ -528,8 +529,8 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
   document.getElementById('copy-base').addEventListener('click', function (e) { copy(e.currentTarget, P.prompt_base); });
 
   document.getElementById('kw-rows').innerHTML = DIAS.map(function (d) {
-    return '<tr><td>' + d.dia + '</td><td><span class="kwtag">' + esc(d.palabra) + '</span></td><td>' + esc(d.tema) + '</td><td>Activa</td></tr>';
-  }).join('') + '<tr><td>15</td><td><span class="kwtag">AVISAME</span></td><td>Respuesta al DM del KIT: lista para lanzamientos</td><td>Activa</td></tr>';
+    return '<tr><td>' + d.dia + '</td><td><span class="kwtag">' + esc(d.palabra) + '</span></td><td>' + esc(d.tema) + '</td><td>IG · YT</td></tr>';
+  }).join('') + '<tr><td>15</td><td><span class="kwtag">AVISAME</span></td><td>Respuesta al DM del KIT: lista para lanzamientos</td><td>IG</td></tr>';
 
   function checklist(id, items) {
     document.getElementById(id).innerHTML = items.map(function (t, i) {
@@ -541,14 +542,14 @@ pre.code { margin: 0; background: var(--code-bg); color: var(--code-fg); border-
   checklist('day0', [
     'Crea @tekorei.ai en Instagram (cuenta profesional de creador) y el canal tekorei.ai en YouTube.',
     'Bio: “Repos, skills y plugins de IA que sí sirven. Comenta la palabra del video y te llega por DM. Nuevo repo cada día 19:00.”',
-    'Instagram conectado a Zernio con los 16 DM automáticos (hecho).',
+    'Instagram y YouTube conectados a Zernio: 16 DM automáticos y 15 respuestas automáticas (hecho).',
     'Genera las imágenes de referencia de Nico y Kori y guárdalas.',
     'Graba la pantalla de cada repo en GitHub y de la terminal instalándolo. Son tus planos de prueba.',
     'Deja 3 videos listos antes de publicar el primero, para no atrasarte.'
   ]);
   checklist('daily', [
     'Produce el video de mañana (no el de hoy).',
-    'Publica a las 19:00 en Reels y Shorts. En YouTube cambia el cierre por “Escríbeme la palabra por Instagram”.',
+    'Publica a las 19:00 en Reels y Shorts. En YouTube también basta con comentar la palabra: Zernio responde con el link y los pasos.',
     'Primeros 30 minutos: responde tú los comentarios y fija uno con la palabra clave.',
     'Sube una historia con encuesta: “¿Qué repo quieres mañana?”.',
     'Revisa en Zernio cuántos comentaron la palabra y a cuántos les llegó el DM.'

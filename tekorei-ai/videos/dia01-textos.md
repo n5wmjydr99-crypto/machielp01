@@ -90,6 +90,8 @@ Repo: github.com/ZeKaiNie/universal-examprep-skill
 
 En los Shorts los links no se pueden tocar, pero la gente puede copiarlos o buscar el nombre del repo.
 
+En YouTube también es automático con Zernio (automatización “YT · Día 01 · EXAMEN”, activa desde el 20/11/2026): quien comente “examen” recibe, debajo de su comentario, una respuesta pública con el link y los 3 pasos. Una sola vez por persona.
+
 ## Notas
 
 - La música es original (generada por código): no hay problemas de derechos. Si quieres usar un sonido en tendencia, agrégalo en la app a volumen bajo (5–10 %) para que no tape las voces.
