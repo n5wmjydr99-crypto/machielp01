@@ -1,0 +1,218 @@
+[
+ {
+  "dia": 1,
+  "palabra": "EXAMEN",
+  "keywords": [
+   "examen",
+   "exámen"
+  ],
+  "match_mode": "contains",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 📚 Exam Cram Coach (gratis, código abierto):\nhttps://github.com/ZeKaiNie/universal-examprep-skill\n\n1) Instálala (necesitas Node.js y Python):\nnpx skills add ZeKaiNie/universal-examprep-skill\npip install pypdfium2\n\n2) Pon en una carpeta tus apuntes, PDFs, tareas y exámenes pasados.\n\n3) Abre Claude Code y pégale:\n“Usa la skill Exam Cram Coach. Mis materiales están en [tu carpeta]. El examen es en [X] días y empiezo de cero. Enséñame en español desde el capítulo 1.”\n\nMañana a las 19:00 subo otro repo 👀\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 📚 Exam Cram Coach (gratis, código abierto):\nhttps://github.com/ZeKaiNie/universal-examprep-skill\n\n1) Instálala (necesitas Node.js y Python):\nnpx skills add ZeKaiNie/universal-examprep-skill\npip install pypdfium2\n\n2) Pon en una carpeta tus apuntes, PDFs, tareas y exámenes pasados.\n\n3) Abre Claude Code y pégale:\n“Usa la skill Exam Cram Coach. Mis materiales están en [tu carpeta]. El examen es en [X] días y empiezo de cero. Enséñame en español desde el capítulo 1.”\n\nMañana a las 19:00 subo otro repo 👀\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 2,
+  "palabra": "FACELESS",
+  "keywords": [
+   "faceless"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 🎬 MoneyPrinterTurbo (gratis, open source, +144 mil ⭐):\nhttps://github.com/harry0703/MoneyPrinterTurbo\n\n1) Instálalo (necesitas Python 3.11 o más):\npython -m pip install mpt\nmpt webui\n\n2) En la web que se abre, conecta una IA para el guion (tu API key o Ollama gratis en tu PC) y una key gratis de Pexels o Pixabay para los clips.\n\n3) Escribe el tema, elige una voz (Edge TTS es gratis) y genera.\n\nTip: corrige el guion antes de generar. Lo genérico no se hace viral 😉\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 3,
+  "palabra": "SKILLS",
+  "keywords": [
+   "skills"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí están! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá van! 🧩 Las skills oficiales de Anthropic (repo público, +197 mil ⭐):\nhttps://github.com/anthropics/skills\n\n1) Abre Claude Code y escribe:\n/plugin marketplace add anthropics/skills\n\n2) Instala las de documentos:\n/plugin install document-skills@anthropic-agent-skills\n\n3) Pídele algo real:\n“Hazme una presentación de 8 diapositivas sobre [tema], con gráficos, en .pptx”\n\nBonus: la skill frontend-design hace que tus páginas web se vean mucho mejor 👀\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 4,
+  "palabra": "OFFLINE",
+  "keywords": [
+   "offline"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 💻 Tu IA local en 3 pasos:\n\n1) Instala Ollama: https://ollama.com/download\n\n2) Descarga y prueba un modelo:\nollama run gemma4\n\n3) Ponle pantalla de chat (Python 3.12):\npip install open-webui\nopen-webui serve\nY abre http://localhost:8080\n\nRepos:\nhttps://github.com/ollama/ollama\nhttps://github.com/open-webui/open-webui\n\nOjo: con 8 GB de RAM usa modelos chicos. Con más RAM o una buena tarjeta gráfica puedes usar modelos más grandes.\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 5,
+  "palabra": "PDF",
+  "keywords": [
+   "pdf"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 📄 MarkItDown de Microsoft (gratis, +196 mil ⭐):\nhttps://github.com/microsoft/markitdown\n\n1) Instálalo (Python 3.10 o más):\npip install 'markitdown[all]'\n\n2) Convierte tu archivo:\nmarkitdown archivo.pdf -o archivo.md\n\n3) Pásale el .md a ChatGPT, Claude o Gemini y pregúntale lo que quieras.\n\nFunciona con PDF, Word, PowerPoint, Excel, HTML y más.\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 6,
+  "palabra": "PODERES",
+  "keywords": [
+   "poderes"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! ⚡ Superpowers (open source, +321 mil ⭐):\nhttps://github.com/obra/superpowers\n\n1) Abre Claude Code y escribe:\n/plugin install superpowers@claude-plugins-official\n\n2) Reinicia Claude Code.\n\n3) Pídele tu proyecto como siempre. Ahora te va a hacer preguntas, armar un plan y escribir tests antes de tocar el código.\n\nTip: responde bien sus preguntas. Ahí está la magia 🧠\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 7,
+  "palabra": "CUADERNO",
+  "keywords": [
+   "cuaderno",
+   "cuadernos"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 📓 Open Notebook (open source, +42 mil ⭐):\nhttps://github.com/lfnovo/open-notebook\n\nNecesitas Docker Desktop.\n1) En una carpeta nueva, baja el archivo:\ncurl -o docker-compose.yml https://raw.githubusercontent.com/lfnovo/open-notebook/main/docker-compose.yml\n\n2) Crea un archivo .env con esta línea (inventa una clave larga):\nOPEN_NOTEBOOK_ENCRYPTION_KEY=tu-clave-larga\n\n3) Arranca:\ndocker compose up -d\nY abre http://localhost:8502\n\nAhí conectas tu IA (API key u Ollama gratis).\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 8,
+  "palabra": "MEMORIA",
+  "keywords": [
+   "memoria"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [
+   "ram",
+   "gb"
+  ],
+  "comment_reply": "¡Aquí está! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 🧠 Claude-Mem (open source, +118 mil ⭐):\nhttps://github.com/thedotmack/claude-mem\n\nOpción A, dentro de Claude Code:\n/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem\nY reinicia Claude Code.\n\nOpción B, en la terminal (necesitas Node.js):\nnpx claude-mem install\n\nOjo: el instalador ofrece una prueba de 30 días de su servicio pago. No es obligatoria: puedes usar tu propio plan o tu API key.\n\nTu memoria se guarda en tu compu (~/.claude-mem).\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 9,
+  "palabra": "FOTOS",
+  "keywords": [
+   "fotos"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí están! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá van! 📸 Dos herramientas gratis y open source:\n\n1) Upscayl: mejora y agranda fotos con IA (+52 mil ⭐)\nDescárgalo en https://upscayl.org\nhttps://github.com/upscayl/upscayl\n(Necesita una tarjeta gráfica compatible con Vulkan)\n\n2) Rembg: quita fondos (+25 mil ⭐)\npip install \"rembg[cpu,cli]\"\nrembg i foto.jpg sin-fondo.png\nhttps://github.com/danielgatis/rembg\n\nIdea para ganar plata: ofrece fotos de producto limpias a las tiendas de tu barrio 😉\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 10,
+  "palabra": "EDITOR",
+  "keywords": [
+   "editor"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 🎞️ Remotion + sus skills para IA:\nhttps://github.com/remotion-dev/remotion (+74 mil ⭐)\nhttps://github.com/remotion-dev/skills\n\nProyecto nuevo con las skills incluidas (necesitas Node.js):\nnpx create-video@latest --skills\n\nO agrégalas a un proyecto que ya tengas:\nnpx skills add remotion-dev/skills\n\nDespués abre Claude Code en la carpeta y pídele:\n“Hazme un video vertical de 10 segundos con este texto animado: …”\n\nLicencia: gratis para personas y equipos chicos; las empresas más grandes necesitan licencia (mira remotion.dev/license).\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 11,
+  "palabra": "NAVEGADOR",
+  "keywords": [
+   "navegador"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 🌐 Playwright MCP de Microsoft (+39 mil ⭐):\nhttps://github.com/microsoft/playwright-mcp\n\n1) Con Claude Code instalado, en la terminal:\nclaude mcp add playwright npx @playwright/mcp@latest\n\n2) Abre Claude Code y pídele:\n“Usa playwright: busca [producto] en estas 3 tiendas y hazme una tabla con precios y links.”\n\nRegla de oro: no le des contraseñas ni tarjetas. Míralo trabajar y decide tú.\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 12,
+  "palabra": "DOCS",
+  "keywords": [
+   "docs"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 📚 Context7 (+65 mil ⭐):\nhttps://github.com/upstash/context7\n\n1) En la terminal (Node.js 22.13 o más):\nnpx ctx7 setup\n\n2) Elige tu agente (Claude Code, Cursor u OpenCode) y el modo: CLI + Skills o MCP.\n\n3) Programa normal. Si quieres una librería exacta, dilo en el prompt, por ejemplo:\n“… use library /supabase/supabase”\n\nLa API key es gratis y te da más uso.\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 13,
+  "palabra": "PLANO",
+  "keywords": [
+   "plano",
+   "planos"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 📐 Spec Kit de GitHub (+150 mil ⭐):\nhttps://github.com/github/spec-kit\n\nNecesitas Python 3.11+ y uv.\n1) Instálalo:\nuv tool install specify-cli\n\n2) Crea tu proyecto para Claude Code:\nspecify init mi-app --integration claude\n\n3) Abre Claude Code en la carpeta y usa en orden:\n/speckit-constitution\n/speckit-specify (qué quieres y para quién)\n/speckit-plan\n/speckit-tasks\n/speckit-implement\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 14,
+  "palabra": "AUTOMATIZAR",
+  "keywords": [
+   "automatizar"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": true,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va! 🤖 n8n (+211 mil ⭐):\nhttps://github.com/n8n-io/n8n\n\nGratis si lo instalas tú (necesitas Docker Desktop):\ndocker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n\n\nAbre http://localhost:5678\nEmpieza con una plantilla: https://n8n.io/workflows\n\nIdea: arma una automatización para un negocio que conozcas y ofrécesela 💸\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ },
+ {
+  "dia": 15,
+  "palabra": "KIT",
+  "keywords": [
+   "kit"
+  ],
+  "match_mode": "word",
+  "typo_tolerance": false,
+  "exclude_keywords": [],
+  "comment_reply": "¡Aquí está tu KIT! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Escríbeme AVISAME por Instagram 🔔\n\nMás repos gratis cada día en Instagram: @tekorei.ai",
+  "comment_reply_variations": [
+   "¡Listo, acá va tu KIT! 🧰 Los 16 repos de tekorei.ai (todos en github.com/…):\n\nEstudiar: ZeKaiNie/universal-examprep-skill · lfnovo/open-notebook · microsoft/markitdown\n\nCrear: harry0703/MoneyPrinterTurbo · remotion-dev/skills · upscayl/upscayl · danielgatis/rembg\n\nIA gratis: ollama/ollama · open-webui/open-webui\n\nClaude Code: anthropics/skills · obra/superpowers · thedotmack/claude-mem · upstash/context7 · github/spec-kit · microsoft/playwright-mcp\n\nAutomatizar: n8n-io/n8n\n\nBuscar más skills: npx skills find [tema]\n\n¿Quieres enterarte primero del próximo? Escríbeme AVISAME por Instagram 🔔\n\nMás repos gratis cada día en Instagram: @tekorei.ai"
+  ]
+ }
+]
