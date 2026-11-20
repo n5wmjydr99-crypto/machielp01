@@ -6,7 +6,7 @@
 //   scroll:  [{ t, y } | { t, sel, alinear: "arriba"|"centro", margen }]   posiciones del scroll (se mueve suave entre una y otra)
 //   cursor:  [{ t, sel } | { t, xy: [x, y] }]                               el cursor llega a ese lugar en el tiempo t
 //   clics:   [{ t }]                                                       clic real donde está el cursor
-//   zonas:   { nombre: selector }                                          cajas que usa la cámara para acercarse
+//   zonas:   { nombre: selector | [selectores] }                           cajas que usa la cámara para acercarse (varias = la que las envuelve)
 //   ocultar: [selector]                                                    elementos a esconder (ej. avisos de cookies)
 // Los tiempos pueden ser segundos o referencias a la narración: ["l05", "Celulares", -0.1], ["l07", "inicio"], ["l12", "fin", 0.3].
 const { chromium } = require('playwright');
@@ -164,7 +164,11 @@ const PASO_ANIM = (ms) => {
     // --- zonas para la cámara (cada 6 cuadros alcanza)
     if (f % 6 === 0) {
       for (const [nombre, sel] of Object.entries(cfg.zonas || {})) {
-        const b = await caja(sel);
+        const cajas = (await Promise.all([].concat(sel).map(caja))).filter(Boolean);
+        const b = cajas.length ? cajas.reduce((u, c) => {
+          const x0 = Math.min(u.x, c.x), y0 = Math.min(u.y, c.y);
+          return { x: x0, y: y0, width: Math.max(u.x + u.width, c.x + c.width) - x0, height: Math.max(u.y + u.height, c.y + c.height) - y0 };
+        }) : null;
         zonas[nombre][f / 6] = b ? [b.x / VW, b.y / VH, (b.x + b.width) / VW, (b.y + b.height) / VH].map((v) => Math.round(Math.min(1, Math.max(0, v)) * 1000) / 1000) : null;
       }
     }

@@ -25,11 +25,17 @@ export function crearPlan(tiempos, meta) {
   };
 
   // Zonas de la pantalla. Con meta.json (grabación real) se usan las cajas medidas en ese momento.
-  const zona = (nombre, t, porDefecto) => {
+  const zona = (nombre, t, porDefecto, min = 0.34) => {
     const z = meta && meta.zonas && meta.zonas[nombre];
     if (!z) return porDefecto;
     const f = Math.min(z.length - 1, Math.max(0, Math.round(t * 60) - (meta.desde || 0)));
-    return z[f] || porDefecto;
+    const b = z[f];
+    if (!b) return porDefecto;
+    let [u0, v0, u1, v1] = b;
+    const cu = (u0 + u1) / 2, cv = (v0 + v1) / 2;
+    const w = Math.max(u1 - u0, min), h = Math.max(v1 - v0, min * 0.6);
+    u0 = Math.min(Math.max(cu - w / 2, 0), 1 - w); v0 = Math.min(Math.max(cv - h / 2, 0), 1 - h);
+    return [u0, v0, u0 + w, v0 + h];
   };
 
   const PANTALLA = [0, 0, 1, 1];
